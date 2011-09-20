@@ -1,0 +1,4 @@
+CREATE  TABLE `dblp`.`KeywordDewey` (
+  `Keyword` VARCHAR(500) NOT NULL ,
+  `Dewey` VARCHAR(50) NOT NULL ,
+  `Depth` VARCHAR(10) NOT NULL );
