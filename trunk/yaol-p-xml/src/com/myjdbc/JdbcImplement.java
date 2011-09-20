@@ -272,7 +272,7 @@ public class JdbcImplement {
 						//delete the existing tables
 						
 						
-						if (performUpdate("./queries/createTables.txt")){
+						if (performUpdate("./config/createTables.txt")){
 							System.out.println("Tables have been created successfully.");
 						} else{
 							System.out.println("Tables are not created correctly.");
