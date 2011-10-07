@@ -36,21 +36,16 @@ public class StackbasedEvaluation {
 	
 	public final String _selectDeweySql = "select dewey from KeywordDewey where keyword=";
 	
-	private static int TOPK;
+//	private static int TOPK;
 
 	private static PrintWriter StackSLCAResults;
 	private String curKeyword; // currently selected keyword
 
 	private List<String> keywordList;
 
-	private static String LABEL_FULL_KEYWORDS;
-	private static double[] _resultmonitor;
 	private List<String> _resultheap;
 	
-	private static HashMap<String, LinkedList<String>> _keyword2deweylist; // keyword
-																			// -
-																	// IL
-
+	private static HashMap<String, LinkedList<String>> _keyword2deweylist; 
 
 	Map<String, Integer> _PointerOfSmallNodes;
 
@@ -58,27 +53,17 @@ public class StackbasedEvaluation {
 
 	private static int _numberofchecked;
 
-	public StackbasedEvaluation(PrintWriter outStream, List<String> keywords,
-			int k) {
+	public StackbasedEvaluation(PrintWriter outStream, List<String> keywords) {
 		StackSLCAResults = outStream;
 
 		_totalnumberofresults = 0;
 		_numberofchecked = 0;
 
-		// create a hash map to maintain distribution rates of keywords for
-		// each encoded node
-
-	//	_hashMap = new HashMap<String, String>();
-
-		// create a type of array list to store the level2hash index
-		// _arrayList = new HashMap<Integer, Hashtable<Integer, String>>();
-
-		TOPK = k;
+	//	TOPK = k;
 		_resultheap = new ArrayList <String>();
-		_resultmonitor = new double[TOPK];
 
 		_keyword2deweylist = new HashMap<String, LinkedList<String>>();
-	//	_dewey2conprobmap = new HashMap<String, String>();
+
 
 		_PointerOfSmallNodes = new HashMap<String, Integer>();
 		for (int i = 0; i < keywords.size(); i++) {
@@ -101,7 +86,7 @@ public class StackbasedEvaluation {
 	 */
 	public int LoadKeywordNodes(String keyword, String indexOfHashmap) {
 
-		String deweysql = _selectDeweySql + "'" + keyword + "'";
+		String deweysql = _selectDeweySql + "'" + keyword + "' order by XMLid ASC";
 
 		ResultSet deweySet = JdbcImplement.performQuery(deweysql);
 		int count = 0;
@@ -122,12 +107,13 @@ public class StackbasedEvaluation {
 					}
 
 					if (!mylist.contains(dewey)) {
-						mylist = insertsortedlist(mylist, dewey);
+					//	System.out.println(keyword);
+					//	PrintList(mylist);//yaol
+					//	mylist = insertsortedlist(mylist, dewey);
+						mylist.add(mylist.size(), dewey);
 					}
 
-					count++;
-
-					
+					count++;					
 
 				}
 
@@ -159,19 +145,19 @@ public class StackbasedEvaluation {
 			list.add(insertstr);
 
 		} else {
-			String pureinsertstr = insertstr.replaceAll("I", "");
-			pureinsertstr = pureinsertstr.replaceAll("M", "");
+		//	String pureinsertstr = insertstr.replaceAll("I", "");
+		//	pureinsertstr = pureinsertstr.replaceAll("M", "");
 
 			int index = -1;
 			for (int i = 0; i < list.size(); i++) {
 				String node = list.get(i);
 
-				String purenode = node.replaceAll("I", "");
-				purenode = purenode.replaceAll("M", "");
+				//String purenode = node.replaceAll("I", "");
+			//	purenode = purenode.replaceAll("M", "");
 
 				// compare the part with the same length
 
-				if (pureinsertstr.compareToIgnoreCase(purenode) > 0) {
+				if (insertstr.compareToIgnoreCase(node) > 0) {
 					// continue
 				} else {
 					// return the current index
@@ -200,15 +186,6 @@ public class StackbasedEvaluation {
 	 * nodes.
 	 */
 	public String LoadInformation(List<String> keywords) {
-
-		// generate a set of binary code based on keywords.size()
-		int numOfKeywords = keywords.size();
-		int maxNum = (int) Math.pow(2, numOfKeywords) - 1;
-
-		// System.out.println(maxNum);
-		String binaryex = Integer.toBinaryString(maxNum);
-		LABEL_FULL_KEYWORDS = binaryex;
-		// System.out.println(binaryex);
 
 		int deweysize = 0;
 		String minkeyword = null;
@@ -450,7 +427,7 @@ public class StackbasedEvaluation {
 		}
 		curKeyword = selectkeyword;
 
-		System.out.println("Curkeyword:" + curKeyword+" CurNode"+selectnode);
+	//	System.out.println("Curkeyword:" + curKeyword+" CurNode"+selectnode);
 
 		return selectnode;
 	}
@@ -474,64 +451,7 @@ public class StackbasedEvaluation {
 
 		return dewey;
 	}
-
-	/*
-	// we may generate result here if the dewey contains full keyword
-	// distribution
-	public void GenerateResults(String dewey, String problink) {
-
-		String dist ="";// _hashMap.remove(dewey);
-
-		if (dist.compareToIgnoreCase(LABEL_FULL_KEYWORDS) != 0) {
-
-			// record the total number
-			_totalnumberofresults++;
-
-			double localprob = 0;// dist.get(LABEL_FULL_KEYWORDS);
-
-			if (_resultheap.size() < TOPK) {
-
-				_resultheap.put(dewey, localprob);
-
-				// add the new localprob and sort
-				int index = _resultheap.size() - 1;
-
-				_resultmonitor[index] = localprob;
-
-				// @@@@@@@@@@@@@@@@@@@ error happened here
-
-				if (_resultheap.size() == TOPK) {
-					Arrays.sort(_resultmonitor);
-				}
-
-			} else if (localprob > _resultmonitor[0]) {
-
-				// scan _resultheap and
-				// remove one candidate with _resultmonitor[0] from _resultheap
-
-				Set<String> heapkeys = _resultheap.keySet();
-				for (String heapkey : heapkeys) {
-					if (_resultheap.get(heapkey) == _resultmonitor[0]) {
-						_resultheap.remove(heapkey);
-
-						// we only delete one candidate at each time
-						break;
-					}
-				}
-				_resultheap.put(dewey, localprob);
-
-				// update the monitor
-				_resultmonitor[0] = localprob;
-				Arrays.sort(_resultmonitor);
-			}
-
-			// dist.remove(LABEL_FULL_KEYWORDS);
-
-		}
-
-	//	_hashMap.put(dewey, dist);
-	}
-*/
+	
 	public void PrintList(List mylist) {
 
 		Iterator ite = mylist.iterator();
@@ -550,7 +470,7 @@ public class StackbasedEvaluation {
 		}
 	}
 
-	public void PrintResults(int k) {
+	public void PrintResults() {
 
 		// record the number of checked nodes
 		StackSLCAResults.println("The number of checked nodes is: "
@@ -561,13 +481,13 @@ public class StackbasedEvaluation {
 				+ _totalnumberofresults);
 
 		// from _resultheap and _resultmonitor
-		StackSLCAResults.printf("Top %d number of results as follow. \n",
-				k); // _resultheap.size()
-		System.out.printf("Top %d number of results as follow. \n", k);
-		//Set<String> heapkeys = _resultheap.keySet();
+		StackSLCAResults.println("SLCA results as follow. ");
+		System.out.println("SLCA results as follow");
+		
 		for (String result : _resultheap) {
 
 			StackSLCAResults.println("SLCA result: "+result);
+			System.out.println("SLCA result: "+result);
 		}
 
 		StackSLCAResults.println();
@@ -613,12 +533,12 @@ public class StackbasedEvaluation {
 				refinedkeywords.toArray();
 				System.out.println(refinedkeywords.size());
 				// k specifies the number of required SLCA results
-				int k = 6;
+				
 
 				// give a refined keyword query to load
 				// the corresponding keyword nodes
 				StackbasedEvaluation myEstimation = new StackbasedEvaluation(
-						outStream, refinedkeywords, k);
+						outStream, refinedkeywords);
 
 				// Start to estimate
 				StackSLCAResults.printf("-- " + "Keyword Query: %s \n",
@@ -650,7 +570,7 @@ public class StackbasedEvaluation {
 				StackSLCAResults.println();
 				System.out.printf("--" + "Memory usage: %d \n", useagememory);
 
-				myEstimation.PrintResults(k);
+				myEstimation.PrintResults();
 
 			}
 			queryRead.close();

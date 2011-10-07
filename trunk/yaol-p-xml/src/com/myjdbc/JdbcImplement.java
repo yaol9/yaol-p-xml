@@ -254,7 +254,7 @@ public class JdbcImplement {
 		try {
 			
 			//		processDB myConnection = new processDB();
-				//	String databaseName = "ksdbmodial";
+			
 					createNewDB(databasename);
 					ConnectToDB(databasename);
 					
