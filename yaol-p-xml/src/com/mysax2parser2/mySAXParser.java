@@ -347,7 +347,9 @@ public class mySAXParser extends DefaultHandler {
 							+ OUTPUT_FIELD_SEPARATOR
 							+ sanitizeString(tempLeafContent)
 							+ OUTPUT_FIELD_SEPARATOR
-							+ Integer.toString(depth+1)+ "\n");
+							+ Integer.toString(depth+1)
+							+ OUTPUT_FIELD_SEPARATOR
+							+ collectionOfAllElements +"\n");
 
 					// summary the number of elements where elements are leaf
 					// nodes
@@ -361,7 +363,7 @@ public class mySAXParser extends DefaultHandler {
 							+ OUTPUT_FIELD_SEPARATOR
 							+ sanitizeString(tempLeafContent)
 							+ OUTPUT_FIELD_SEPARATOR
-							+ Integer.toString(depth+1));
+							+ Integer.toString(depth+1)+ OUTPUT_FIELD_SEPARATOR+collectionOfAllElements );
 
 					tempLeafContent = "";
 					_stats.updateStats(deweyCode, depth);		
