@@ -1,6 +1,6 @@
 
 
-package com.mysax2parser2;
+package com.mysaxParser;
 
 
 import java.io.*;

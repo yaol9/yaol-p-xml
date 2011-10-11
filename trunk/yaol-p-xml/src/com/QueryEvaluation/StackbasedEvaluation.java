@@ -27,7 +27,7 @@ import java.util.Set;
 import java.util.Stack;
 
 import com.myjdbc.JdbcImplement;
-import com.mysax2parser2.TokenPreprocessor;
+import com.mysaxParser.TokenPreprocessor;
 import com.tools.PropertyReader;
 
 public class StackbasedEvaluation {
@@ -44,7 +44,7 @@ public class StackbasedEvaluation {
 
 	private List<String> _resultheap;
 
-	private static HashMap<String, LinkedList<String>> _keyword2deweylist;
+	public static HashMap<String, LinkedList<String>> _keyword2deweylist;
 
 	Map<String, Integer> _PointerOfSmallNodes;
 
@@ -523,11 +523,10 @@ public class StackbasedEvaluation {
 						outStream, refinedkeywords);
 
 				// Start to estimate
-				StackSLCAResults.printf("-- " + "Keyword Query: %s \n", query);
-				StackSLCAResults.println();
+				outStream.printf("-- " + "Keyword Query: %s \n", query);
+				outStream.println();
 				System.out.printf("-- " + "Keyword Query: %s \n", query);
-				String minkeyword = myEstimation
-						.LoadInformation(refinedkeywords);
+				myEstimation.LoadInformation(refinedkeywords);
 
 				long start, qtime;
 				start = System.currentTimeMillis();
@@ -546,12 +545,12 @@ public class StackbasedEvaluation {
 				long totalmemory = rt.totalMemory();
 				long useagememory = totalmemory - freememory;
 
-				StackSLCAResults.printf("--" + "Response Time: %d \n", qtime);
-				StackSLCAResults.println();
+				outStream.printf("--" + "Response Time: %d \n", qtime);
+				outStream.println();
 				System.out.printf("--" + "Response Time: %d \n", qtime);
-				StackSLCAResults.printf("--" + "Memory usage: %d \n",
+				outStream.printf("--" + "Memory usage: %d \n",
 						useagememory);
-				StackSLCAResults.println();
+				outStream.println();
 				System.out.printf("--" + "Memory usage: %d \n", useagememory);
 
 				myEstimation.PrintResults();
@@ -562,7 +561,7 @@ public class StackbasedEvaluation {
 			queryRead.close();
 			JdbcImplement.DisconnectDB();
 
-			StackSLCAResults.close();
+			outStream.close();
 			System.out.println("====================>>> Stop application!");
 
 		} catch (IOException e) {
