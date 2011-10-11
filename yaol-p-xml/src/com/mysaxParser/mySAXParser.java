@@ -1,4 +1,4 @@
-package com.mysax2parser2;
+package com.mysaxParser;
 
 /*
  Note: 

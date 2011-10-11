@@ -10,7 +10,7 @@
   - 
 */
 
-package com.mysax2parser2;
+package com.mysaxParser;
 import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
