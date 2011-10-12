@@ -27,15 +27,16 @@ public class MyTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		MyTest mytest = new MyTest();
-		mytest.testStack();
+		mytest.SequenceAlgorithms();
 	}
 	
-	public void testStack ()
+	public void SequenceAlgorithms ()
 	{
 		try {
 			PrintWriter outStream = new PrintWriter(new BufferedWriter(
 					new FileWriter(new File("./out/StackbasedEvaluation.log"))));
 
+			
 			String databaseName = PropertyReader.getProperty("dbname");
 			JdbcImplement.ConnectToDB(databaseName);
 
@@ -46,6 +47,7 @@ public class MyTest {
 							new FileInputStream(ksFile))));
 			
 			String query;
+			TimeRecorder.startRecord();
 			while ((query = queryRead.readLine()) != null) {
 				
 				List<String> refinedkeywords = new LinkedList<String>();
@@ -77,35 +79,33 @@ public class MyTest {
 					outStream.println("Keyword Size " + keyword
 							+ " -> number: " + kquery.keyword2deweylist.get(keyword).size() + "\n");
 
-				}								
-				
-				TimeRecorder.startRecord();
-			
-				myEstimation.computeSLCA(kquery);
-				
-				TimeRecorder.stopRecord();
-				
-				long qtime=TimeRecorder.getTimeRecord();
+				}						
+				myEstimation.computeSLCA(kquery);			
 				
 				//release memory				
 				kquery.clearMem();
-				System.gc();			
-					
-
-				// get memory usage
-				long usagememory=Helper.getMemoryUsage();
+				System.gc();				
 				
-				outStream.printf("--" + "Response Time: %d \n", qtime);
-				outStream.println();
-				System.out.printf("--" + "Response Time: %d \n", qtime);
-				outStream.printf("--" + "Memory usage: %d \n",
-						usagememory);
-				outStream.println();
-				System.out.printf("--" + "Memory usage: %d \n", usagememory);
-
-				myEstimation.PrintResults();			
+				myEstimation.PrintResults();						
 
 			}
+			
+			TimeRecorder.stopRecord();
+			
+			long qtime=TimeRecorder.getTimeRecord();
+			// get memory usage
+			long usagememory=Helper.getMemoryUsage();
+			
+			outStream.println("Sequence Algorithms:");
+			System.out.println("Sequence Algorithms:");
+			outStream.printf("--" + "Response Time: %d \n", qtime);
+			outStream.println();
+			System.out.printf("--" + "Response Time: %d \n", qtime);
+			outStream.printf("--" + "Memory usage: %d \n",
+					usagememory);
+			outStream.println();
+			System.out.printf("--" + "Memory usage: %d \n", usagememory);
+			
 			queryRead.close();
 			JdbcImplement.DisconnectDB();
 
