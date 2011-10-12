@@ -12,10 +12,12 @@ import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.QueryEvaluation.KeywordQuery;
 import com.QueryEvaluation.StackbasedEvaluation;
 import com.myjdbc.JdbcImplement;
-import com.mysaxParser.TokenPreprocessor;
+import com.tools.Helper;
 import com.tools.PropertyReader;
+import com.tools.TimeRecorder;
 
 public class MyTest {
 
@@ -42,68 +44,66 @@ public class MyTest {
 			BufferedReader queryRead = new BufferedReader(
 					new InputStreamReader(new DataInputStream(
 							new FileInputStream(ksFile))));
+			
 			String query;
 			while ((query = queryRead.readLine()) != null) {
-				String keywordSet[] = query.split("[,]");
-
-				// clean the keyword query using stop words
-				TokenPreprocessor thisPreprocessor = new TokenPreprocessor();
-				keywordSet = thisPreprocessor.trimTokens(keywordSet);
-				keywordSet = thisPreprocessor.stopWordRemoval(keywordSet);
-				keywordSet = thisPreprocessor
-						.removeIrrelevantTokens(keywordSet);
-
+				
 				List<String> refinedkeywords = new LinkedList<String>();
-
-				for (String item : keywordSet) {
-					if (item != null) {
-						refinedkeywords.add(item);
-						System.out.println(item);
-					}
-				}
-
-				refinedkeywords.toArray();
+				refinedkeywords=Helper.getRefinedKeywords(query);
 				System.out.println(refinedkeywords.size());
-				// k specifies the number of required SLCA results
-
+				
 				// give a refined keyword query to load
 				// the corresponding keyword nodes
 				StackbasedEvaluation myEstimation = new StackbasedEvaluation(
 						outStream, refinedkeywords);
 
+				KeywordQuery kquery = new KeywordQuery(refinedkeywords);
+				
 				// Start to estimate
 				outStream.printf("-- " + "Keyword Query: %s \n", query);
 				outStream.println();
 				System.out.printf("-- " + "Keyword Query: %s \n", query);
-				myEstimation.LoadInformation(refinedkeywords);
+			
+				kquery.LoadInformation();
+			
+				//print keyword dewey list info
+				for(String keyword:kquery.keywordList)
+				{					
+					if (kquery.keyword2deweylist.get(keyword).size() == 0) {
+						System.out.println("-- Error happened: \n --Keyword Size "
+								+ keyword + " -> number: " + kquery.keyword2deweylist.get(keyword).size() + "\n");
+						System.exit(-1);
+					}
+					outStream.println("Keyword Size " + keyword
+							+ " -> number: " + kquery.keyword2deweylist.get(keyword).size() + "\n");
 
-				long start, qtime;
-				start = System.currentTimeMillis();
-
-				myEstimation.computeSLCA();
+				}								
 				
-				//release memory
-				StackbasedEvaluation._keyword2deweylist.clear(); 
-				System.gc();
+				TimeRecorder.startRecord();
+			
+				myEstimation.computeSLCA(kquery);
 				
-				qtime = System.currentTimeMillis() - start;
+				TimeRecorder.stopRecord();
+				
+				long qtime=TimeRecorder.getTimeRecord();
+				
+				//release memory				
+				kquery.clearMem();
+				System.gc();			
+					
 
-				// record memory usage
-				Runtime rt = Runtime.getRuntime();
-				long freememory = rt.freeMemory();
-				long totalmemory = rt.totalMemory();
-				long useagememory = totalmemory - freememory;
-
+				// get memory usage
+				long usagememory=Helper.getMemoryUsage();
+				
 				outStream.printf("--" + "Response Time: %d \n", qtime);
 				outStream.println();
 				System.out.printf("--" + "Response Time: %d \n", qtime);
 				outStream.printf("--" + "Memory usage: %d \n",
-						useagememory);
+						usagememory);
 				outStream.println();
-				System.out.printf("--" + "Memory usage: %d \n", useagememory);
+				System.out.printf("--" + "Memory usage: %d \n", usagememory);
 
-				myEstimation.PrintResults();				
-				
+				myEstimation.PrintResults();			
 
 			}
 			queryRead.close();
