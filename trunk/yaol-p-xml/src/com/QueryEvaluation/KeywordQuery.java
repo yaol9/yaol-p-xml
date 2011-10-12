@@ -39,7 +39,7 @@ public class KeywordQuery {
 	 * distributions to hash map, return the keyword with the minimal keyword
 	 * nodes.
 	 */
-	public String LoadInformation() {
+	public String LoadAllInformation() {
 
 		int deweysize = 0;
 		String minkeyword = null;
