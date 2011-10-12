@@ -82,7 +82,7 @@ public class KeywordQuery {
 		String deweysql = _selectDeweySql + "'" + keyword
 				+ "' order by XMLid ASC";
 
-		// System.out.println("nodelist: keyword:"+keyword);
+	//	 System.out.println("nodelist: keyword:"+keyword);
 
 		ResultSet deweySet = JdbcImplement.performQuery(deweysql);
 		int count = 0;
@@ -110,7 +110,7 @@ public class KeywordQuery {
 					count++;
 
 				}
-				// Helper.PrintList(mylist);
+			//	 Helper.PrintList(mylist);
 
 			} catch (SQLException e) {
 				e.printStackTrace();

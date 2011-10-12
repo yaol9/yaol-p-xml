@@ -51,6 +51,10 @@ public class Helper {
 	
 	public static Boolean isSLCA(HashMap<String, Integer> topKeywordStack,List<String> keywordList) {
 		// check whether satisfy slca
+		if(topKeywordStack.containsKey("a-refuse-mark"))
+		{
+			return false;
+		}
 		int containKeyCount = 0;
 		for (String key : keywordList) {
 			if (topKeywordStack.containsKey(key)) {
@@ -60,6 +64,7 @@ public class Helper {
 				}
 			}
 		}
+		
 		if (containKeyCount == keywordList.size()) {
 			return true;
 		} else {
@@ -100,5 +105,5 @@ public class Helper {
 		long totalmemory = rt.totalMemory();
 		long usagememory = totalmemory - freememory;
 		return usagememory;
-	}
+	}	
 }
