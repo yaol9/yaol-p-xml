@@ -23,6 +23,11 @@ public class KeywordQuery {
 
 	public Map<String, Integer> pointerOfSmallNodes;
 
+	public KeywordQuery() {
+		keywordList=new LinkedList<String>();
+		keyword2deweylist = new HashMap<String, LinkedList<String>>();
+		pointerOfSmallNodes = new HashMap<String, Integer>();
+	}
 	public KeywordQuery(List<String> keywords) {
 
 		keywordList = keywords;
@@ -39,35 +44,21 @@ public class KeywordQuery {
 	 * distributions to hash map, return the keyword with the minimal keyword
 	 * nodes.
 	 */
-	public String LoadAllInformation() {
-
-		int deweysize = 0;
-		String minkeyword = null;
+	public void LoadAllInformation() {
+			
 		for (int i = 0; i < keywordList.size(); i++) {
 			// remove null from the refined keywords
 			if (keywordList.get(i) != null) {
-				// construct binary index of hash map
-				String indexOfHashmap = "";
-				for (int myi = 0; myi < i; myi++) {
-					indexOfHashmap += '0';
-				}
-				indexOfHashmap = '1' + indexOfHashmap;
-
 				String keyword = keywordList.get(i).trim();
-				int returnsize = LoadKeywordNodes(keyword, indexOfHashmap);
-				if (minkeyword == null) {
-					deweysize = returnsize;
-					minkeyword = keyword;
-				} else if (returnsize < deweysize) {
-					deweysize = returnsize;
-					minkeyword = keyword;
-				}
+				LoadKeywordNodes(keyword);			
 			}
-		}
-
-		return minkeyword;
+		}	
 	}
 
+	public void LoadSpecificInformation(String keyword) {
+		LoadKeywordNodes(keyword.trim());	
+		
+	}
 	/*
 	 * For a keyword, we load its relevant dewey code into a ArrayList or
 	 * LinkedList. At the same time, we retrieve the prdewey for each dewey and
@@ -77,7 +68,7 @@ public class KeywordQuery {
 	 * After we do the procedure for all keywords, we can make the preparation
 	 * for the second algorithm.
 	 */
-	public int LoadKeywordNodes(String keyword, String indexOfHashmap) {
+	public int LoadKeywordNodes(String keyword) {
 
 		String deweysql = _selectDeweySql + "'" + keyword
 				+ "' order by XMLid ASC";
@@ -167,15 +158,11 @@ public class KeywordQuery {
 	}
 
 	public void clearMem() {
-		// TODO Auto-generated method stub
 		keyword2deweylist.clear();
 	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public void clearKeyword(String keyword) {
+		keyword2deweylist.remove(keyword);
+		keywordList.remove(keyword);
 	}
+
 }

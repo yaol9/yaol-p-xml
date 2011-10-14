@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class MyTest {
 		// TODO Auto-generated method stub
 		MyTest mytest = new MyTest();
 		mytest.SequenceAlgorithms();
+		mytest.BasicAlgorithms();
 	}
 	
 	public void SequenceAlgorithms ()
@@ -135,10 +137,38 @@ public class MyTest {
 			
 			String query;
 			TimeRecorder.startRecord();
+			
+			HashMap<String,Integer> scheduler = new HashMap<String,Integer>(); //whether a keyword should be removed from memory
+			HashMap<Integer,List<String>> userQuery=new HashMap<Integer,List<String>>(); //user query
+			
+			int counter=0;
 			while ((query = queryRead.readLine()) != null) {
+				outStream.printf("-- " + "Keyword Query: %s \n", query);
+				outStream.println();
+				System.out.printf("-- " + "Keyword Query: %s \n", query);
 				
 				List<String> refinedkeywords = new LinkedList<String>();
 				refinedkeywords=Helper.getRefinedKeywords(query);
+				
+				for(String key:refinedkeywords)
+				{
+					if(scheduler.containsKey(key))
+					{
+						scheduler.put(key, scheduler.get(key)+1);
+					}
+					else
+					{
+						scheduler.put(key, 1);
+					}					
+				}
+				userQuery.put(counter, refinedkeywords);
+				counter++;
+			}
+			KeywordQuery kquery=new KeywordQuery();
+			for(int i=0;i<counter;i++)
+			{
+				List<String> refinedkeywords = new LinkedList<String>();
+				refinedkeywords=userQuery.get(i);
 				System.out.println(refinedkeywords.size());
 				
 				// give a refined keyword query to load
@@ -146,17 +176,22 @@ public class MyTest {
 				StackbasedEvaluation myEstimation = new StackbasedEvaluation(
 						outStream, refinedkeywords);
 
-				KeywordQuery kquery = new KeywordQuery(refinedkeywords);
+				//KeywordQuery kquery = new KeywordQuery(refinedkeywords);
 				
-				// Start to estimate
-				outStream.printf("-- " + "Keyword Query: %s \n", query);
-				outStream.println();
-				System.out.printf("-- " + "Keyword Query: %s \n", query);
+				// Start to estimate				
+				for(String keyword:refinedkeywords)
+				{
+					if(!kquery.keyword2deweylist.containsKey(keyword))
+					{
+						kquery.LoadSpecificInformation(keyword);						
+					}	
+					kquery.pointerOfSmallNodes.put(keyword,0);
+				}
 			
-				kquery.LoadAllInformation();
+				//kquery.LoadAllInformation();
 			
 				//print keyword dewey list info
-				for(String keyword:kquery.keywordList)
+				for(String keyword:refinedkeywords)
 				{					
 					if (kquery.keyword2deweylist.get(keyword).size() == 0) {
 						System.out.println("-- Error happened: \n --Keyword Size "
@@ -170,12 +205,30 @@ public class MyTest {
 				myEstimation.computeSLCA(kquery);			
 				
 				//release memory				
-				kquery.clearMem();
+				for(String keyword:refinedkeywords)
+				{
+					int curCount=scheduler.get(keyword);
+					if(curCount>1)
+					{
+						scheduler.put(keyword, curCount-1);
+					}
+					else
+					{
+						kquery.clearKeyword(keyword);
+					}
+				}
 				System.gc();				
 				
-				myEstimation.PrintResults();						
-
-			}
+				myEstimation.PrintResults();		
+				
+			}		
+			
+			//check memory
+			//for(String key:kquery.keyword2deweylist.keySet())
+			//{
+			//	System.out.println(key);
+			//	System.out.println(kquery.keyword2deweylist.get(key).size());				
+			//}
 			
 			TimeRecorder.stopRecord();
 			
@@ -183,8 +236,8 @@ public class MyTest {
 			// get memory usage
 			long usagememory=Helper.getMemoryUsage();
 			
-			outStream.println("Sequence Algorithms:");
-			System.out.println("Sequence Algorithms:");
+			outStream.println("Basic Algorithms:");
+			System.out.println("Basic Algorithms:");
 			outStream.printf("--" + "Response Time: %d \n", qtime);
 			outStream.println();
 			System.out.printf("--" + "Response Time: %d \n", qtime);
