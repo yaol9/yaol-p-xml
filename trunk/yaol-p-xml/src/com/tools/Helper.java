@@ -24,8 +24,7 @@ public class Helper {
 
 		Set keyset = hm.keySet();
 		for (Object key : keyset) {
-
-			System.out.println(hm.get(key).toString());
+			System.out.println(key.toString()+"  "+ hm.get(key).toString());
 		}
 	}
 	
@@ -106,4 +105,28 @@ public class Helper {
 		long usagememory = totalmemory - freememory;
 		return usagememory;
 	}	
+	
+	public static String getMaxJointString(List<String> list1,List<String> list2)
+	{
+		String tempJoint="";
+		for(String keyword:list1)
+		{
+			for(String keyword2:list2)
+			{
+				if(keyword.equalsIgnoreCase(keyword2))
+				{
+					if(tempJoint.isEmpty())
+					{
+						tempJoint += keyword;
+					}
+					else
+					{
+						tempJoint += "|"+keyword;
+					}
+						
+				}
+			}
+		}
+		return tempJoint;
+	}
 }
