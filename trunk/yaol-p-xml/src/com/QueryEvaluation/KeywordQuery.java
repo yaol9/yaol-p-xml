@@ -16,7 +16,7 @@ public class KeywordQuery {
 
 	public HashMap<String, LinkedList<String>> keyword2deweylist;
 	public List<String> keywordList;
-
+	public List<String> shareResultList;
 	private String _selectDeweySql = "select dewey from KeywordDewey where keyword=";
 
 	public String curKeyword; // currently selected keyword
@@ -25,6 +25,7 @@ public class KeywordQuery {
 
 	public KeywordQuery() {
 		keywordList=new LinkedList<String>();
+		shareResultList=new LinkedList<String>();
 		keyword2deweylist = new HashMap<String, LinkedList<String>>();
 		pointerOfSmallNodes = new HashMap<String, Integer>();
 	}
