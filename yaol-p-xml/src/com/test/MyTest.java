@@ -26,7 +26,7 @@ public class MyTest {
 
 	private HashMap<Integer, List<String>> lattice;
 	private HashMap<String, Integer> scheduler; // whether delete keyword
-
+    private int curUserQuery ;
 	public MyTest() {
 		lattice = new HashMap<Integer, List<String>>();
 		scheduler = new HashMap<String, Integer>();
@@ -314,7 +314,7 @@ public class MyTest {
 			
 			KeywordQuery kquery = new KeywordQuery();
 			List<String> curItem = lattice.remove(minKeywordPointer);
-			
+			curUserQuery=minKeywordPointer;
 			TimeRecorder.startRecord();
 			
 			while(!curItem.isEmpty())
@@ -326,10 +326,44 @@ public class MyTest {
 				
 				// give a refined keyword query to load
 				// the corresponding keyword nodes
-				SuperStackbasedEvaluation myEstimation = new SuperStackbasedEvaluation(
-						outStream, (ArrayList)((ArrayList)curItem).clone(),kquery);
+				List<String> revisedQuery = new LinkedList<String>();
+				for(String s : curItem)
+				{
+					if(s.contains("|"))
+					{
+						if(kquery.keyword2deweylist.containsKey(s))
+						{
+							revisedQuery.add(s);
+						}
+						else
+						{
+							String[] tempList = s.split("[|]");
+							for(String temp:tempList)
+							{
+								if(!revisedQuery.contains(temp))
+								{
+									revisedQuery.add(temp);
+								}
+							}
+						}
 						
+					}
+					else
+					{
+						if(!revisedQuery.contains(s))
+						{
+							revisedQuery.add(s);
+						}
+					}
+				}
+				SuperStackbasedEvaluation myEstimation = new SuperStackbasedEvaluation(
+						outStream, revisedQuery,kquery);
+					
+		
+				
 				// Start to estimate
+				List<String> tempAddedKeyword = new LinkedList<String>();
+				
 				for (String keyword : curItem) {
 					if (!kquery.keyword2deweylist.containsKey(keyword)) {
 						
@@ -346,6 +380,7 @@ public class MyTest {
 								if (!kquery.keyword2deweylist.containsKey(temp)) {
 									kquery.LoadSpecificInformation(temp);
 									kquery.keywordList.add(temp);
+									tempAddedKeyword.add(temp);
 									myEstimation.keywordList.add(temp);
 									
 								}
@@ -390,12 +425,9 @@ public class MyTest {
 				//Helper.PrintList(kquery.keywordList);
 				myEstimation.computeSLCA(kquery);					
 				
-				// release memory
-				List<String> tempKeywordList = new ArrayList<String>();
-				for (String keyword : tempKeywordList) {
-					tempKeywordList.add(keyword);
-				}
-				for (String keyword : tempKeywordList) {
+				// release memory			
+			
+				for (String keyword :curItem) {
 					int curCount = 0;
 					if(scheduler.containsKey(keyword))
 					{
@@ -408,11 +440,17 @@ public class MyTest {
 						kquery.clearKeyword(keyword);
 					}
 				}
-				tempKeywordList.clear();
-				
+				for(String tempKeyword : tempAddedKeyword)
+				{
+					kquery.clearKeyword(tempKeyword);
+				}
+			
+			
 				System.gc();
 
+				
 				myEstimation.PrintResults();
+				Helper.PrintHashMap(kquery.keyword2deweylist);
 				
 				curItem=getNextNodeFromLattice();
 				
@@ -459,21 +497,34 @@ public class MyTest {
 
 					if (lattice.containsKey(i)) {
 						List<String> tempJointList = lattice.get(i);
-						tempJointList.add(tempJoint);
+						if(!tempJointList.contains(tempJoint))
+						{
+							tempJointList.add(tempJoint);
+						}
+						
 						lattice.put(i, tempJointList);
 					} else {
 						List<String> tempJointList = new ArrayList<String>();
-						tempJointList.add(tempJoint);
+						if(!tempJointList.contains(tempJoint))
+						{
+							tempJointList.add(tempJoint);
+						}
 						lattice.put(i, tempJointList);
 					}
 
 					if (lattice.containsKey(j)) {
 						List<String> tempJointList = lattice.get(j);
-						tempJointList.add(tempJoint);
+						if(!tempJointList.contains(tempJoint))
+						{
+							tempJointList.add(tempJoint);
+						}
 						lattice.put(j, tempJointList);
 					} else {
 						List<String> tempJointList = new ArrayList<String>();
-						tempJointList.add(tempJoint);
+						if(!tempJointList.contains(tempJoint))
+						{
+							tempJointList.add(tempJoint);
+						}
 						lattice.put(j, tempJointList);
 					}
 
@@ -534,6 +585,7 @@ public class MyTest {
 				nextPos=pos;
 			}
 			nextItem = lattice.remove(nextPos);
+			curUserQuery=nextPos;
 		}
 		else
 		{

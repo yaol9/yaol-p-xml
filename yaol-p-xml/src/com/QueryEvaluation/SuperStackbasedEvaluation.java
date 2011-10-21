@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.Stack;
 import com.tools.Helper;
 
@@ -74,7 +75,7 @@ public class SuperStackbasedEvaluation {
 								HashMap<String, Integer> topKeywordStack = keyStack
 										.pop();
 								
-								if (isSLCA(topKeywordStack, keywordList)) {
+								if (isSLCA(topKeywordStack,currdewey)) {
 									// output SLCA
 									// System.out.println("Result:" +
 									// currdewey);
@@ -127,7 +128,7 @@ public class SuperStackbasedEvaluation {
 				vstack.pop();
 				HashMap<String, Integer> topKeywordStack = keyStack.pop();
 
-				if (isSLCA(topKeywordStack, keywordList)) {
+				if (isSLCA(topKeywordStack,currdewey)) {
 					// output SLCA
 					// System.out.println("Result:" + currdewey);
 					_resultheap.add(currdewey);
@@ -178,7 +179,7 @@ public class SuperStackbasedEvaluation {
 		StackSLCAResults.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
 
-	public Boolean isSLCA(HashMap<String, Integer> topKeywordStack,List<String> keywordList) {
+	public Boolean isSLCA(HashMap<String, Integer> topKeywordStack,String currdewey) {
 		// check whether satisfy slca
 		if(topKeywordStack.containsKey("a-refuse-mark"))
 		{
@@ -192,19 +193,60 @@ public class SuperStackbasedEvaluation {
 				if (topKeywordStack.get(key) == 1) {
 					containKeyCount++;
 				}
-			}		
-			if(!key.contains("|"))
-			{
+			}	
+		//	Set<String>keySet = topKeywordStack.keySet();
+			
+		//	for(String s : keySet)
+		//	{
+		//		if(s.contains("[|]") && s.contains(key))
+		//		{
+		//			containKeyCount++;
+		//		}
+	//		}			
+				
+	//		if(!key.contains("|"))
+	//		{
 				keywordCount++;				
-			}
+	//		}
 			//get keyword count
+		}		
+		
+		
+		//save sharing data
+		if(kQuery.shareResultList.size()>0)
+		{
+			for(String s : kQuery.shareResultList)
+			{
+				String[] tempList = s.split("[|]");
+				int shareCount=0;
+				for (String key : tempList) {
+					if (topKeywordStack.containsKey(key)) {
+						
+						if (topKeywordStack.get(key) == 1) {
+							shareCount++;
+						}
+					}
+					if(shareCount==tempList.length)
+					{
+						//add share result into memory
+						if(kQuery.keyword2deweylist.containsKey(s))
+						{
+							LinkedList<String> shareDewey =kQuery.keyword2deweylist.get(s);
+							shareDewey.add(currdewey);
+							kQuery.keyword2deweylist.put(s,shareDewey);
+						}
+						else
+						{
+							LinkedList<String> shareDewey = new LinkedList<String>();
+							shareDewey.add(currdewey);
+							kQuery.keyword2deweylist.put(s,shareDewey);
+						}
+					}
+					
+				}		
+			}
 		}
-		
-		
-		//if(containKeyCount>1)
-	//	{
-	//		System.out.println(containKeyCount);
-	//	}
+	
 		if (containKeyCount == keywordCount) {
 			return true;
 		} else {
