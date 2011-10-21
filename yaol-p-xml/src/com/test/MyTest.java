@@ -26,10 +26,12 @@ public class MyTest {
 
 	private HashMap<Integer, List<String>> lattice;
 	private HashMap<String, Integer> scheduler; // whether delete keyword
+	private HashMap<String, List<String>> advanceScheduler; // whether delete keyword
     private int curUserQuery ;
 	public MyTest() {
 		lattice = new HashMap<Integer, List<String>>();
 		scheduler = new HashMap<String, Integer>();
+		advanceScheduler= new HashMap<String, List<String>>();
 	}
 
 	/**
@@ -428,17 +430,27 @@ public class MyTest {
 				// release memory			
 			
 				for (String keyword :curItem) {
-					int curCount = 0;
-					if(scheduler.containsKey(keyword))
+					//int curCount = 0;
+					if(advanceScheduler.containsKey(keyword))
 					{
-						curCount=scheduler.get(keyword);
+						List<String> tempList=advanceScheduler.get(keyword);
+						if(tempList.contains( Integer.toString(curUserQuery)))
+						{
+							tempList.remove(Integer.toString(curUserQuery));
+							advanceScheduler.put( Integer.toString(curUserQuery), tempList);
+						}
+						
+						if(tempList.size()==0)
+						{
+							kquery.clearKeyword(keyword);
+						}
 					}
-												
-					if (curCount > 1) {
-						scheduler.put(keyword, curCount - 1);
-					} else {
+					else
+					{
 						kquery.clearKeyword(keyword);
 					}
+												
+		
 				}
 				for(String tempKeyword : tempAddedKeyword)
 				{
@@ -528,10 +540,22 @@ public class MyTest {
 						lattice.put(j, tempJointList);
 					}
 
-					if (scheduler.containsKey(tempJoint)) {
-						scheduler.put(tempJoint, scheduler.get(tempJoint) + 2);
+					if (advanceScheduler.containsKey(tempJoint)) {
+						List<String> scheduleList = advanceScheduler.get(tempJoint);
+						if(!scheduleList.contains(Integer.toString(i)))
+						{
+							scheduleList.add(Integer.toString(i));
+						}
+						if(!scheduleList.contains(Integer.toString(j)))
+						{
+							scheduleList.add(Integer.toString(j));
+						}
+						advanceScheduler.put(tempJoint, scheduleList);
 					} else {
-						scheduler.put(tempJoint, 2);
+						List<String> scheduleList = new LinkedList<String>();
+						scheduleList.add(Integer.toString(i));
+						scheduleList.add(Integer.toString(j));						
+						advanceScheduler.put(tempJoint, scheduleList);
 					}
 
 				}
@@ -562,15 +586,9 @@ public class MyTest {
 				}
 			}
 		}
-		// check lattice
-		// for (int i = 0; i < counter; i++) {
-		// System.out.println("Lattice " + i);
-		// for (String keyword : lattice.get(i)) {
-		// System.out.println(keyword);
-		// }
-		// }
-		Helper.PrintHashMap(lattice);
-		// check lattice finish
+
+		//Helper.PrintHashMap(lattice);
+		
 
 	}
 	
