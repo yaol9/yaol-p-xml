@@ -25,12 +25,12 @@ import com.tools.TimeRecorder;
 public class MyTest {
 
 	private HashMap<Integer, List<String>> lattice;
-	private HashMap<String, Integer> scheduler; // whether delete keyword
+	//private HashMap<String, Integer> scheduler; // whether delete keyword
 	private HashMap<String, List<String>> advanceScheduler; // whether delete keyword
     private int curUserQuery ;
 	public MyTest() {
 		lattice = new HashMap<Integer, List<String>>();
-		scheduler = new HashMap<String, Integer>();
+	//	scheduler = new HashMap<String, Integer>();
 		advanceScheduler= new HashMap<String, List<String>>();
 	}
 
@@ -150,8 +150,7 @@ public class MyTest {
 			String query = "";
 			TimeRecorder.startRecord();
 
-			// HashMap<String, Integer> scheduler = new HashMap<String,
-			// Integer>(); // whether
+			 HashMap<String, Integer> scheduler = new HashMap<String,Integer>(); // whether
 			// a
 			// keyword
 			// should
@@ -273,7 +272,11 @@ public class MyTest {
 		}
 	}
 
-	public void testTemplateAwareAlgorithm() {
+	public void testTemplateAwareAlgorithm()
+	{
+		
+	}
+	public void testTemplateAwareAlgorithm_old() {
 		try {
 			PrintWriter outStream = new PrintWriter(new BufferedWriter(
 					new FileWriter(
