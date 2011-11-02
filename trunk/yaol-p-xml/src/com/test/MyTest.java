@@ -10,12 +10,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
 import com.QueryEvaluation.KeywordQuery;
 import com.QueryEvaluation.StackbasedEvaluation;
+import com.QueryEvaluation.SLCAEvaluation;
 import com.QueryEvaluation.SuperStackbasedEvaluation;
 import com.myjdbc.JdbcImplement;
 import com.tools.Helper;
@@ -40,9 +42,10 @@ public class MyTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		MyTest mytest = new MyTest();
-		mytest.testSequenceAlgorithm();
-	    mytest.testBasicAlgorithm();
+		//mytest.testSequenceAlgorithm();
+		//mytest.testBasicAlgorithm();
 		mytest.testTemplateAwareAlgorithm();
+		//mytest.testTemplateAwareAlgorithm_old();
 	}
 
 	public void testSequenceAlgorithm() {
@@ -150,14 +153,8 @@ public class MyTest {
 			String query = "";
 			TimeRecorder.startRecord();
 
-			 HashMap<String, Integer> scheduler = new HashMap<String,Integer>(); // whether
-			// a
-			// keyword
-			// should
-			// be
-			// removed
-			// from
-			// memory
+            HashMap<String, Integer> scheduler = new HashMap<String,Integer>(); 
+		
 			if (!scheduler.isEmpty()) {
 				scheduler.clear();
 			}
@@ -274,7 +271,150 @@ public class MyTest {
 
 	public void testTemplateAwareAlgorithm()
 	{
+		try {
+			PrintWriter outStream = new PrintWriter(new BufferedWriter(
+					new FileWriter(
+							new File("./out/TemplateAwareEvaluation.log"))));
+
+			String databaseName = PropertyReader.getProperty("dbname");
+			JdbcImplement.ConnectToDB(databaseName);
+			String ksFile = PropertyReader.getProperty("ksFile");
+			BufferedReader queryRead = new BufferedReader(
+					new InputStreamReader(new DataInputStream(
+							new FileInputStream(ksFile))));
+
+			String query = "";
+			HashMap<Integer, List<String>> userQuery = new HashMap<Integer, List<String>>(); // user query
+			
+			int counter = 0;
+
+			while ((query = queryRead.readLine()) != null) {
+				outStream.printf("-- " + "Keyword Query: %s \n", query);
+				outStream.println();
+				System.out.printf("-- " + "Keyword Query: %s \n", query);
+
+				List<String> refinedkeywords = Helper.getRefinedKeywords(query);
+
+				userQuery.put(counter, refinedkeywords);
+				counter++;
+			}
+
+			generateLattice(userQuery, counter);
+			//Helper.PrintHashMap(advanceScheduler);	
+	
+			
+			TimeRecorder.startRecord();
+			KeywordQuery kquery = new KeywordQuery();
+			List<String> curItem = getNextNodeFromLattice();
+			while(!curItem.isEmpty())
+			{			
+				// Start to estimate
+				outStream.printf("-- " + "Keyword Query: %s \n", curItem);
+				outStream.println();
+				System.out.printf("-- " + "Keyword Query: %s \n", curItem);
+								
+				
+				for(String keyword:curItem)
+				{
+					if(keyword.contains("|"))
+					{
+						if(!kquery.keyword2deweylist.containsKey(keyword))
+						{
+							List<String> kList=Arrays.asList(keyword.split("[|]"));
+							KeywordQuery tempQuery = new KeywordQuery(kList);
+							tempQuery.LoadAllInformation();
+							StackbasedEvaluation tempEstimation = new StackbasedEvaluation(outStream,kList);
+							tempEstimation.computeSLCA(tempQuery);
+							kquery.LoadSpecificInformationFromList(keyword,tempEstimation.resultList);
+						}						
+					}
+					else
+					{
+						if (!kquery.keyword2deweylist.containsKey(keyword)) {
+							kquery.LoadSpecificInformation(keyword);							
+						}
+					}
+					
+										
+					kquery.pointerOfSmallNodes.put(keyword, 0);
+					
+				}
+				
+				SLCAEvaluation myEstimation;
+				
+				// stack or index
+				
+				myEstimation= new StackbasedEvaluation(
+						outStream,curItem);
+				
+								
+				//Helper.PrintList(kquery.keywordList);
+				myEstimation.computeSLCA(kquery);					
+				
+				// release memory			
+			
+				for (String keyword :curItem) {
+					//int curCount = 0;
+					if(advanceScheduler.containsKey(keyword))
+					{
+						List<String> tempList=advanceScheduler.get(keyword);
+						if(tempList.contains( Integer.toString(curUserQuery)))
+						{
+							tempList.remove(Integer.toString(curUserQuery));
+							advanceScheduler.put( Integer.toString(curUserQuery), tempList);
+						}						
+					
+						else if(tempList.size()==0)
+						{
+							kquery.clearKeyword(keyword);
+						}
+					}
+					else
+					{
+						kquery.clearKeyword(keyword);
+					}
+												
+					
+				}
+			
+			
+			
+				System.gc();
+
+				
+				myEstimation.PrintResults();
+				//Helper.PrintHashMap(kquery.keyword2deweylist);
+				
+				curItem=getNextNodeFromLattice();
+				
+			}
+			
 		
+			TimeRecorder.stopRecord();
+
+			long qtime = TimeRecorder.getTimeRecord();
+			// get memory usage
+			long usagememory = Helper.getMemoryUsage();
+
+			outStream.println("Template Aware Algorithms:");
+			System.out.println("Template Aware Algorithms:");
+			outStream.printf("--" + "Response Time: %d \n", qtime);
+			outStream.println();
+			System.out.printf("--" + "Response Time: %d \n", qtime);
+			outStream.printf("--" + "Memory usage: %d \n", usagememory);
+			outStream.println();
+			System.out.printf("--" + "Memory usage: %d \n", usagememory);
+
+
+			queryRead.close();
+			JdbcImplement.DisconnectDB();
+
+			outStream.close();
+			System.out.println("====================>>> Stop application!");
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	public void testTemplateAwareAlgorithm_old() {
 		try {
@@ -519,7 +659,7 @@ public class MyTest {
 						
 						lattice.put(i, tempJointList);
 					} else {
-						List<String> tempJointList = new ArrayList<String>();
+						List<String> tempJointList = new LinkedList<String>();
 						if(!tempJointList.contains(tempJoint))
 						{
 							tempJointList.add(tempJoint);
@@ -535,7 +675,7 @@ public class MyTest {
 						}
 						lattice.put(j, tempJointList);
 					} else {
-						List<String> tempJointList = new ArrayList<String>();
+						List<String> tempJointList = new LinkedList<String>();
 						if(!tempJointList.contains(tempJoint))
 						{
 							tempJointList.add(tempJoint);

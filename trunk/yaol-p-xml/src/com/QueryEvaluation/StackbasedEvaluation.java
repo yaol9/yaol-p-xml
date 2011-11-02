@@ -8,25 +8,25 @@ import java.util.List;
 import java.util.Stack;
 import com.tools.Helper;
 
-public class StackbasedEvaluation {
+public class StackbasedEvaluation implements SLCAEvaluation{
 
-	private PrintWriter StackSLCAResults;
+	private PrintWriter SLCAResults;
 
 	private List<String> keywordList;
 
-	public List<String> _resultheap;
+	public LinkedList<String> resultList;
 
 	public int _totalnumberofresults;
 
 	public int _numberofchecked;
 
 	public StackbasedEvaluation(PrintWriter outStream, List<String> keywords) {
-		StackSLCAResults = outStream;
+		SLCAResults = outStream;
 
 		_totalnumberofresults = 0;
 		_numberofchecked = 0;
 
-		_resultheap = new ArrayList<String>();
+		resultList = new LinkedList<String>();
 
 		keywordList = keywords;
 
@@ -76,7 +76,7 @@ public class StackbasedEvaluation {
 									// output SLCA
 									// System.out.println("Result:" +
 									// currdewey);
-									_resultheap.add(currdewey);
+									resultList.add(currdewey);
 									for (int j = 0; j < keyStack.size(); j++) {
 										keyStack.get(j).put("a-refuse-mark", 1);
 										for (String key : keywordList) {
@@ -128,7 +128,7 @@ public class StackbasedEvaluation {
 				if (Helper.isSLCA(topKeywordStack, keywordList)) {
 					// output SLCA
 					// System.out.println("Result:" + currdewey);
-					_resultheap.add(currdewey);
+					resultList.add(currdewey);
 					for (int j = 0; j < keyStack.size(); j++) {
 						keyStack.get(j).put("arefusemark", 1);
 						for (String key : keywordList) {
@@ -158,22 +158,22 @@ public class StackbasedEvaluation {
 	public void PrintResults() {
 
 		// record the number of checked nodes
-		StackSLCAResults.println("The number of checked nodes is: "
+		SLCAResults.println("The number of checked nodes is: "
 				+ _numberofchecked);
 
 		// from _resultheap and _resultmonitor
-		StackSLCAResults.println("SLCA results as follow. ");
+		SLCAResults.println("SLCA results as follow. ");
 		System.out.println("SLCA results as follow");
 
-		for (String result : _resultheap) {
+		for (String result : resultList) {
 
-			StackSLCAResults.println("SLCA result: " + result);
+			SLCAResults.println("SLCA result: " + result);
 			System.out.println("SLCA result: " + result);
 		}
 
-		StackSLCAResults.println();
-		StackSLCAResults.println();
-		StackSLCAResults.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		SLCAResults.println();
+		SLCAResults.println();
+		SLCAResults.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
 
 }

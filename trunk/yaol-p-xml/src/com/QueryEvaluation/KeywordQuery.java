@@ -60,6 +60,12 @@ public class KeywordQuery {
 		LoadKeywordNodes(keyword.trim());	
 		
 	}
+	
+	public void LoadSpecificInformationFromList(String keyword,LinkedList<String> keywordList) {
+		keyword2deweylist.put(keyword, keywordList);
+		
+	}
+	
 	/*
 	 * For a keyword, we load its relevant dewey code into a ArrayList or
 	 * LinkedList. At the same time, we retrieve the prdewey for each dewey and
