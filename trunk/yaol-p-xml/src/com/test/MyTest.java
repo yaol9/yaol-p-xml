@@ -42,8 +42,8 @@ public class MyTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		MyTest mytest = new MyTest();
-		//mytest.testSequenceAlgorithm();
-		//mytest.testBasicAlgorithm();
+		mytest.testSequenceAlgorithm();
+		mytest.testBasicAlgorithm();
 		mytest.testTemplateAwareAlgorithm();
 		//mytest.testTemplateAwareAlgorithm_old();
 	}
