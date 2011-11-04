@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.QueryEvaluation.IndexbasedEvaluation;
 import com.QueryEvaluation.KeywordQuery;
 import com.QueryEvaluation.StackbasedEvaluation;
 import com.QueryEvaluation.SLCAEvaluation;
@@ -27,12 +28,12 @@ import com.tools.TimeRecorder;
 public class MyTest {
 
 	private HashMap<Integer, List<String>> lattice;
-	//private HashMap<String, Integer> scheduler; // whether delete keyword
+	
 	private HashMap<String, List<String>> advanceScheduler; // whether delete keyword
     private int curUserQuery ;
 	public MyTest() {
 		lattice = new HashMap<Integer, List<String>>();
-	//	scheduler = new HashMap<String, Integer>();
+	
 		advanceScheduler= new HashMap<String, List<String>>();
 	}
 
@@ -43,8 +44,8 @@ public class MyTest {
 		// TODO Auto-generated method stub
 		MyTest mytest = new MyTest();
 		mytest.testSequenceAlgorithm();
-		mytest.testBasicAlgorithm();
-		mytest.testTemplateAwareAlgorithm();
+		//mytest.testBasicAlgorithm();
+		//mytest.testTemplateAwareAlgorithm();
 		//mytest.testTemplateAwareAlgorithm_old();
 	}
 
@@ -67,12 +68,12 @@ public class MyTest {
 			while ((query = queryRead.readLine()) != null) {
 
 				List<String> refinedkeywords = Helper.getRefinedKeywords(query);
-				System.out.println(refinedkeywords.size());
+				int keywordSize = refinedkeywords.size();
+				System.out.println(keywordSize);
 
 				// give a refined keyword query to load
 				// the corresponding keyword nodes
-				StackbasedEvaluation myEstimation = new StackbasedEvaluation(
-						outStream, refinedkeywords);
+				
 
 				KeywordQuery kquery = new KeywordQuery(refinedkeywords);
 
@@ -83,6 +84,39 @@ public class MyTest {
 
 				kquery.LoadAllInformation();
 
+				SLCAEvaluation myEstimation=null;
+				
+				//choose stack or index
+				int min=1000;
+				int totalSize=0;
+				String minKeyword=null;
+				for(String s : refinedkeywords)
+				{
+					int tempSize=kquery.keyword2deweylist.get(s).size();
+					if(tempSize<min)
+					{
+						min=tempSize;
+						minKeyword=s;
+					}
+					totalSize += tempSize;
+				}
+				//go index
+				if((min*keywordSize*5) < totalSize )
+				{
+					outStream.printf("index based");
+					System.out.println("index based");
+					myEstimation = new IndexbasedEvaluation(
+							outStream, refinedkeywords,minKeyword);
+				}
+				else //go stack
+				{
+					outStream.printf("stack based");
+					System.out.println("stack based");
+					myEstimation = new StackbasedEvaluation(
+							outStream, refinedkeywords);
+				}
+				 
+				
 				// print keyword dewey list info
 				for (String keyword : kquery.keywordList) {
 					if (kquery.keyword2deweylist.get(keyword).size() == 0) {
