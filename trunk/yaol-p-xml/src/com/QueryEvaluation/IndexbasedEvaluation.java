@@ -50,7 +50,7 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 	public void computeSLCA(KeywordQuery kquery) {
 		// TODO Auto-generated method stub
 		//load list into []
-	
+		kquery.pointerOfSmallNodes.clear();
 		
 		String nodeV=null;
 		List<String> resultB = new LinkedList<String>();
@@ -212,6 +212,7 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 	// need change 
 	private int getRM(String node, List<String>  sList)
 	{
+		
 		int pos = 0;
 		
 		for(String s :sList)
@@ -225,6 +226,30 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 		}
 		
 		return -1;
+		
+		/*
+		int pos = 0;
+		int half=(int)sList.size()/2+1;
+		if(Helper.compareDewey(sList.get(half),node)>0)
+		{			
+			return getRM(node,sList.subList(0,half));						
+		}
+		else if (Helper.compareDewey(sList.get(half),node)==0)
+		{
+			return half;
+		}
+		else
+		{
+			if(sList.size()>half+1)
+			{
+				return half+getRM(node,sList.subList(half+1,sList.size()-1));
+			}
+			else
+			{
+				return half;
+			}
+		}
+		*/
 	}
 	
 	public static void main(String[] args) {
