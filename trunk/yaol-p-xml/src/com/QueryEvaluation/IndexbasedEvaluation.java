@@ -52,26 +52,44 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 		//load list into []
 	
 		
-		String nodeV="";
+		String nodeV=null;
 		List<String> resultB = new LinkedList<String>();
 		
 		for(String node:kquery.keyword2deweylist.get(indexWord))
 		{
+			resultB.add(node);
 			//start lookup
 			for(String keyword: kquery.keyword2deweylist.keySet())
 			{
-				if(!keyword.equalsIgnoreCase(indexWord));
+				if(!keyword.equalsIgnoreCase(indexWord))
 				{
 					//B=get_slca(B,Si);
 					resultB = getSlca(resultB,kquery.keyword2deweylist.get(keyword));
-					
+										
 				}
 			}
-			System.out.println(indexWord+"+"+node);
+			if(nodeV!=null)
+			{
+				if(nodeV.startsWith(resultB.get(0)))
+				{
+					resultB.remove(0);
+				}
+				
+				else if(!resultB.get(0).startsWith(nodeV))
+				{
+					resultList.add(nodeV);					
+				}
+			}
+			if(!resultB.isEmpty())
+			{
+				nodeV=resultB.remove(resultB.size()-1);					
+			}
+			
+			resultB.clear();
+			
 		}
 		
-		
-		
+		resultList.add(nodeV);
 			
 
 	}
@@ -106,23 +124,109 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 		}
 		List<String> result = new LinkedList<String>();
 		String u = "";
-		for(String node : resultB)
+		String x="";
+		
+		for(String v : resultB)
 		{
+			int rm=getRM(v,sList);
+			String lmNode=null;
+			String rmNode=null;
+			if(rm>0)
+			{
+				rmNode = sList.get(rm);
+				lmNode = sList.get(rm-1);
+			}
+			else if(rm==0)
+			{
+				rmNode = sList.get(rm);
+				lmNode=rmNode;
+			}
+			else
+			{
+				lmNode=sList.get(sList.size()-1);
+				rmNode=lmNode;
+			}
 			
+			if(rmNode.equalsIgnoreCase(v))
+			{
+				lmNode=rmNode;
+			}
+			x=getDescendant(getLCA(v,lmNode),getLCA(v,rmNode));
 			
+			if(u.length()==0 || Helper.compareDewey(u, x)<=0)
+			{
+				if(!x.startsWith(u))
+				{
+					result.add(u);
+				}
+				u=x;
+			}
 			
 		}
-		return null;	
+		result.add(u);
+		return result;	
 	}
 	
 	private String getLCA(String node1, String node2)
 	{
-		String lca="";
+		String lca = null;
 		
+		String[] deweyList1 = node1.split("[.]");
+		String[] deweyList2 = node2.split("[.]");
+		int min = (deweyList1.length>deweyList2.length?deweyList2.length:deweyList1.length);
 		
+		for (int i = 0; i < min; i++) {
+			if(deweyList1[i].equalsIgnoreCase(deweyList2[i]))
+			{
+				if(lca==null)
+				{
+					lca=deweyList1[i];
+				}
+				else
+				{
+					lca=lca+"."+deweyList1[i];
+				}
+			}
+			else
+			{
+				return lca;
+			}
+		}
 		
 		return lca;
 	}
+	
+	private String getDescendant(String node1, String node2)
+	{
+			
+		if(node1.length()>node2.length())
+		{
+			return node1;
+		}
+		else
+		{
+			return node2;
+		}
+		
+	}
+	// need change 
+	private int getRM(String node, List<String>  sList)
+	{
+		int pos = 0;
+		
+		for(String s :sList)
+		{
+			if(Helper.compareDewey(s,node)>=0)
+			{
+				return pos;
+						
+			}
+			pos++;
+		}
+		
+		return -1;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
@@ -137,12 +241,13 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 
 		
 		List<String> refinedkeywords = new LinkedList<String>();
-		refinedkeywords.add("orange");
-		refinedkeywords.add("apple");
+		refinedkeywords.add("company");
+		refinedkeywords.add("cook");
+		refinedkeywords.add("australia");
 		
 		KeywordQuery kquery = new KeywordQuery(refinedkeywords);
 		kquery.LoadAllInformation();
-		SLCAEvaluation mytest = new IndexbasedEvaluation(outStream,refinedkeywords,"orange");
+		SLCAEvaluation mytest = new IndexbasedEvaluation(outStream,refinedkeywords,"australia");
 		mytest.computeSLCA(kquery);
 	
 		mytest.PrintResults();

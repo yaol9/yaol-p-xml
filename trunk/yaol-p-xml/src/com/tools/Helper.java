@@ -129,4 +129,33 @@ public class Helper {
 		}
 		return tempJoint;
 	}
+	
+	public static int compareDewey(String dewey1, String dewey2)
+	{
+		int returnVal =0;
+		String[] deweyList1 = dewey1.split("[.]");
+		String[] deweyList2 = dewey2.split("[.]");
+		for (int i = 0; i < deweyList1.length; i++) {
+			if(deweyList2.length>i)
+			{
+				if(Integer.parseInt(deweyList1[i])>Integer.parseInt(deweyList2[i]))
+				{
+					returnVal=1;
+					return returnVal;
+				}
+				else if(Integer.parseInt(deweyList1[i])<Integer.parseInt(deweyList2[i]))
+				{
+					returnVal=-1;
+					return returnVal;
+				}			
+			}				
+		}
+		if(deweyList2.length>deweyList1.length)
+		{
+			returnVal=1;
+			return returnVal;
+		}
+		
+		return returnVal;
+	}
 }
