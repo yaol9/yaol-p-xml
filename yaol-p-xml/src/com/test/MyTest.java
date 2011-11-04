@@ -44,8 +44,8 @@ public class MyTest {
 		// TODO Auto-generated method stub
 		MyTest mytest = new MyTest();
 		mytest.testSequenceAlgorithm();
-		//mytest.testBasicAlgorithm();
-		//mytest.testTemplateAwareAlgorithm();
+		mytest.testBasicAlgorithm();
+		mytest.testTemplateAwareAlgorithm();
 		//mytest.testTemplateAwareAlgorithm_old();
 	}
 
@@ -217,25 +217,54 @@ public class MyTest {
 			for (int i = 0; i < counter; i++) {
 				List<String> refinedkeywords = new LinkedList<String>();
 				refinedkeywords = userQuery.get(i);
-				System.out.println(refinedkeywords.size());
+				int keywordSize = refinedkeywords.size();
+				System.out.println(keywordSize);
 
-				// give a refined keyword query to load
-				// the corresponding keyword nodes
-				StackbasedEvaluation myEstimation = new StackbasedEvaluation(
-						outStream, refinedkeywords);
-
-				// KeywordQuery kquery = new KeywordQuery(refinedkeywords);
-
-				// Start to estimate
+				
 				for (String keyword : refinedkeywords) {
 					if (!kquery.keyword2deweylist.containsKey(keyword)) {
 						kquery.LoadSpecificInformation(keyword);
 					}
 					kquery.pointerOfSmallNodes.put(keyword, 0);
 				}
+			
+				
+				// give a refined keyword query to load
+				// the corresponding keyword nodes
+				SLCAEvaluation myEstimation = null;//new StackbasedEvaluation(	outStream, refinedkeywords);
 
-				// kquery.LoadAllInformation();
-
+				//choose stack or index
+				int min=1000;
+				int totalSize=0;
+				String minKeyword=null;
+				for(String s : refinedkeywords)
+				{
+					int tempSize=kquery.keyword2deweylist.get(s).size();
+					if(tempSize<min)
+					{
+						min=tempSize;
+						minKeyword=s;
+					}
+					totalSize += tempSize;
+				}
+				//go index
+				if((min*keywordSize*5) < totalSize )
+				{
+					outStream.printf("index based");
+					System.out.println("index based");
+					myEstimation = new IndexbasedEvaluation(
+							outStream, refinedkeywords,minKeyword);
+				}
+				else //go stack
+				{
+					outStream.printf("stack based");
+					System.out.println("stack based");
+					myEstimation = new StackbasedEvaluation(
+							outStream, refinedkeywords);
+				}
+								
+				// Start to estimate
+								
 				// print keyword dewey list info
 				for (String keyword : refinedkeywords) {
 					if (kquery.keyword2deweylist.get(keyword).size() == 0) {
@@ -247,12 +276,18 @@ public class MyTest {
 												.size() + "\n");
 						System.exit(-1);
 					}
+					System.out.println("Keyword Size " + keyword
+							+ " -> number: "
+							+ kquery.keyword2deweylist.get(keyword).size()
+							+ "\n");
 					outStream.println("Keyword Size " + keyword
 							+ " -> number: "
 							+ kquery.keyword2deweylist.get(keyword).size()
 							+ "\n");
 
 				}
+				
+				
 				myEstimation.computeSLCA(kquery);
 
 				// release memory
@@ -264,19 +299,13 @@ public class MyTest {
 						kquery.clearKeyword(keyword);
 					}
 				}
+				
 				System.gc();
 
 				myEstimation.PrintResults();
 
 			}
-
-			// check memory
-			// for(String key:kquery.keyword2deweylist.keySet())
-			// {
-			// System.out.println(key);
-			// System.out.println(kquery.keyword2deweylist.get(key).size());
-			// }
-
+		
 			TimeRecorder.stopRecord();
 
 			long qtime = TimeRecorder.getTimeRecord();
