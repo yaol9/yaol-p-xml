@@ -19,7 +19,6 @@ import com.QueryEvaluation.IndexbasedEvaluation;
 import com.QueryEvaluation.KeywordQuery;
 import com.QueryEvaluation.StackbasedEvaluation;
 import com.QueryEvaluation.SLCAEvaluation;
-import com.QueryEvaluation.SuperStackbasedEvaluation;
 import com.myjdbc.JdbcImplement;
 import com.tools.Helper;
 import com.tools.PropertyReader;
@@ -27,14 +26,9 @@ import com.tools.TimeRecorder;
 
 public class MyTest {
 
-	private HashMap<Integer, List<String>> lattice;
-	
-	private HashMap<String, List<String>> advanceScheduler; // whether delete keyword
-    private int curUserQuery ;
+    private int curUserQuery ; // only for query aware algorithm
 	public MyTest() {
-		lattice = new HashMap<Integer, List<String>>();
-	
-		advanceScheduler= new HashMap<String, List<String>>();
+
 	}
 
 	/**
@@ -45,8 +39,8 @@ public class MyTest {
 		MyTest mytest = new MyTest();
 		mytest.testSequenceAlgorithm();
 		mytest.testBasicAlgorithm();
-		mytest.testTemplateAwareAlgorithm();
-		//mytest.testTemplateAwareAlgorithm_old();
+		mytest.testQueryAwareAlgorithm();
+		
 	}
 
 	public void testSequenceAlgorithm() {
@@ -332,12 +326,12 @@ public class MyTest {
 		}
 	}
 
-	public void testTemplateAwareAlgorithm()
+	public void testQueryAwareAlgorithm()
 	{
 		try {
 			PrintWriter outStream = new PrintWriter(new BufferedWriter(
 					new FileWriter(
-							new File("./out/TemplateAwareEvaluation.log"))));
+							new File("./out/QueryAwareEvaluation.log"))));
 
 			String databaseName = PropertyReader.getProperty("dbname");
 			JdbcImplement.ConnectToDB(databaseName);
@@ -361,14 +355,16 @@ public class MyTest {
 				userQuery.put(counter, refinedkeywords);
 				counter++;
 			}
-
-			generateLattice(userQuery, counter);
-			//Helper.PrintHashMap(advanceScheduler);	
+			HashMap<String, List<String>> scheduler=new HashMap<String, List<String>> ();
+			Helper.PrintHashMap(scheduler);	
+			HashMap<Integer, List<String>> lattice =	generateLattice(userQuery, counter,scheduler);
+			
+			Helper.PrintHashMap(scheduler);	
 	
 			
 			TimeRecorder.startRecord();
 			KeywordQuery kquery = new KeywordQuery();
-			List<String> curItem = getNextNodeFromLattice();
+			List<String> curItem = getNextNodeFromLattice(lattice,kquery);
 			while(!curItem.isEmpty())
 			{			
 				// Start to estimate
@@ -376,7 +372,6 @@ public class MyTest {
 				outStream.println();
 				System.out.printf("-- " + "Keyword Query: %s \n", curItem);
 								
-				
 				for(String keyword:curItem)
 				{
 					if(keyword.contains("|"))
@@ -385,7 +380,20 @@ public class MyTest {
 						{
 							List<String> kList=Arrays.asList(keyword.split("[|]"));
 							KeywordQuery tempQuery = new KeywordQuery(kList);
-							tempQuery.LoadAllInformation();
+							//tempQuery.LoadAllInformation();
+							for(String s:kList)
+							{
+								if(!kquery.keyword2deweylist.containsKey(s))
+								{
+									tempQuery.LoadSpecificInformation(s);	
+								}
+								else
+								{
+									tempQuery.LoadSpecificInformationFromList(s,kquery.keyword2deweylist.get(s));
+								}
+								tempQuery.pointerOfSmallNodes.put(s, 0);
+							}
+							
 							StackbasedEvaluation tempEstimation = new StackbasedEvaluation(outStream,kList);
 							tempEstimation.computeSLCA(tempQuery);
 							kquery.LoadSpecificInformationFromList(keyword,tempEstimation.resultList);
@@ -404,11 +412,38 @@ public class MyTest {
 				}
 				
 				SLCAEvaluation myEstimation;
+				//choose stack or index
+				int min=1000;
+				int totalSize=0;
+				int keywordSize = curItem.size();
+				String minKeyword=null;
 				
-				// stack or index
-				
-				myEstimation= new StackbasedEvaluation(
-						outStream,curItem);
+				for(String s : curItem)
+				{
+					int tempSize=kquery.keyword2deweylist.get(s).size();
+					if(tempSize<min)
+					{
+						min=tempSize;
+						minKeyword=s;
+					}
+					totalSize += tempSize;
+				}
+				//go index
+				if((min*keywordSize*5) < totalSize )
+				{
+					outStream.printf("index based");
+					System.out.println("index based");
+					myEstimation = new IndexbasedEvaluation(
+							outStream, curItem,minKeyword);
+				}
+				else //go stack
+				{
+					outStream.printf("stack based");
+					System.out.println("stack based");
+					myEstimation = new StackbasedEvaluation(
+							outStream, curItem);
+				}
+										
 				
 								
 				//Helper.PrintList(kquery.keywordList);
@@ -418,13 +453,13 @@ public class MyTest {
 			
 				for (String keyword :curItem) {
 					//int curCount = 0;
-					if(advanceScheduler.containsKey(keyword))
+					if(scheduler.containsKey(keyword))
 					{
-						List<String> tempList=advanceScheduler.get(keyword);
+						List<String> tempList=scheduler.get(keyword);
 						if(tempList.contains( Integer.toString(curUserQuery)))
 						{
 							tempList.remove(Integer.toString(curUserQuery));
-							advanceScheduler.put( Integer.toString(curUserQuery), tempList);
+							scheduler.put( Integer.toString(curUserQuery), tempList);
 						}						
 					
 						else if(tempList.size()==0)
@@ -448,7 +483,7 @@ public class MyTest {
 				myEstimation.PrintResults();
 				//Helper.PrintHashMap(kquery.keyword2deweylist);
 				
-				curItem=getNextNodeFromLattice();
+				curItem=getNextNodeFromLattice(lattice,kquery);
 				
 			}
 			
@@ -479,231 +514,10 @@ public class MyTest {
 			e.printStackTrace();
 		}
 	}
-	public void testTemplateAwareAlgorithm_old() {
-		try {
-			PrintWriter outStream = new PrintWriter(new BufferedWriter(
-					new FileWriter(
-							new File("./out/TemplateAwareEvaluation.log"))));
-
-			String databaseName = PropertyReader.getProperty("dbname");
-			JdbcImplement.ConnectToDB(databaseName);
-			String ksFile = PropertyReader.getProperty("ksFile");
-			BufferedReader queryRead = new BufferedReader(
-					new InputStreamReader(new DataInputStream(
-							new FileInputStream(ksFile))));
-
-			String query = "";
-			HashMap<Integer, List<String>> userQuery = new HashMap<Integer, List<String>>(); // user
-																								// query
-			int counter = 0;
-			int minKeywordPointer = 0; // start from shortest keyword query
-			int minKeywordCount = 0;
-
-			while ((query = queryRead.readLine()) != null) {
-				outStream.printf("-- " + "Keyword Query: %s \n", query);
-				outStream.println();
-				System.out.printf("-- " + "Keyword Query: %s \n", query);
-
-				List<String> refinedkeywords = Helper.getRefinedKeywords(query);
-				if (minKeywordCount == 0) {
-					minKeywordCount = refinedkeywords.size();
-				} else if (refinedkeywords.size() < minKeywordCount) {
-					minKeywordCount = refinedkeywords.size();
-					minKeywordPointer = counter;
-				}
-
-				userQuery.put(counter, refinedkeywords);
-				counter++;
-			}
-
-			generateLattice(userQuery, counter);
-			System.out.println("Start calculation from query:"
-					+ minKeywordPointer);
-			
-			KeywordQuery kquery = new KeywordQuery();
-			List<String> curItem = lattice.remove(minKeywordPointer);
-			curUserQuery=minKeywordPointer;
-			TimeRecorder.startRecord();
-			
-			while(!curItem.isEmpty())
-			{			
-				// Start to estimate
-				outStream.printf("-- " + "Keyword Query: %s \n", curItem);
-				outStream.println();
-				System.out.printf("-- " + "Keyword Query: %s \n", curItem);
-				
-				// give a refined keyword query to load
-				// the corresponding keyword nodes
-				List<String> revisedQuery = new LinkedList<String>();
-				for(String s : curItem)
-				{
-					if(s.contains("|"))
-					{
-						if(kquery.keyword2deweylist.containsKey(s))
-						{
-							revisedQuery.add(s);
-						}
-						else
-						{
-							String[] tempList = s.split("[|]");
-							for(String temp:tempList)
-							{
-								if(!revisedQuery.contains(temp))
-								{
-									revisedQuery.add(temp);
-								}
-							}
-						}
-						
-					}
-					else
-					{
-						if(!revisedQuery.contains(s))
-						{
-							revisedQuery.add(s);
-						}
-					}
-				}
-				SuperStackbasedEvaluation myEstimation = new SuperStackbasedEvaluation(
-						outStream, revisedQuery,kquery);
-					
-		
-				
-				// Start to estimate
-				List<String> tempAddedKeyword = new LinkedList<String>();
-				
-				for (String keyword : curItem) {
-					if (!kquery.keyword2deweylist.containsKey(keyword)) {
-						
-						if(keyword.contains("|"))
-						{
-							String[] tempList = keyword.split("[|]");
-							//add share result
-							kquery.shareResultList.add(keyword);
-							kquery.keywordList.add(keyword);
-							
-							
-							for(String temp:tempList)
-							{
-								if (!kquery.keyword2deweylist.containsKey(temp)) {
-									kquery.LoadSpecificInformation(temp);
-									kquery.keywordList.add(temp);
-									tempAddedKeyword.add(temp);
-									myEstimation.keywordList.add(temp);
-									
-								}
-								kquery.pointerOfSmallNodes.put(temp, 0);								
-							}
-						}
-						else
-						{
-							kquery.LoadSpecificInformation(keyword);
-							kquery.keywordList.add(keyword);
-							kquery.pointerOfSmallNodes.put(keyword, 0);
-						}						
-					}
-					else
-					{
-						kquery.pointerOfSmallNodes.put(keyword, 0);
-					}
-					
-				}
-
-				// print keyword dewey list info
-				for (String keyword : curItem) {
-					if(kquery.keyword2deweylist.containsKey(keyword))
-					{
-						if (kquery.keyword2deweylist.get(keyword).size() == 0) {
-							System.out
-									.println("-- Error happened: \n --Keyword Size "
-											+ keyword
-											+ " -> number: "
-											+ kquery.keyword2deweylist.get(keyword)
-													.size() + "\n");
-							System.exit(-1);
-						}
-						outStream.println("Keyword Size " + keyword
-								+ " -> number: "
-								+ kquery.keyword2deweylist.get(keyword).size()
-								+ "\n");
-					}
-					
-
-				}
-				//Helper.PrintList(kquery.keywordList);
-				myEstimation.computeSLCA(kquery);					
-				
-				// release memory			
-			
-				for (String keyword :curItem) {
-					//int curCount = 0;
-					if(advanceScheduler.containsKey(keyword))
-					{
-						List<String> tempList=advanceScheduler.get(keyword);
-						if(tempList.contains( Integer.toString(curUserQuery)))
-						{
-							tempList.remove(Integer.toString(curUserQuery));
-							advanceScheduler.put( Integer.toString(curUserQuery), tempList);
-						}
-						
-						if(tempList.size()==0)
-						{
-							kquery.clearKeyword(keyword);
-						}
-					}
-					else
-					{
-						kquery.clearKeyword(keyword);
-					}
-												
-		
-				}
-				for(String tempKeyword : tempAddedKeyword)
-				{
-					kquery.clearKeyword(tempKeyword);
-				}
-			
-			
-				System.gc();
-
-				
-				myEstimation.PrintResults();
-				Helper.PrintHashMap(kquery.keyword2deweylist);
-				
-				curItem=getNextNodeFromLattice();
-				
-			}
-			
-			
-			TimeRecorder.stopRecord();
-
-			long qtime = TimeRecorder.getTimeRecord();
-			// get memory usage
-			long usagememory = Helper.getMemoryUsage();
-
-			outStream.println("Template Aware Algorithms:");
-			System.out.println("Template Aware Algorithms:");
-			outStream.printf("--" + "Response Time: %d \n", qtime);
-			outStream.println();
-			System.out.printf("--" + "Response Time: %d \n", qtime);
-			outStream.printf("--" + "Memory usage: %d \n", usagememory);
-			outStream.println();
-			System.out.printf("--" + "Memory usage: %d \n", usagememory);
-
-
-			queryRead.close();
-			JdbcImplement.DisconnectDB();
-
-			outStream.close();
-			System.out.println("====================>>> Stop application!");
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	private void generateLattice(HashMap<Integer, List<String>> userQuery,
-			int counter) {
+	
+	private HashMap<Integer, List<String>> generateLattice(HashMap<Integer, List<String>> userQuery,
+			int counter,HashMap<String, List<String>> scheduler) {
+		HashMap<Integer, List<String>> lattice=new HashMap<Integer, List<String>> ();
 		for (int i = 0; i < counter; i++) {
 			for (int j = counter - 1; j > i; j--) {
 				// System.out.println("I:" + userQuery.get(i).toString());
@@ -746,8 +560,8 @@ public class MyTest {
 						lattice.put(j, tempJointList);
 					}
 
-					if (advanceScheduler.containsKey(tempJoint)) {
-						List<String> scheduleList = advanceScheduler.get(tempJoint);
+					if (scheduler.containsKey(tempJoint)) {
+						List<String> scheduleList = scheduler.get(tempJoint);
 						if(!scheduleList.contains(Integer.toString(i)))
 						{
 							scheduleList.add(Integer.toString(i));
@@ -756,12 +570,12 @@ public class MyTest {
 						{
 							scheduleList.add(Integer.toString(j));
 						}
-						advanceScheduler.put(tempJoint, scheduleList);
+						scheduler.put(tempJoint, scheduleList);
 					} else {
 						List<String> scheduleList = new LinkedList<String>();
 						scheduleList.add(Integer.toString(i));
 						scheduleList.add(Integer.toString(j));						
-						advanceScheduler.put(tempJoint, scheduleList);
+						scheduler.put(tempJoint, scheduleList);
 					}
 
 				}
@@ -794,11 +608,11 @@ public class MyTest {
 		}
 
 		//Helper.PrintHashMap(lattice);
-		
+		return lattice;
 
 	}
 	
-	private List<String> getNextNodeFromLattice()
+	private List<String> getNextNodeFromLattice(HashMap<Integer, List<String>> lattice,KeywordQuery kquery)
 	{
 		int nextPos=0;
 		List<String> nextItem;
@@ -807,6 +621,9 @@ public class MyTest {
 			for(Integer pos:lattice.keySet())
 			{
 				nextPos=pos;
+				
+				int i = compute_A(lattice.get(pos),kquery);
+				System.out.println("Query: "+pos+" A value: "+i);
 			}
 			nextItem = lattice.remove(nextPos);
 			curUserQuery=nextPos;
@@ -819,5 +636,52 @@ public class MyTest {
 		
 		return nextItem;
 	}
+	
+	private int compute_A(List<String> curItem,KeywordQuery kquery)
+	{
+		int returnVal=0;
+		
+		for(String keyword:curItem)
+		{
+			if(keyword.contains("|"))
+			{
+				if(!kquery.keyword2deweylist.containsKey(keyword))
+				{
+					List<String> kList=Arrays.asList(keyword.split("[|]"));
+			
+					for(String s:kList)
+					{
+						if(!kquery.keyword2deweylist.containsKey(s))
+						{
+							
+							returnVal++;
+						}
+				
+					}
+					
+				
+					returnVal++;
+				}						
+			}
+			else
+			{
+				if (!kquery.keyword2deweylist.containsKey(keyword)) {
+								
+					returnVal++;
+				}
+			}
+		}
+				
+		return returnVal;
+	}
+	
+	private int compute_R(List<String> curItem,KeywordQuery kquery)
+	{
+		int returnVal=0;
+		
+		return returnVal;
+	}
+	
+	
 
 }
