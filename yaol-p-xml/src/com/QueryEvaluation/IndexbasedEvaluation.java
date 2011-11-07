@@ -15,7 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.myjdbc.JdbcImplement;
-import com.test.MyTest;
+import com.test.TestManager;
 import com.tools.Helper;
 import com.tools.PropertyReader;
 
