@@ -2,4 +2,6 @@ CREATE  TABLE `dblp`.`KeywordDewey` (
   `Keyword` VARCHAR(500) NOT NULL ,
   `Dewey` VARCHAR(50) NOT NULL ,
   `Depth` VARCHAR(10) NOT NULL,
-`XMLid` INT NOT NULL );
+`XMLid` INT NOT NULL ,
+KEY `index1` (`Keyword`,`XMLid`) USING BTREE
+);
