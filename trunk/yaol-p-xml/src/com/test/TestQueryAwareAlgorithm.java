@@ -17,317 +17,18 @@ import java.util.List;
 
 import com.QueryEvaluation.IndexbasedEvaluation;
 import com.QueryEvaluation.KeywordQuery;
-import com.QueryEvaluation.StackbasedEvaluation;
 import com.QueryEvaluation.SLCAEvaluation;
+import com.QueryEvaluation.StackbasedEvaluation;
 import com.myjdbc.JdbcImplement;
 import com.tools.Helper;
 import com.tools.PropertyReader;
 import com.tools.TimeRecorder;
 
-public class MyTest {
+public class TestQueryAwareAlgorithm implements TestCase {
 
-    private int curUserQuery ; // only for query aware algorithm
-	public MyTest() {
-
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		MyTest mytest = new MyTest();
-		mytest.testSequenceAlgorithm();
-		mytest.testBasicAlgorithm();
-		mytest.testQueryAwareAlgorithm();
-		
-	}
-
-	public void testSequenceAlgorithm() {
-		try {
-			PrintWriter outStream = new PrintWriter(new BufferedWriter(
-					new FileWriter(new File("./out/SequenceEvaluation.log"))));
-
-			String databaseName = PropertyReader.getProperty("dbname");
-			JdbcImplement.ConnectToDB(databaseName);
-
-			String ksFile = PropertyReader.getProperty("ksFile");
-
-			BufferedReader queryRead = new BufferedReader(
-					new InputStreamReader(new DataInputStream(
-							new FileInputStream(ksFile))));
-
-			String query = "";
-			TimeRecorder.startRecord();
-			while ((query = queryRead.readLine()) != null) {
-
-				List<String> refinedkeywords = Helper.getRefinedKeywords(query);
-				int keywordSize = refinedkeywords.size();
-				System.out.println(keywordSize);
-
-				// give a refined keyword query to load
-				// the corresponding keyword nodes
-				
-
-				KeywordQuery kquery = new KeywordQuery(refinedkeywords);
-
-				// Start to estimate
-				outStream.printf("-- " + "Keyword Query: %s \n", query);
-				outStream.println();
-				System.out.printf("-- " + "Keyword Query: %s \n", query);
-
-				kquery.LoadAllInformation();
-
-				SLCAEvaluation myEstimation=null;
-				
-				//choose stack or index
-				int min=1000;
-				int totalSize=0;
-				String minKeyword=null;
-				for(String s : refinedkeywords)
-				{
-					int tempSize=kquery.keyword2deweylist.get(s).size();
-					if(tempSize<min)
-					{
-						min=tempSize;
-						minKeyword=s;
-					}
-					totalSize += tempSize;
-				}
-				//go index
-				if((min*keywordSize*5) < totalSize )
-				{
-					outStream.printf("index based");
-					System.out.println("index based");
-					myEstimation = new IndexbasedEvaluation(
-							outStream, refinedkeywords,minKeyword);
-				}
-				else //go stack
-				{
-					outStream.printf("stack based");
-					System.out.println("stack based");
-					myEstimation = new StackbasedEvaluation(
-							outStream, refinedkeywords);
-				}
-				 
-				
-				// print keyword dewey list info
-				for (String keyword : kquery.keywordList) {
-					if (kquery.keyword2deweylist.get(keyword).size() == 0) {
-						System.out
-								.println("-- Error happened: \n --Keyword Size "
-										+ keyword
-										+ " -> number: "
-										+ kquery.keyword2deweylist.get(keyword)
-												.size() + "\n");
-						System.exit(-1);
-					}
-					outStream.println("Keyword Size " + keyword
-							+ " -> number: "
-							+ kquery.keyword2deweylist.get(keyword).size()
-							+ "\n");
-
-				}
-				myEstimation.computeSLCA(kquery);
-
-				// release memory
-				kquery.clearMem();
-				System.gc();
-
-				myEstimation.PrintResults();
-
-			}
-
-			TimeRecorder.stopRecord();
-
-			long qtime = TimeRecorder.getTimeRecord();
-			// get memory usage
-			long usagememory = Helper.getMemoryUsage();
-
-			outStream.println("Sequence Algorithms:");
-			System.out.println("Sequence Algorithms:");
-			outStream.printf("--" + "Response Time: %d \n", qtime);
-			outStream.println();
-			System.out.printf("--" + "Response Time: %d \n", qtime);
-			outStream.printf("--" + "Memory usage: %d \n", usagememory);
-			outStream.println();
-			System.out.printf("--" + "Memory usage: %d \n", usagememory);
-
-			queryRead.close();
-			JdbcImplement.DisconnectDB();
-
-			outStream.close();
-			System.out.println("====================>>> Stop application!");
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void testBasicAlgorithm() {
-		try {
-			PrintWriter outStream = new PrintWriter(new BufferedWriter(
-					new FileWriter(new File("./out/BasicEvaluation.log"))));
-
-			String databaseName = PropertyReader.getProperty("dbname");
-			JdbcImplement.ConnectToDB(databaseName);
-
-			String ksFile = PropertyReader.getProperty("ksFile");
-
-			BufferedReader queryRead = new BufferedReader(
-					new InputStreamReader(new DataInputStream(
-							new FileInputStream(ksFile))));
-
-			String query = "";
-			TimeRecorder.startRecord();
-
-            HashMap<String, Integer> scheduler = new HashMap<String,Integer>(); 
-		
-			if (!scheduler.isEmpty()) {
-				scheduler.clear();
-			}
-			HashMap<Integer, List<String>> userQuery = new HashMap<Integer, List<String>>(); // user
-																								// query
-
-			int counter = 0;
-			while ((query = queryRead.readLine()) != null) {
-				outStream.printf("-- " + "Keyword Query: %s \n", query);
-				outStream.println();
-				System.out.printf("-- " + "Keyword Query: %s \n", query);
-
-				List<String> refinedkeywords = Helper.getRefinedKeywords(query);
-
-				for (String key : refinedkeywords) {
-					if (scheduler.containsKey(key)) {
-						scheduler.put(key, scheduler.get(key) + 1);
-					} else {
-						scheduler.put(key, 1);
-					}
-				}
-				userQuery.put(counter, refinedkeywords);
-				counter++;
-			}
-			KeywordQuery kquery = new KeywordQuery();
-			for (int i = 0; i < counter; i++) {
-				List<String> refinedkeywords = new LinkedList<String>();
-				refinedkeywords = userQuery.get(i);
-				int keywordSize = refinedkeywords.size();
-				System.out.println(keywordSize);
-
-				
-				for (String keyword : refinedkeywords) {
-					if (!kquery.keyword2deweylist.containsKey(keyword)) {
-						kquery.LoadSpecificInformation(keyword);
-					}
-					kquery.pointerOfSmallNodes.put(keyword, 0);
-				}
-			
-				
-				// give a refined keyword query to load
-				// the corresponding keyword nodes
-				SLCAEvaluation myEstimation = null;//new StackbasedEvaluation(	outStream, refinedkeywords);
-
-				//choose stack or index
-				int min=1000;
-				int totalSize=0;
-				String minKeyword=null;
-				for(String s : refinedkeywords)
-				{
-					int tempSize=kquery.keyword2deweylist.get(s).size();
-					if(tempSize<min)
-					{
-						min=tempSize;
-						minKeyword=s;
-					}
-					totalSize += tempSize;
-				}
-				//go index
-				if((min*keywordSize*5) < totalSize )
-				{
-					outStream.printf("index based");
-					System.out.println("index based");
-					myEstimation = new IndexbasedEvaluation(
-							outStream, refinedkeywords,minKeyword);
-				}
-				else //go stack
-				{
-					outStream.printf("stack based");
-					System.out.println("stack based");
-					myEstimation = new StackbasedEvaluation(
-							outStream, refinedkeywords);
-				}
-								
-				// Start to estimate
-								
-				// print keyword dewey list info
-				for (String keyword : refinedkeywords) {
-					if (kquery.keyword2deweylist.get(keyword).size() == 0) {
-						System.out
-								.println("-- Error happened: \n --Keyword Size "
-										+ keyword
-										+ " -> number: "
-										+ kquery.keyword2deweylist.get(keyword)
-												.size() + "\n");
-						System.exit(-1);
-					}
-					System.out.println("Keyword Size " + keyword
-							+ " -> number: "
-							+ kquery.keyword2deweylist.get(keyword).size()
-							+ "\n");
-					outStream.println("Keyword Size " + keyword
-							+ " -> number: "
-							+ kquery.keyword2deweylist.get(keyword).size()
-							+ "\n");
-
-				}
-				
-				
-				myEstimation.computeSLCA(kquery);
-
-				// release memory
-				for (String keyword : refinedkeywords) {
-					int curCount = scheduler.get(keyword);
-					if (curCount > 1) {
-						scheduler.put(keyword, curCount - 1);
-					} else {
-						kquery.clearKeyword(keyword);
-					}
-				}
-				
-				System.gc();
-
-				myEstimation.PrintResults();
-
-			}
-		
-			TimeRecorder.stopRecord();
-
-			long qtime = TimeRecorder.getTimeRecord();
-			// get memory usage
-			long usagememory = Helper.getMemoryUsage();
-
-			outStream.println("Basic Algorithms:");
-			System.out.println("Basic Algorithms:");
-			outStream.printf("--" + "Response Time: %d \n", qtime);
-			outStream.println();
-			System.out.printf("--" + "Response Time: %d \n", qtime);
-			outStream.printf("--" + "Memory usage: %d \n", usagememory);
-			outStream.println();
-			System.out.printf("--" + "Memory usage: %d \n", usagememory);
-
-			queryRead.close();
-			JdbcImplement.DisconnectDB();
-
-			outStream.close();
-			System.out.println("====================>>> Stop application!");
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void testQueryAwareAlgorithm()
-	{
+	private int curUserQuery ; 
+	@Override
+	public void run() {
 		try {
 			PrintWriter outStream = new PrintWriter(new BufferedWriter(
 					new FileWriter(
@@ -494,8 +195,8 @@ public class MyTest {
 			// get memory usage
 			long usagememory = Helper.getMemoryUsage();
 
-			outStream.println("Template Aware Algorithms:");
-			System.out.println("Template Aware Algorithms:");
+			outStream.println("Query Aware Algorithms:");
+			System.out.println("Query Aware Algorithms:");
 			outStream.printf("--" + "Response Time: %d \n", qtime);
 			outStream.println();
 			System.out.printf("--" + "Response Time: %d \n", qtime);
@@ -513,6 +214,7 @@ public class MyTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 	
 	private HashMap<Integer, List<String>> generateLattice(HashMap<Integer, List<String>> userQuery,
@@ -715,7 +417,5 @@ public class MyTest {
 		
 		return returnVal;
 	}
-	
-	
 
 }
