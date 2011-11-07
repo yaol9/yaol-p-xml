@@ -364,10 +364,11 @@ public class MyTest {
 			
 			TimeRecorder.startRecord();
 			KeywordQuery kquery = new KeywordQuery();
-			List<String> curItem = getNextNodeFromLattice(lattice,kquery);
+			List<String> curItem = getNextNodeFromLattice(lattice,kquery,scheduler);
 			while(!curItem.isEmpty())
 			{			
 				// Start to estimate
+				outStream.println();
 				outStream.printf("-- " + "Keyword Query: %s \n", curItem);
 				outStream.println();
 				System.out.printf("-- " + "Keyword Query: %s \n", curItem);
@@ -462,7 +463,7 @@ public class MyTest {
 							scheduler.put( Integer.toString(curUserQuery), tempList);
 						}						
 					
-						else if(tempList.size()==0)
+						if(tempList.size()==0)
 						{
 							kquery.clearKeyword(keyword);
 						}
@@ -473,8 +474,7 @@ public class MyTest {
 					}
 												
 					
-				}
-			
+				}		
 			
 			
 				System.gc();
@@ -483,7 +483,7 @@ public class MyTest {
 				myEstimation.PrintResults();
 				//Helper.PrintHashMap(kquery.keyword2deweylist);
 				
-				curItem=getNextNodeFromLattice(lattice,kquery);
+				curItem=getNextNodeFromLattice(lattice,kquery,scheduler);
 				
 			}
 			
@@ -612,21 +612,33 @@ public class MyTest {
 
 	}
 	
-	private List<String> getNextNodeFromLattice(HashMap<Integer, List<String>> lattice,KeywordQuery kquery)
+	private List<String> getNextNodeFromLattice(HashMap<Integer, List<String>> lattice,KeywordQuery kquery,HashMap<String, List<String>> scheduler)
 	{
-		int nextPos=0;
-		List<String> nextItem;
+		List<String> nextItem=null;
+		int returnPos=0;
 		if(lattice.size()>0)
 		{
+			int max=-10000;
+			
 			for(Integer pos:lattice.keySet())
 			{
-				nextPos=pos;
+				
 				
 				int i = compute_A(lattice.get(pos),kquery);
-				System.out.println("Query: "+pos+" A value: "+i);
+				int j = compute_R(pos,lattice.get(pos),kquery,scheduler);
+				
+				if((j-i)>max)
+				{
+					max=j-i;
+					returnPos=pos;
+				}
+				
+			//	System.out.println("Query: "+pos+" A value: "+i);
+			//	System.out.println("Query: "+pos+" R value: "+j);
+			//	System.out.println("Query: "+pos+" R-A value: "+(j-i));
 			}
-			nextItem = lattice.remove(nextPos);
-			curUserQuery=nextPos;
+			nextItem = lattice.remove(returnPos);
+			curUserQuery=returnPos;
 		}
 		else
 		{
@@ -675,9 +687,31 @@ public class MyTest {
 		return returnVal;
 	}
 	
-	private int compute_R(List<String> curItem,KeywordQuery kquery)
+	private int compute_R(int curPos,List<String> curItem,KeywordQuery kquery,HashMap<String, List<String>> scheduler)
 	{
 		int returnVal=0;
+		
+		for (String keyword :curItem) {
+			//int curCount = 0;
+			if(scheduler.containsKey(keyword))
+			{
+				List<String> tempList=scheduler.get(keyword);
+				if(tempList.contains( Integer.toString(curPos)))
+				{
+					if(tempList.size()==1)
+					{
+						returnVal++;
+					}				
+				}
+				
+			}
+			else
+			{
+				returnVal++;
+			}										
+			
+		}		
+	
 		
 		return returnVal;
 	}
