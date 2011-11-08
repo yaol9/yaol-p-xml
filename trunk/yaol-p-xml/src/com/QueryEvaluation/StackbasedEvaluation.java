@@ -1,4 +1,4 @@
-package com.QueryEvaluation;
+package com.queryevaluation;
 
 import java.io.PrintWriter;
 import java.util.HashMap;

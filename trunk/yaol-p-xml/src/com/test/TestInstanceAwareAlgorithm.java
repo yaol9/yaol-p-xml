@@ -15,11 +15,11 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.QueryEvaluation.IndexbasedEvaluation;
-import com.QueryEvaluation.KeywordQuery;
-import com.QueryEvaluation.SLCAEvaluation;
-import com.QueryEvaluation.StackbasedEvaluation;
 import com.myjdbc.JdbcImplement;
+import com.queryevaluation.IndexbasedEvaluation;
+import com.queryevaluation.KeywordQuery;
+import com.queryevaluation.SLCAEvaluation;
+import com.queryevaluation.StackbasedEvaluation;
 import com.tools.Helper;
 import com.tools.PropertyReader;
 import com.tools.TimeRecorder;
@@ -61,8 +61,7 @@ public class TestInstanceAwareAlgorithm implements TestCase {
 			//Helper.printHashMap(scheduler);	
 			HashMap<Integer, List<String>> lattice =	generateLattice(userQuery, counter,scheduler);
 			
-			//Helper.printHashMap(scheduler);	
-	
+			//Helper.printHashMap(scheduler);		
 			
 			
 			KeywordQuery kquery = new KeywordQuery();
@@ -80,7 +79,8 @@ public class TestInstanceAwareAlgorithm implements TestCase {
 					if(keyword.contains("|"))
 					{
 						if(!kquery.keyword2deweylist.containsKey(keyword))
-						{
+						{							
+							
 							List<String> kList=Arrays.asList(keyword.split("[|]"));
 							KeywordQuery tempQuery = new KeywordQuery(kList);
 							//tempQuery.LoadAllInformation();
@@ -96,6 +96,11 @@ public class TestInstanceAwareAlgorithm implements TestCase {
 								}
 								tempQuery.pointerOfSmallNodes.put(s, 0);
 							}
+							
+							//instance algorithm here: judge whether generate sharing factor
+							
+							
+							//unfinished
 							
 							StackbasedEvaluation tempEstimation = new StackbasedEvaluation(outStream,kList);
 							tempEstimation.computeSLCA(tempQuery);

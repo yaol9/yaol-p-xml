@@ -1,4 +1,4 @@
-package com.QueryEvaluation;
+package com.queryevaluation;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
