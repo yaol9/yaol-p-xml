@@ -11,7 +11,7 @@ import com.mysaxParser.TokenPreprocessor;
 
 public class Helper {
 	
-	public static void PrintList(List mylist) {
+	public static void printList(List mylist) {
 
 		Iterator ite = mylist.iterator();
 		while (ite.hasNext()) {
@@ -20,7 +20,7 @@ public class Helper {
 		}
 	}
 
-	public static void PrintHashMap(HashMap hm) {
+	public static void printHashMap(HashMap hm) {
 
 		Set keyset = hm.keySet();
 		for (Object key : keyset) {
@@ -31,7 +31,7 @@ public class Helper {
 	/*
 	 * transform the components in stack into a dewey code
 	 */
-	public static String GetDewey(Stack<String> stack) {
+	public static String getDewey(Stack<String> stack) {
 
 		// scan the stack from bottom to up
 		String dewey = null;

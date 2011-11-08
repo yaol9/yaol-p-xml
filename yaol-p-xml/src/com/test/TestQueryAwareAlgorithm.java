@@ -56,14 +56,16 @@ public class TestQueryAwareAlgorithm implements TestCase {
 				userQuery.put(counter, refinedkeywords);
 				counter++;
 			}
+			TimeRecorder.startRecord();
+			
 			HashMap<String, List<String>> scheduler=new HashMap<String, List<String>> ();
-			Helper.PrintHashMap(scheduler);	
+			//Helper.printHashMap(scheduler);	
 			HashMap<Integer, List<String>> lattice =	generateLattice(userQuery, counter,scheduler);
 			
-			Helper.PrintHashMap(scheduler);	
+			//Helper.printHashMap(scheduler);	
 	
 			
-			TimeRecorder.startRecord();
+			
 			KeywordQuery kquery = new KeywordQuery();
 			List<String> curItem = getNextNodeFromLattice(lattice,kquery,scheduler);
 			while(!curItem.isEmpty())
@@ -181,7 +183,7 @@ public class TestQueryAwareAlgorithm implements TestCase {
 				System.gc();
 
 				
-				myEstimation.PrintResults();
+				myEstimation.printResults();
 				//Helper.PrintHashMap(kquery.keyword2deweylist);
 				
 				curItem=getNextNodeFromLattice(lattice,kquery,scheduler);
