@@ -157,7 +157,7 @@ public class TestBasicAlgorithm implements TestCase {
 				
 				System.gc();
 
-				myEstimation.PrintResults();
+				myEstimation.printResults();
 
 			}
 		

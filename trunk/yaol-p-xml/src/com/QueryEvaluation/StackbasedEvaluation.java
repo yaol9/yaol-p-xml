@@ -67,7 +67,7 @@ public class StackbasedEvaluation implements SLCAEvaluation{
 								_numberofchecked++;
 
 								// get the current dewey from stack
-								String currdewey = Helper.GetDewey(vstack);
+								String currdewey = Helper.getDewey(vstack);
 								vstack.pop();
 								HashMap<String, Integer> topKeywordStack = keyStack
 										.pop();
@@ -120,7 +120,7 @@ public class StackbasedEvaluation implements SLCAEvaluation{
 				_numberofchecked++;
 
 				// get the current dewey from stack
-				String currdewey = Helper.GetDewey(vstack);
+				String currdewey = Helper.getDewey(vstack);
 
 				vstack.pop();
 				HashMap<String, Integer> topKeywordStack = keyStack.pop();
@@ -155,7 +155,7 @@ public class StackbasedEvaluation implements SLCAEvaluation{
 
 	}
 
-	public void PrintResults() {
+	public void printResults() {
 
 		// record the number of checked nodes
 		SLCAResults.println("The number of checked nodes is: "

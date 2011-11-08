@@ -115,7 +115,7 @@ public class TestSequenceAlgorithm implements TestCase {
 				kquery.clearMem();
 				System.gc();
 
-				myEstimation.PrintResults();
+				myEstimation.printResults();
 
 			}
 

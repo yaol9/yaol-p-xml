@@ -95,7 +95,7 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 	}
 
 	@Override
-	public void PrintResults() {
+	public void printResults() {
 		// TODO Auto-generated method stub
 		// record the number of checked nodes
 				SLCAResults.println("The number of checked nodes is: "
@@ -275,7 +275,7 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 		SLCAEvaluation mytest = new IndexbasedEvaluation(outStream,refinedkeywords,"australia");
 		mytest.computeSLCA(kquery);
 	
-		mytest.PrintResults();
+		mytest.printResults();
 		} 
 		catch (IOException e) {
 			// TODO Auto-generated catch block
