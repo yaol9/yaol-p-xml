@@ -1,4 +1,4 @@
-package com.QueryEvaluation;
+package com.queryevaluation;
 
 
 public interface SLCAEvaluation

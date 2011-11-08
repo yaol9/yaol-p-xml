@@ -11,11 +11,11 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.List;
 
-import com.QueryEvaluation.IndexbasedEvaluation;
-import com.QueryEvaluation.KeywordQuery;
-import com.QueryEvaluation.SLCAEvaluation;
-import com.QueryEvaluation.StackbasedEvaluation;
 import com.myjdbc.JdbcImplement;
+import com.queryevaluation.IndexbasedEvaluation;
+import com.queryevaluation.KeywordQuery;
+import com.queryevaluation.SLCAEvaluation;
+import com.queryevaluation.StackbasedEvaluation;
 import com.tools.Helper;
 import com.tools.PropertyReader;
 import com.tools.TimeRecorder;
