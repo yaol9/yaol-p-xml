@@ -83,7 +83,8 @@ public class mySAXParser extends DefaultHandler {
 	// static variables shared by all instances (probably not a good idea)
 	
 	private static PrintWriter outTexts; // output parsed text info
-
+	private static PrintWriter outElements;  // output parsed elements info
+	
 	// instance-specific variables
 	public int _docID;
 	public int depth = 0;
@@ -311,16 +312,16 @@ public class mySAXParser extends DefaultHandler {
 		// summary the number of elements where elements are not leaf nodes
 		collectionOfAllElements++;
 		d(Integer.toString(collectionOfAllElements));
-	//we don't need element.txt now
-		/*
+	
 		// !OUT_ELEM
-		outElements.write(reverseArrayToString(pathAsElemName, depth)
-				+ OUTPUT_FIELD_SEPARATOR + arrayToDeweyString(deweyCode, depth)
+		outElements.write( arrayToDeweyString(deweyCode, depth)
+				+ OUTPUT_FIELD_SEPARATOR
+				+ collectionOfAllElements 
 				+ "\n");
 
-		d(reverseArrayToString(pathAsElemName, depth) + OUTPUT_FIELD_SEPARATOR
-				+ arrayToDeweyString(deweyCode, depth) );
-*/ 
+		d(arrayToDeweyString(deweyCode, depth) + OUTPUT_FIELD_SEPARATOR
+				+ collectionOfAllElements);
+
 		
 		_stats.updateStats(deweyCode, depth);
 
@@ -447,7 +448,9 @@ public class mySAXParser extends DefaultHandler {
 			// open output files
 			PrintWriter outStream = null;
 
-		
+			outStream = new PrintWriter(new BufferedWriter(new FileWriter(new File(PropertyReader.getProperty("elementsFileUrl")))));
+			outElements = outStream;
+			
 			outStream = new PrintWriter(new BufferedWriter(new FileWriter(
 					new File(PropertyReader.getProperty("textsFileUrl")))));
 			outTexts = outStream;
@@ -485,7 +488,7 @@ public class mySAXParser extends DefaultHandler {
 				// close the files
 				
 				outTexts.close();
-
+				outElements.close();
 				outCollections.printf("Collection of all elements"
 						+ OUTPUT_FIELD_SEPARATOR + "%d\n",
 						getCollectionOfAllElements());

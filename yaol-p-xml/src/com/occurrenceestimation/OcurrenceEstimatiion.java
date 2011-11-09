@@ -39,6 +39,16 @@ public class OcurrenceEstimatiion {
 		int start=0;
 		int end=0;
 		int threshhold=5;
+		for(int i=0;i<maxSize;i++)
+		{
+			start=i;
+			while(!deweyList.containsKey(start))
+			{
+				start++;
+			}
+			
+		}
+		/*
 		while(end<maxSize)
 		{
 			while(!deweyList.containsKey(start))
@@ -90,6 +100,7 @@ public class OcurrenceEstimatiion {
 			}
 			
 		}
+		*/
 			
 		//Helper.printHashMap(deweyList);
 		Helper.printList(sampleList);

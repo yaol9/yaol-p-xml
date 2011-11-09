@@ -28,7 +28,7 @@ public class TestBasicAlgorithm implements TestCase {
 	public void run() {
 		try {
 			PrintWriter outStream = new PrintWriter(new BufferedWriter(
-					new FileWriter(new File("./out/BasicEvaluation.log"))));
+					new FileWriter(new File(PropertyReader.getProperty("BasicAlgorithmResult")))));
 
 			String databaseName = PropertyReader.getProperty("dbname");
 			JdbcImplement.ConnectToDB(databaseName);

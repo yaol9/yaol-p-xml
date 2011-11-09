@@ -279,13 +279,18 @@ public class JdbcImplement {
 						}
 									
 					
-						String TokenLevEnID = "./queries/TokenLevEnID.log";
+						String TokenLevEnID = PropertyReader.getProperty("TokenLevEnID");
 						
 					
 						if (loadDataSet(TokenLevEnID)){
 							System.out.println(".. The data "+ TokenLevEnID + " have been loaded correctly.");
 						}		
-					
+						
+						String EncodeID = PropertyReader.getProperty("EncodeID");
+												
+						if (loadDataSet(EncodeID)){
+							System.out.println(".. The data "+ EncodeID + " have been loaded correctly.");
+						}	
 						
 					}
 								

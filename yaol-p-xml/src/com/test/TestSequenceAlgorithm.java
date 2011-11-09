@@ -27,7 +27,7 @@ public class TestSequenceAlgorithm implements TestCase {
 		
 		try {
 			PrintWriter outStream = new PrintWriter(new BufferedWriter(
-					new FileWriter(new File("./out/SequenceEvaluation.log"))));
+					new FileWriter(new File(PropertyReader.getProperty("SequenceAlgorithmResult")))));
 
 			String databaseName = PropertyReader.getProperty("dbname");
 			JdbcImplement.ConnectToDB(databaseName);

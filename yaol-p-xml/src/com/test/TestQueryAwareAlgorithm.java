@@ -32,7 +32,7 @@ public class TestQueryAwareAlgorithm implements TestCase {
 		try {
 			PrintWriter outStream = new PrintWriter(new BufferedWriter(
 					new FileWriter(
-							new File("./out/QueryAwareEvaluation.log"))));
+							new File(PropertyReader.getProperty("QueryAwareAlgorithmResult")))));
 
 			String databaseName = PropertyReader.getProperty("dbname");
 			JdbcImplement.ConnectToDB(databaseName);
