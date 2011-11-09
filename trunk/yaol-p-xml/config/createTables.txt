@@ -5,3 +5,4 @@ CREATE  TABLE `dblp`.`KeywordDewey` (
 `XMLid` INT NOT NULL ,
 KEY `index1` (`Keyword`,`XMLid`) USING BTREE
 );
+CREATE  TABLE `dblp`.`DeweyID` (  `Dewey` VARCHAR(50) NOT NULL ,`XMLid` INT NOT NULL ,KEY `index1` (`XMLid`) USING BTREE);

@@ -15,6 +15,8 @@ import java.io.*;
 import java.util.*;
 import java.util.regex.Pattern;
 
+import com.tools.PropertyReader;
+
 
 public class DeweyToSQL {
 
@@ -25,10 +27,10 @@ public class DeweyToSQL {
 	private static final String INPUT_FIELD_SEPARATOR = "[|]";
 	
 	private static final String KEYWORD2ENCODE_TABLE_NAME = "KeywordDewey";
-
+	private static final String DEWEY2PATH2ID_TABLE_NAME = "DeweyID";
 	// static variables shared by all instances (probably not a good idea)
 	//public static PrintWriter outSql;  // output insert commands info
-	public static PrintWriter outEncode2Path;
+	public static PrintWriter outEncode2Id;
 	public static PrintWriter outKeyword2Encode;
 		
 	// variables
@@ -115,6 +117,71 @@ public class DeweyToSQL {
 		}
 	}
 	
+	public void processElementLogFile(String elemLogFile)
+	{
+
+		try {
+			BufferedReader input = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(elemLogFile))));
+			String strLine;
+			
+			//HashMap<String, String> encode2path = null;
+			//encode2path = new HashMap<String, String>();
+			
+			HashMap<String, String> encode2id = null;
+			encode2id = new HashMap<String, String>();
+			
+			while ((strLine = input.readLine()) != null) {
+				
+				System.out.println(strLine);
+				String fields[] = strLine.split(INPUT_FIELD_SEPARATOR);
+				
+				if ((fields.length == 2)&&(fields[0] != null)){
+					
+				//	String path = fields[0].trim();
+				//	String dewey = fields[0].trim();
+				//	String id = fields[1].trim();
+										
+				//	if (!encode2path.containsKey(dewey)){					
+					//	encode2path.put(dewey, path);
+				//	}	
+				//	if (!encode2id.containsKey(dewey)){					
+				//		encode2id.put(dewey, id);
+				//	}	
+					
+					System.out.printf("INSERT INTO "+ DEWEY2PATH2ID_TABLE_NAME +" VALUES " +
+							"(\"%s\", \"%s\");\n", fields[0].trim(), fields[1].trim());
+					outEncode2Id.printf("INSERT INTO "+ DEWEY2PATH2ID_TABLE_NAME +" VALUES " +
+							"(\"%s\", \"%s\");\n",fields[0].trim(), fields[1].trim());
+					
+					fields[0]=null;
+					fields[1]=null;
+					fields=null;
+				}
+				
+				
+				
+			}
+			input.close();
+			
+			//output encode -> path and prDewey into table PrDeweyDict
+			/*
+			Set<String> encodeSet = encode2id.keySet();
+			Iterator<String> encodeIte = encodeSet.iterator();
+			while (encodeIte.hasNext()){
+				String encode = encodeIte.next().toString();
+				
+				System.out.printf("INSERT INTO "+ DEWEY2PATH2ID_TABLE_NAME +" VALUES " +
+						"(\"%s\", \"%s\");\n", encode, encode2id.get(encode));
+				outEncode2Id.printf("INSERT INTO "+ DEWEY2PATH2ID_TABLE_NAME +" VALUES " +
+						"(\"%s\", \"%s\");\n", encode, encode2id.get(encode));
+			}
+			*/
+			//_labelPathDict.dump();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	//we delete the same word in the same string text
 	
 	public void parse(String dewey, String text,String depth,String id, String sep)
@@ -160,16 +227,16 @@ public class DeweyToSQL {
 			//load the parsed encodes
 			String curDir = System.getProperty("user.dir");
 			
-			String _textFile = curDir + "/out/texts.log";
-			
+			String _textFile = curDir + PropertyReader.getProperty("textsFileUrl");
+			String _elemFile = curDir + PropertyReader.getProperty("elementsFileUrl");
 			
 			PrintWriter outStream = null;
 			try{
+				String s = PropertyReader.getProperty("EncodeID");
+				outStream = new PrintWriter(new BufferedWriter(new FileWriter(new File(PropertyReader.getProperty("EncodeID")))));
+				outEncode2Id = outStream;	
 				
-			//	outStream = new PrintWriter(new BufferedWriter(new FileWriter(new File("./queries/PrEncodeDict.log"))));
-			//	outEncode2Path = outStream;	
-				
-				outStream = new PrintWriter(new BufferedWriter(new FileWriter(new File("./queries/TokenLevEnID.log"))));
+				outStream = new PrintWriter(new BufferedWriter(new FileWriter(new File(PropertyReader.getProperty("TokenLevEnID")))));
 				outKeyword2Encode = outStream;	
 			
 			}catch(Exception e){
@@ -178,11 +245,11 @@ public class DeweyToSQL {
 			
 		
 			DeweyToSQL sqlgen = new DeweyToSQL();
-			
+			sqlgen.processElementLogFile(_elemFile);
 			sqlgen.processTextLogFile(_textFile);	
 					
 			outKeyword2Encode.close();
-			
+			outEncode2Id.close();
 			
 			d("Keyword, dewey, depth ====> TokenLevEnID.log;\n" +
 					".. have been converted into sql statements!\n"+			

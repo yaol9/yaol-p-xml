@@ -31,7 +31,7 @@ public class TestInstanceAwareAlgorithm implements TestCase {
 		try {
 			PrintWriter outStream = new PrintWriter(new BufferedWriter(
 					new FileWriter(
-							new File("./out/InstanceAwareEvaluation.log"))));
+							new File(PropertyReader.getProperty("InstanceAwareAlgorithmResult")))));
 
 			String databaseName = PropertyReader.getProperty("dbname");
 			JdbcImplement.ConnectToDB(databaseName);
