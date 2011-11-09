@@ -21,7 +21,7 @@ public class OcurrenceEstimatiion {
 		String databaseName = PropertyReader.getProperty("dbname");
 		JdbcImplement.ConnectToDB(databaseName);
 		
-		String deweysql = "SELECT DISTINCT Dewey,XMLid FROM keyworddewey order by 'XMLid' limit 10000;";
+		String deweysql = "SELECT DISTINCT Dewey,XMLid FROM deweyid order by 'XMLid' limit 10000;";
 		ResultSet deweySet = JdbcImplement.performQuery(deweysql);
 
 		HashMap<Integer,String> deweyList= new HashMap<Integer,String>();//xml id <->dewey
@@ -36,19 +36,10 @@ public class OcurrenceEstimatiion {
 		
 		List <HashMap<String,Integer>> sampleList = new	ArrayList <HashMap<String,Integer>>();//sample		
 
-		int start=0;
-		int end=0;
-		int threshhold=5;
-		for(int i=0;i<maxSize;i++)
-		{
-			start=i;
-			while(!deweyList.containsKey(start))
-			{
-				start++;
-			}
-			
-		}
-		/*
+		int start=1;
+		int end=1;
+		int threshhold=10;
+				
 		while(end<maxSize)
 		{
 			while(!deweyList.containsKey(start))
@@ -56,55 +47,42 @@ public class OcurrenceEstimatiion {
 				start++;
 			}
 			String startDewey = deweyList.get(start);
-			end=start+1;
+			end=start+threshhold;
+			
 			while(!deweyList.containsKey(end))
 			{
 				end++;
 			}
 			String endDewey = deweyList.get(end);
-			//whether valid
-			System.out.println(startDewey+" + "+endDewey);
 			
-			while(!endDewey.startsWith(startDewey+"."))
-			{
-				end++;
-				while(!deweyList.containsKey(end))
-				{
-					end++;
-					if(end>maxSize)
-					{
-						
-					}
-				}
-				endDewey = deweyList.get(end);
-				if(end-start>threshhold*10)
-				{
-					start++;
-					break;
-				}
-			}
-			
-			if(end-start>threshhold)
+			//whether valid						
+			if(endDewey.startsWith(startDewey+"."))
 			{					
 				//valid
 				HashMap<String,Integer> sample = new HashMap<String,Integer>();
 				sample.put("start", start);
 				sample.put("end", end);
 				sampleList.add(sample);
-				start=end+1;
-				end++;
+				start=end+1;				
 			}
 			else
 			{
-				end++;
+				start++;
 			}
 			
 		}
-		*/
-			
-		//Helper.printHashMap(deweyList);
-		Helper.printList(sampleList);
-		//create samples
+		
+		//print sample
+		System.out.println("sample size: "+sampleList.size());	
+		
+		for( HashMap<String,Integer> s : sampleList)
+		{
+			System.out.println("start: "+deweyList.get(s.get("start"))+" end: "+deweyList.get(s.get("end")));					
+		}
+		
+		//generate sample occurrence
+		
+		
 		
 		
 		} catch (SQLException e) {

@@ -24,7 +24,6 @@ public class TestManager {
 		TestCase testInstanceAware = new TestInstanceAwareAlgorithm();
 		testInstanceAware.run();
 	}	
-	
-	
+		
 
 }
