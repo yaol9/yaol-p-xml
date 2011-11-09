@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.myjdbc.JdbcImplement;
+import com.db.DBHelper;
 import com.QueryEvaluation.IndexbasedEvaluation;
 import com.QueryEvaluation.KeywordQuery;
 import com.QueryEvaluation.SLCAEvaluation;
@@ -31,7 +31,7 @@ public class TestBasicAlgorithm implements TestCase {
 					new FileWriter(new File(PropertyReader.getProperty("BasicAlgorithmResult")))));
 
 			String databaseName = PropertyReader.getProperty("dbname");
-			JdbcImplement.ConnectToDB(databaseName);
+			DBHelper.ConnectToDB(databaseName);
 
 			String ksFile = PropertyReader.getProperty("ksFile");
 
@@ -177,7 +177,7 @@ public class TestBasicAlgorithm implements TestCase {
 			System.out.printf("--" + "Memory usage: %d \n", usagememory);
 
 			queryRead.close();
-			JdbcImplement.DisconnectDB();
+			DBHelper.DisconnectDB();
 
 			outStream.close();
 			System.out.println("====================>>> Stop application!");

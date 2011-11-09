@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.List;
 
-import com.myjdbc.JdbcImplement;
+import com.db.DBHelper;
 import com.QueryEvaluation.IndexbasedEvaluation;
 import com.QueryEvaluation.KeywordQuery;
 import com.QueryEvaluation.SLCAEvaluation;
@@ -30,7 +30,7 @@ public class TestSequenceAlgorithm implements TestCase {
 					new FileWriter(new File(PropertyReader.getProperty("SequenceAlgorithmResult")))));
 
 			String databaseName = PropertyReader.getProperty("dbname");
-			JdbcImplement.ConnectToDB(databaseName);
+			DBHelper.ConnectToDB(databaseName);
 
 			String ksFile = PropertyReader.getProperty("ksFile");
 
@@ -135,7 +135,7 @@ public class TestSequenceAlgorithm implements TestCase {
 			System.out.printf("--" + "Memory usage: %d \n", usagememory);
 
 			queryRead.close();
-			JdbcImplement.DisconnectDB();
+			DBHelper.DisconnectDB();
 
 			outStream.close();
 			System.out.println("====================>>> Stop application!");

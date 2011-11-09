@@ -5,7 +5,7 @@
  * 
  */
 
-package com.myjdbc;
+package com.db;
 
 import java.sql.*;
 import java.io.*;
@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import com.mysaxParser.*;
 import com.tools.PropertyReader;
 
-public class JdbcImplement {
+public class DBHelper {
 
 	
 //public static class processDB{

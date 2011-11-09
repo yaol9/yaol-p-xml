@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.myjdbc.JdbcImplement;
+import com.db.DBHelper;
 import com.test.TestManager;
 import com.tools.Helper;
 import com.tools.PropertyReader;
@@ -262,7 +262,7 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 	
 
 		String databaseName = PropertyReader.getProperty("dbname");
-		JdbcImplement.ConnectToDB(databaseName);
+		DBHelper.ConnectToDB(databaseName);
 
 		
 		List<String> refinedkeywords = new LinkedList<String>();
