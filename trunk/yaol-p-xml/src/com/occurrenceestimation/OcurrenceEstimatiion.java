@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.myjdbc.JdbcImplement;
+import com.db.DBHelper;
 import com.tools.Helper;
 import com.tools.PropertyReader;
 
@@ -19,10 +19,10 @@ public class OcurrenceEstimatiion {
 		// TODO Auto-generated method stub
 		try {
 		String databaseName = PropertyReader.getProperty("dbname");
-		JdbcImplement.ConnectToDB(databaseName);
+		DBHelper.ConnectToDB(databaseName);
 		
 		String deweysql = "SELECT DISTINCT Dewey,XMLid FROM deweyid order by 'XMLid' limit 10000;";
-		ResultSet deweySet = JdbcImplement.performQuery(deweysql);
+		ResultSet deweySet = DBHelper.performQuery(deweysql);
 
 		HashMap<Integer,String> deweyList= new HashMap<Integer,String>();//xml id <->dewey
 		int maxSize=0;
@@ -81,6 +81,17 @@ public class OcurrenceEstimatiion {
 		}
 		
 		//generate sample occurrence
+		
+		//load top 1000 keyword
+		String top1000sql = "SELECT Keyword,keywordCount FROM top1000 order by 'XMLid' desc;";
+		ResultSet top1000Set = DBHelper.performQuery(top1000sql);
+		List<String> frequenceKeywords = new ArrayList<String> ();
+
+		while (top1000Set.next()) {
+			frequenceKeywords.add(top1000Set.getString("Keyword"));
+		}		
+		//Helper.printList(frequenceKeywords);
+		
 		
 		
 		

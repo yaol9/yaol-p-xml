@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.myjdbc.JdbcImplement;
+import com.db.DBHelper;
 import com.tools.Helper;
 
 public class KeywordQuery {
@@ -82,7 +82,7 @@ public class KeywordQuery {
 
 	//	 System.out.println("nodelist: keyword:"+keyword);
 
-		ResultSet deweySet = JdbcImplement.performQuery(deweysql);
+		ResultSet deweySet = DBHelper.performQuery(deweysql);
 		int count = 0;
 		if (deweySet != null) {
 			try {
