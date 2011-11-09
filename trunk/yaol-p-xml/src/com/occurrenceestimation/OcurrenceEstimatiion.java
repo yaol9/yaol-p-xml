@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import com.db.DBHelper;
@@ -92,8 +93,42 @@ public class OcurrenceEstimatiion {
 		}		
 		//Helper.printList(frequenceKeywords);
 		
+		HashMap<String,Integer> occurrenceLog = new HashMap<String,Integer>(); // result
+		
+		//calculate result
+		//for single keyword in sample set
+		
+		for( HashMap<String,Integer> s : sampleList)
+		{
+			String startPos = s.get("start").toString();
+			String endPos = s.get("end").toString();
+			String sql ="SELECT Keyword, Dewey,XMLid FROM KeywordDewey where XMLid <= "+endPos+" and XMLid >= "+startPos;
+			ResultSet sqlResult = DBHelper.performQuery(sql);
+			
+			HashSet<String> keywordsSet = new HashSet<String>();
+			
+			while (sqlResult.next()) {
+				keywordsSet.add(sqlResult.getString("Keyword").trim());									
+			}
+			for(String keyword:frequenceKeywords)
+			{
+				if(keywordsSet.contains(keyword))
+				{
+					if(occurrenceLog.containsKey(keyword))
+					{
+						occurrenceLog.put(keyword, occurrenceLog.get(keyword)+1);
+					}
+					else
+					{
+						occurrenceLog.put(keyword, 1);
+					}
+				}
+				
+			}			
+		}
 		
 		
+		Helper.printHashMap(occurrenceLog);
 		
 		
 		} catch (SQLException e) {
