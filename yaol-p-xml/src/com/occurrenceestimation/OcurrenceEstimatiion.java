@@ -1,10 +1,16 @@
 package com.occurrenceestimation;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.db.DBHelper;
@@ -96,8 +102,7 @@ public class OcurrenceEstimatiion {
 		HashMap<String,Integer> occurrenceLog = new HashMap<String,Integer>(); // result
 		
 		//calculate result
-		//for single keyword in sample set
-		
+				
 		for( HashMap<String,Integer> s : sampleList)
 		{
 			String startPos = s.get("start").toString();
@@ -110,6 +115,7 @@ public class OcurrenceEstimatiion {
 			while (sqlResult.next()) {
 				keywordsSet.add(sqlResult.getString("Keyword").trim());									
 			}
+			//for single
 			for(String keyword:frequenceKeywords)
 			{
 				if(keywordsSet.contains(keyword))
@@ -122,19 +128,60 @@ public class OcurrenceEstimatiion {
 					{
 						occurrenceLog.put(keyword, 1);
 					}
+				}				
+			}
+			
+			//for combination
+			for(String keyword_outer:frequenceKeywords)
+			{
+				for(String keyword_inner:frequenceKeywords)
+				{
+					if(!keyword_outer.equalsIgnoreCase(keyword_inner))
+					{
+						if(keywordsSet.contains(keyword_outer) && keywordsSet.contains(keyword_inner))
+						{
+							String comb=null;
+							if(keyword_outer.compareToIgnoreCase(keyword_inner)>=0)
+							{
+								comb = keyword_inner + '|' + keyword_outer;							
+							
+								if(occurrenceLog.containsKey(comb))
+								{
+									occurrenceLog.put(comb, occurrenceLog.get(comb)+1);
+								}
+								else
+								{
+									occurrenceLog.put(comb, 1);
+								}
+							}
+							else
+							{
+								//do nothing, only count combination once;
+							}
+						}
+					}
 				}
-				
-			}			
+			}
+			
 		}
 		
+		//output
+		PrintWriter outStream;
+		outStream = new PrintWriter(new BufferedWriter(new FileWriter(new File(PropertyReader.getProperty("SampleOccur")))));
+				
+		for(String s : occurrenceLog.keySet())
+		{
+			
+			outStream.printf("INSERT INTO occursample VALUES " +
+					"(\"%s\", \"%s\");\n",s, occurrenceLog.get(s).toString().trim());
+		}
+		//Helper.printHashMap(occurrenceLog);
+		outStream.close();
 		
-		Helper.printHashMap(occurrenceLog);
-		
-		
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
 	}
 
 }
