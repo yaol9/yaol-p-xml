@@ -89,7 +89,7 @@ public class TestBasicAlgorithm implements TestCase {
 				SLCAEvaluation myEstimation = null;//new StackbasedEvaluation(	outStream, refinedkeywords);
 
 				//choose stack or index
-				int min=1000;
+				int min=Integer.MAX_VALUE;
 				int totalSize=0;
 				String minKeyword=null;
 				for(String s : refinedkeywords)
