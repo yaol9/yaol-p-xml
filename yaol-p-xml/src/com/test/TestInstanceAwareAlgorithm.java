@@ -121,7 +121,7 @@ public class TestInstanceAwareAlgorithm implements TestCase {
 				
 				SLCAEvaluation myEstimation;
 				//choose stack or index
-				int min=1000;
+				int min=Integer.MAX_VALUE;
 				int totalSize=0;
 				int keywordSize = curItem.size();
 				String minKeyword=null;
@@ -326,7 +326,7 @@ public class TestInstanceAwareAlgorithm implements TestCase {
 		int returnPos=0;
 		if(lattice.size()>0)
 		{
-			int max=-10000;
+			int max=Integer.MIN_VALUE;
 			
 			for(Integer pos:lattice.keySet())
 			{
