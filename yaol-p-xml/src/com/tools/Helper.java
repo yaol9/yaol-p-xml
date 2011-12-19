@@ -159,4 +159,22 @@ public class Helper {
 		
 		return returnVal;
 	}
+	
+	public static String getShortestKeyword(HashMap<String,Integer> keywordCount, List<String> refinedkeywords)
+	{
+		int shortestK =Integer.MAX_VALUE;
+		String shortestKeyword=null;
+		for(String s:refinedkeywords)
+		{
+			int count=keywordCount.get(s);
+			if(count<shortestK)
+			{
+				shortestKeyword=s;
+			}
+		
+		}
+		return shortestKeyword;
+	}
+	
+	
 }

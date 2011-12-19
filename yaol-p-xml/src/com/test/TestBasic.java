@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -67,6 +69,35 @@ public class TestBasic implements TestCase {
 				int keywordSize = refinedkeywords.size();
 				System.out.println(keywordSize);
 
+				//get keyword count
+				HashMap<String,Integer> keywordCount=new HashMap<String,Integer>();
+				int shortestK =Integer.MAX_VALUE;
+			    String shortestKeyword=null;
+				
+				for(String s:refinedkeywords)
+				{
+					String deweysql = "select sum(1) as count from KeywordDewey where keyword='"
+							+ s+"'";
+					ResultSet deweySet = DBHelper.performQuery(deweysql);
+					
+					try {
+						deweySet.next();
+						int count = deweySet.getInt("count");
+						keywordCount.put(s, count);
+						if(count<shortestK)
+						{
+							shortestKeyword=s;
+						}
+						
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				}
+				
+				
+				
 				// Start to estimate
 				outStream.printf("-- " + "Keyword Query: %s \n",
 						refinedkeywords);
@@ -78,8 +109,14 @@ public class TestBasic implements TestCase {
 				
 				// answer 2 keyword per run
 				List<String> curKeywords = new ArrayList<String>();
-				curKeywords.add(refinedkeywords.remove(refinedkeywords.size()-1));
-				curKeywords.add(refinedkeywords.remove(refinedkeywords.size()-1));
+				
+				//2 shortest keyword
+				
+				curKeywords.add(shortestKeyword);
+				refinedkeywords.remove(shortestKeyword);
+				shortestKeyword=Helper.getShortestKeyword(keywordCount, refinedkeywords);
+				curKeywords.add(shortestKeyword);
+				refinedkeywords.remove(shortestKeyword);
 				
 				KeywordQuery kquery = new KeywordQuery(curKeywords);
 				kquery.LoadAllInformation();
@@ -139,9 +176,12 @@ public class TestBasic implements TestCase {
 						String joinK = curKeywords.get(0)+"|"+ curKeywords.get(1);
 						curKeywords.clear();
 						curKeywords.add(joinK);
-						String secondK = refinedkeywords.remove(refinedkeywords.size()-1);
+						
+						String secondK=Helper.getShortestKeyword(keywordCount, refinedkeywords);
 						curKeywords.add(secondK);
-												
+						refinedkeywords.remove(secondK);
+						
+						
 						kquery=new KeywordQuery(curKeywords);
 						kquery.LoadSpecificInformation(secondK);
 						kquery.LoadSpecificInformationFromList(joinK,myEstimation.getResult());

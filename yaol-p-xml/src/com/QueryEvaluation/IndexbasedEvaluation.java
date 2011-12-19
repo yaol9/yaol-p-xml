@@ -235,7 +235,15 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 			}
 		}		
 		
-		return mid+1;
+		if(mid+1<=sList.size()-1)
+		{
+			return mid+1;
+			
+		}
+		else
+		{
+			return sList.size()-1;
+		}
 		
 		/*
 		
