@@ -420,4 +420,10 @@ public class TestQueryAwareAlgorithm implements TestCase {
 		return returnVal;
 	}
 
+	@Override
+	public void runSingle(PrintWriter outStream) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
