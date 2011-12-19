@@ -28,9 +28,9 @@ public class TestManager {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-	test2();
+//	test2();
 		//test3();
-		/*
+	
 		TestCase testSequence = new TestSequenceAlgorithm();
 		testSequence.run();
 		
@@ -42,7 +42,7 @@ public class TestManager {
 		
 		TestCase testInstanceAware = new TestInstanceAwareAlgorithm();
 		testInstanceAware.run();
-		*/
+		
 	}	
 	
 	static void test2()

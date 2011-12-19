@@ -213,8 +213,34 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 	private int getRM(String node, List<String>  sList)
 	{
 		
-		int pos = 0;
+		//BinarySearch 
+		int left=0;
+		int right=sList.size()-1;
+		int mid=0;
+		while(left<=right)
+		{
+			mid=(left+right)/2;
+			String midNode = sList.get(mid);
+			if(node.equalsIgnoreCase(midNode))
+			{
+				return mid;
+			}
+			else if(node.compareToIgnoreCase(midNode)<0)
+			{
+				right=mid-1;
+			}
+			else
+			{
+				left=mid+1;
+			}
+		}		
 		
+		return mid+1;
+		
+		/*
+		
+		int pos = 0;
+			
 		for(String s :sList)
 		{
 			if(Helper.compareDewey(s,node)>=0)
@@ -226,7 +252,7 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 		}
 		
 		return -1;
-		
+		*/
 		/*
 		int pos = 0;
 		int half=(int)sList.size()/2+1;
@@ -281,6 +307,12 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public LinkedList<String> getResult()
+	{
+		return resultList;
+		
 	}
 	
 	

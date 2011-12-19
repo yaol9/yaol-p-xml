@@ -175,5 +175,9 @@ public class StackbasedEvaluation implements SLCAEvaluation{
 		SLCAResults.println();
 		SLCAResults.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
-
+	public LinkedList<String> getResult()
+	{
+		return resultList;
+		
+	}
 }
