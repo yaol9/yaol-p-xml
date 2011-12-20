@@ -165,11 +165,10 @@ public class StackbasedEvaluation implements SLCAEvaluation{
 		SLCAResults.println("SLCA results as follow. ");
 		System.out.println("SLCA results as follow");
 
-		for (String result : resultList) {
-
-			SLCAResults.println("SLCA result: " + result);
-			System.out.println("SLCA result: " + result);
-		}
+		
+			SLCAResults.println("SLCA result: " + resultList);
+			System.out.println("SLCA result: " + resultList);
+		
 
 		SLCAResults.println();
 		SLCAResults.println();

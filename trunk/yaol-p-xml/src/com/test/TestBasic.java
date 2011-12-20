@@ -90,7 +90,7 @@ public class TestBasic implements TestCase {
 						}
 						
 					} catch (SQLException e) {
-						// TODO Auto-generated catch block
+						
 						e.printStackTrace();
 					}
 
@@ -128,20 +128,20 @@ public class TestBasic implements TestCase {
 					int sizeB = kquery.keyword2deweylist.get(curKeywords.get(1)).size();
 					// go index
 					if ((sizeA* 5) < sizeB  ) {
-						outStream.printf("index based");
+						outStream.println("index based");
 						System.out.println("index based");
 						myEstimation = new IndexbasedEvaluation(outStream,
 								curKeywords, curKeywords.get(0));
 					} 
 					else if ((sizeB* 5) < sizeA  ) {
-						outStream.printf("index based");
+						outStream.println("index based");
 						System.out.println("index based");
 						myEstimation = new IndexbasedEvaluation(outStream,
 								curKeywords, curKeywords.get(1));
 					} 
 					else // go stack
 					{
-						outStream.printf("stack based");
+						outStream.println("stack based");
 						System.out.println("stack based");
 						myEstimation = new StackbasedEvaluation(outStream,
 								curKeywords);
@@ -216,11 +216,11 @@ public class TestBasic implements TestCase {
 					new FileWriter(new File(PropertyReader
 							.getProperty("BasicAlgorithmResult")))));
 
-			TestCase testBasic = new TestBasic();
+		
 			TimeRecorder.startRecord();
 			// run 5 times
-			for (int i = 0; i < 5; i++) {
-				testBasic.runSingle(outStream);
+			for (int i = 0; i < 1; i++) {
+				runSingle(outStream);
 			}
 
 			TimeRecorder.stopRecord();

@@ -35,13 +35,13 @@ public class TestManager {
 		testSequence.run();
 		
 		TestCase testBasic = new TestBasicAlgorithm();
-		testBasic.run();
+	//	testBasic.run();
 		
 		TestCase testQueryAware = new TestQueryAwareAlgorithm();
-		testQueryAware.run();
+		//testQueryAware.run();
 		
 		TestCase testInstanceAware = new TestInstanceAwareAlgorithm();
-		testInstanceAware.run();
+	//	testInstanceAware.run();
 		
 	}	
 	
