@@ -1,6 +1,3 @@
-book,orange,australia,cook
-book,microsoft
 apple,orange,knife
-company,cook,australia
 apple,orange,pear
-order,money
+apple,orange,book
