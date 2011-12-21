@@ -1,8 +1,8 @@
-CREATE  TABLE `dblp`.`KeywordDewey` (
+CREATE  TABLE `xmark`.`KeywordDewey` (
   `Keyword` VARCHAR(500) NOT NULL ,
   `Dewey` VARCHAR(50) NOT NULL ,
   `Depth` VARCHAR(10) NOT NULL,
 `XMLid` INT NOT NULL ,
 KEY `index1` (`Keyword`,`XMLid`) USING BTREE
 );
-CREATE  TABLE `dblp`.`DeweyID` (  `Dewey` VARCHAR(50) NOT NULL ,`XMLid` INT NOT NULL ,KEY `index1` (`XMLid`) USING BTREE);
+CREATE  TABLE `xmark`.`DeweyID` (  `Dewey` VARCHAR(50) NOT NULL ,`XMLid` INT NOT NULL ,KEY `index1` (`XMLid`) USING BTREE);
