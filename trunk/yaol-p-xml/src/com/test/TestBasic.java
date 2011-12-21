@@ -53,11 +53,19 @@ public class TestBasic implements TestCase {
 				outStream.printf("-- " + "Keyword Query: %s \n", query);
 				outStream.println();
 				System.out.printf("-- " + "Keyword Query: %s \n", query);
+				
+				
+				if(!query.startsWith("#"))
+				{
+					List<String> refinedkeywords = Helper.getRefinedKeywords(query);
+					userQuery.put(counter, refinedkeywords);
+					counter++;
+				}
 
-				List<String> refinedkeywords = Helper.getRefinedKeywords(query);
+				
 
-				userQuery.put(counter, refinedkeywords);
-				counter++;
+				
+				
 			}
 			
 			int answerSeq = 0; // start answer from the first query
@@ -87,6 +95,7 @@ public class TestBasic implements TestCase {
 						if(count<shortestK)
 						{
 							shortestKeyword=s;
+							shortestK=count;
 						}
 						
 					} catch (SQLException e) {

@@ -117,26 +117,30 @@ public class TestQueryAware implements TestCase {
 					maxSize=refinedkeywords.size();
 				}
 
-				userQuery.put(counter, refinedkeywords);
-				counter++;
-				
-				for(String s:refinedkeywords)
+				if(!query.startsWith("#"))
 				{
-					String deweysql = "select sum(1) as count from KeywordDewey where keyword='"
-							+ s+"'";
-					ResultSet deweySet = DBHelper.performQuery(deweysql);
+					userQuery.put(counter, refinedkeywords);
+					counter++;
 					
-					try {
-						deweySet.next();
-						int count = deweySet.getInt("count");
-						keywordCount.put(s, count);
-												
-					} catch (SQLException e) {
+					for(String s:refinedkeywords)
+					{
+						String deweysql = "select sum(1) as count from KeywordDewey where keyword='"
+								+ s+"'";
+						ResultSet deweySet = DBHelper.performQuery(deweysql);
 						
-						e.printStackTrace();
-					}
+						try {
+							deweySet.next();
+							int count = deweySet.getInt("count");
+							keywordCount.put(s, count);
+													
+						} catch (SQLException e) {
+							
+							e.printStackTrace();
+						}
 
+					}
 				}
+				
 				
 			}
 			
