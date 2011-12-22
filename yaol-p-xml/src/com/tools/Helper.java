@@ -170,6 +170,7 @@ public class Helper {
 			if(count<shortestK)
 			{
 				shortestKeyword=s;
+				shortestK=count;
 			}
 		
 		}
