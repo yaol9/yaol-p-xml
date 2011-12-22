@@ -1,3 +1,2 @@
-apple,ship,2000
-sydney,ship,2001
-ship,money
+chengfei,pear,cook
+yao,pear,cook
