@@ -122,6 +122,7 @@ public class TestQueryAware implements TestCase {
 					userQuery.put(counter, refinedkeywords);
 					counter++;
 					
+					/*
 					for(String s:refinedkeywords)
 					{
 						String deweysql = "select sum(1) as count from KeywordDewey where keyword='"
@@ -139,6 +140,7 @@ public class TestQueryAware implements TestCase {
 						}
 
 					}
+					*/
 				}
 				
 				
@@ -339,13 +341,19 @@ public class TestQueryAware implements TestCase {
 		// answer 2 keyword per run
 		List<String> curKeywords = new ArrayList<String>();
 		//2 shortest keyword
-		String shortestKeyword=Helper.getShortestKeyword(keywordCount, kList);
-		curKeywords.add(shortestKeyword);
-		kList.remove(shortestKeyword);
+	//	String shortestKeyword=Helper.getShortestKeyword(keywordCount, kList);
+	//	curKeywords.add(shortestKeyword);
+	//	kList.remove(shortestKeyword);
 		
-		shortestKeyword=Helper.getShortestKeyword(keywordCount, kList);
-		curKeywords.add(shortestKeyword);
-		kList.remove(shortestKeyword);
+		curKeywords.add(kList.get(0));
+		kList.remove(0);
+		curKeywords.add(kList.get(0));
+		kList.remove(0);
+		
+		
+	//	shortestKeyword=Helper.getShortestKeyword(keywordCount, kList);
+	//	curKeywords.add(shortestKeyword);
+	//	kList.remove(shortestKeyword);
 		
 		KeywordQuery tempQuery = new KeywordQuery(curKeywords);
 		for(String s : curKeywords)
@@ -424,10 +432,13 @@ public class TestQueryAware implements TestCase {
 				curKeywords.clear();
 				curKeywords.add(joinK);
 				
-				String secondK=Helper.getShortestKeyword(keywordCount, kList);
-				curKeywords.add(secondK);
-				kList.remove(secondK);
+			//	String secondK=Helper.getShortestKeyword(keywordCount, kList);
+			//	curKeywords.add(secondK);
+			//	kList.remove(secondK);
 				
+				String secondK=kList.get(0);
+				curKeywords.add(secondK);
+				kList.remove(0);
 				
 				tempQuery=new KeywordQuery(curKeywords);
 								
