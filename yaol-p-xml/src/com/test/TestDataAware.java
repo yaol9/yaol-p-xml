@@ -266,8 +266,8 @@ public class TestDataAware implements TestCase {
 			}
 		}
 		
-		Helper.printHashMap(sf_score);
-		Helper.printHashMap(lattice);
+		//Helper.printHashMap(sf_score);
+		//Helper.printHashMap(lattice);
 		//clean
 		for(String sf:sf_score.keySet())
 		{

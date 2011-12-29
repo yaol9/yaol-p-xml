@@ -80,8 +80,8 @@ public class TestBasic implements TestCase {
 				//get keyword count
 				HashMap<String,Integer> keywordCount=new HashMap<String,Integer>();
 				int shortestK =Integer.MAX_VALUE;
-			    String shortestKeyword=null;
-				
+			    //String shortestKeyword=null;
+				/*
 				for(String s:refinedkeywords)
 				{
 					String deweysql = "select sum(1) as count from KeywordDewey where keyword='"
@@ -104,7 +104,7 @@ public class TestBasic implements TestCase {
 					}
 
 				}
-				
+				*/
 				
 				
 				// Start to estimate
@@ -121,11 +121,18 @@ public class TestBasic implements TestCase {
 				
 				//2 shortest keyword
 				
+				curKeywords.add(refinedkeywords.get(0));
+			    refinedkeywords.remove(0);
+				curKeywords.add(refinedkeywords.get(0));
+				refinedkeywords.remove(0);
+				
+				/*
 				curKeywords.add(shortestKeyword);
 				refinedkeywords.remove(shortestKeyword);
 				shortestKeyword=Helper.getShortestKeyword(keywordCount, refinedkeywords);
 				curKeywords.add(shortestKeyword);
 				refinedkeywords.remove(shortestKeyword);
+				*/
 				
 				KeywordQuery kquery = new KeywordQuery(curKeywords);
 				kquery.LoadAllInformation();
@@ -186,10 +193,13 @@ public class TestBasic implements TestCase {
 						curKeywords.clear();
 						curKeywords.add(joinK);
 						
-						String secondK=Helper.getShortestKeyword(keywordCount, refinedkeywords);
+						//String secondK=Helper.getShortestKeyword(keywordCount, refinedkeywords);
+						//curKeywords.add(secondK);
+						//refinedkeywords.remove(secondK);
+												
+						String secondK=refinedkeywords.get(0);
 						curKeywords.add(secondK);
-						refinedkeywords.remove(secondK);
-						
+					    refinedkeywords.remove(0);
 						
 						kquery=new KeywordQuery(curKeywords);
 						kquery.LoadSpecificInformation(secondK);
