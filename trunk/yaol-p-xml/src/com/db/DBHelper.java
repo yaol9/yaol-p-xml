@@ -310,8 +310,8 @@ public class DBHelper {
 			propFile.close();
 
 			String dbname = prop.getProperty("dbname");
-		//	mySAXParser.StartSaxProgram();
-		//	DeweyToSQL.StartDeweyToSQL();
+			mySAXParser.StartSaxProgram();
+			DeweyToSQL.StartDeweyToSQL();
 
 			StartJdbcImplement(dbname);
 
