@@ -55,10 +55,12 @@ public class TestDataAwareSimple implements TestCase {
 					new FileWriter(new File(PropertyReader
 							.getProperty("DataAwareSimpleAlgorithmResult")))));
 
+			//warm up
+			runSingle(outStream);
 			
 			TimeRecorder.startRecord();
 			// run 5 times
-			for (int i = 0; i < 1; i++) {
+			for (int i = 0; i < 5; i++) {
 				runSingle(outStream);
 			}
 
@@ -240,6 +242,7 @@ public class TestDataAwareSimple implements TestCase {
 				//is sharing factor
 				if(s.contains("|"))
 				{
+					/*
 					int shortestK = Integer.MAX_VALUE;
 					
 					List<String> sfList =Arrays.asList( s.split("[|]"));
@@ -251,17 +254,26 @@ public class TestDataAwareSimple implements TestCase {
 							shortestK=keywordCount.get(key);							
 						}
 					}
-					
-					double size_sf = shortestK*r_ratio;
-					
+					*/
+					double size_sf = Helper.getSharingFactorSize(s, keywordCount, r_ratio);
+									
+				
 					int shortestK2 = Integer.MAX_VALUE;
 					for(String ss: lattice.get(i))
 					{
-						if(!ss.equalsIgnoreCase(s))
+						if(!ss.contains("|"))
 						{
-							if(keywordCount.get(ss)<shortestK2)
+													
+							if(!ss.equalsIgnoreCase(s))
 							{
-								shortestK2=keywordCount.get(ss);							
+								if(!keywordCount.containsKey(ss))
+								{
+									Helper.getSharingFactorSize(ss, keywordCount, r_ratio);
+								}
+								if(keywordCount.get(ss)<shortestK2)
+								{
+									shortestK2=keywordCount.get(ss);							
+								}
 							}
 						}
 					}
@@ -517,9 +529,9 @@ public class TestDataAwareSimple implements TestCase {
 			}
 
 	//		System.out.println(curKeywords);
-	//		Helper.printHashMap(tempQuery.keyword2deweylist);
+		//	Helper.printHashMap(tempQuery.keyword2deweylist);
 			myEstimation.computeSLCA(tempQuery);
-
+		//	Helper.printList(myEstimation.getResult());
 			// release memory
 			tempQuery.clearMem();
 			System.gc();

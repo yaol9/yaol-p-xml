@@ -44,7 +44,11 @@ public class StackbasedEvaluation implements SLCAEvaluation{
 			int stacksize = vcomponents.length;
 			for (int i = 0; i < stacksize; i++) {
 				vstack.push(vcomponents[i]);
-				keywordMap.put(kquery.curKeyword, 1);
+				for(String s: kquery.curKeywordList)
+				{
+					keywordMap.put(s, 1);
+				}
+				
 				keyStack.push(keywordMap);
 			}
 
@@ -88,7 +92,7 @@ public class StackbasedEvaluation implements SLCAEvaluation{
 								} else {
 									for (String key : keywordList) {
 										if (topKeywordStack.containsKey(key)) {
-											if (keyStack.size() > 1) {
+											if (keyStack.size() >= 1) {
 											keyStack.get(keyStack.size() - 1)
 													.put(key,
 															topKeywordStack
@@ -106,7 +110,11 @@ public class StackbasedEvaluation implements SLCAEvaluation{
 					else {
 						vstack.push(nextcomponents[i]);
 						HashMap<String, Integer> keywordMap2 = new HashMap<String, Integer>();
-						keywordMap2.put(kquery.curKeyword, 1);
+						//keywordMap2.put(kquery.curKeyword, 1);
+						for(String s: kquery.curKeywordList)
+						{
+							keywordMap2.put(s, 1);
+						}
 						keyStack.push(keywordMap2);
 					}
 				}

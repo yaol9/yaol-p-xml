@@ -1,5 +1,6 @@
 package com.tools;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -128,7 +129,15 @@ public class Helper {
 				}
 			}
 		}
-		return tempJoint;
+		if(tempJoint.contains("|"))
+		{
+			return tempJoint;
+		}
+		else
+		{
+			return "";
+		}
+		
 	}
 	
 	public static int compareDewey(String dewey1, String dewey2)
@@ -153,7 +162,7 @@ public class Helper {
 		}
 		if(deweyList2.length>deweyList1.length)
 		{
-			returnVal=1;
+			returnVal=-1;
 			return returnVal;
 		}
 		
@@ -177,5 +186,27 @@ public class Helper {
 		return shortestKeyword;
 	}
 	
+	public static double  getSharingFactorSize(String s,HashMap<String,Integer> keywordCount,double r_ratio)
+	{
+		if(keywordCount.containsKey(s))
+		{
+			return keywordCount.get(s);
+		}
+		int shortestK = Integer.MAX_VALUE;
+		
+		List<String> sfList =Arrays.asList( s.split("[|]"));
+		
+		for(String key:sfList)
+		{
+			if(keywordCount.get(key)<shortestK)
+			{
+				shortestK=keywordCount.get(key);							
+			}
+		}
+		
+		double size_sf = shortestK*r_ratio;
+		keywordCount.put(s,(int) size_sf);
+		return size_sf;
+	}
 	
 }

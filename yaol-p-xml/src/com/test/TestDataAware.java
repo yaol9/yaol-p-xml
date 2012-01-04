@@ -29,7 +29,7 @@ import com.tools.TimeRecorder;
 public class TestDataAware implements TestCase {
 
 	private int curUserQuery ; 
-	private double r_ratio = 0.02; // preset reductio ratio
+	private double r_ratio = 0.0483; // preset reductio ratio
 	private HashMap<String,Integer> steinerPoints ;
 	private HashMap<String, List<String>> shareFactor;
 	private HashMap<String,Integer> keywordCount;
@@ -54,10 +54,12 @@ public class TestDataAware implements TestCase {
 					new FileWriter(new File(PropertyReader
 							.getProperty("DataAwareAlgorithmResult")))));
 
+			//warm up
+			runSingle(outStream);
 			
 			TimeRecorder.startRecord();
 			// run 5 times
-			for (int i = 0; i < 1; i++) {
+			for (int i = 0; i < 5; i++) {
 				runSingle(outStream);
 			}
 
