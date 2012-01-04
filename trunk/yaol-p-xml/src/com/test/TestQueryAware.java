@@ -48,10 +48,12 @@ public class TestQueryAware implements TestCase {
 					new FileWriter(new File(PropertyReader
 							.getProperty("QueryAwareAlgorithmResult")))));
 
+			//warm up
+			runSingle(outStream);
 			
 			TimeRecorder.startRecord();
 			// run 5 times
-			for (int i = 0; i < 1; i++) {
+			for (int i = 0; i < 5; i++) {
 				runSingle(outStream);
 			}
 
@@ -409,7 +411,7 @@ public class TestQueryAware implements TestCase {
 									+ " -> number: "
 									+ tempQuery.keyword2deweylist.get(
 											keyword).size() + "\n");
-					System.exit(-1);
+				//	System.exit(-1);
 				}
 				outStream.println("Keyword Size " + keyword
 						+ " -> number: "

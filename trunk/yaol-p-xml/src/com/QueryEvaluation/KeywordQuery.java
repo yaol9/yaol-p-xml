@@ -19,8 +19,8 @@ public class KeywordQuery {
 	public List<String> shareResultList;
 	private String _selectDeweySql = "select dewey from KeywordDewey where keyword=";
 
-	public String curKeyword; // currently selected keyword
-
+	//public String curKeyword; // currently selected keyword
+public List<String> curKeywordList;
 	public Map<String, Integer> pointerOfSmallNodes;
 
 	public KeywordQuery() {
@@ -28,6 +28,7 @@ public class KeywordQuery {
 		shareResultList=new LinkedList<String>();
 		keyword2deweylist = new HashMap<String, LinkedList<String>>();
 		pointerOfSmallNodes = new HashMap<String, Integer>();
+		curKeywordList = new LinkedList<String>();
 	}
 	public KeywordQuery(List<String> keywords) {
 
@@ -37,7 +38,7 @@ public class KeywordQuery {
 		for (int i = 0; i < keywords.size(); i++) {
 			pointerOfSmallNodes.put(keywords.get(i), 0);
 		}
-
+		curKeywordList = new LinkedList<String>();
 	}
 
 	/*
@@ -125,7 +126,11 @@ public class KeywordQuery {
 	public String GetNextNode() {
 
 		String selectkeyword = null;
+		List<String> selectkeywordList = new LinkedList<String>();
+		
 		String selectnode = null;
+		curKeywordList.clear();
+		
 		Set<String> keyset = pointerOfSmallNodes.keySet();
 		for (String key : keyset) {
 
@@ -139,25 +144,37 @@ public class KeywordQuery {
 			if (selectnode == null) {
 				selectnode = node;
 				selectkeyword = key;
-			} else if (selectnode.compareToIgnoreCase(node) > 0) {
+				selectkeywordList.add(key);
+			} 
+			else if(Helper.compareDewey(selectnode,node) == 0)
+			{
+				selectkeywordList.add(key);
+			}
+			else if (Helper.compareDewey(selectnode,node) > 0) {
 
 				selectnode = node;
 				selectkeyword = key;
+				selectkeywordList.clear();
+				selectkeywordList.add(key);
 			}
 
 		}
 
-		int index = pointerOfSmallNodes.remove(selectkeyword);
-		List<String> list = keyword2deweylist.get(selectkeyword);
-		// check next node at the next time
-		index++;
-		if (list.size() > index) {
+		for(String s:selectkeywordList)
+		{
+			int index = pointerOfSmallNodes.remove(s);
+			List<String> list = keyword2deweylist.get(s);
+			// check next node at the next time
+			index++;
+			if (list.size() > index) {
 
-			pointerOfSmallNodes.put(selectkeyword, index);
-		} else {
-			pointerOfSmallNodes.remove(selectkeyword);
+				pointerOfSmallNodes.put(s, index);
+			} else {
+				pointerOfSmallNodes.remove(s);
+			}
+			curKeywordList.add(s);
 		}
-		curKeyword = selectkeyword;
+		
 
 		// System.out.println("Curkeyword:" + curKeyword+" CurNode"+selectnode);
 

@@ -142,6 +142,10 @@ public class TestBasic implements TestCase {
 					// choose stack or index
 					int sizeA = kquery.keyword2deweylist.get(curKeywords.get(0)).size();
 					int sizeB = kquery.keyword2deweylist.get(curKeywords.get(1)).size();
+				//	Helper.printList(kquery.keyword2deweylist.get(curKeywords.get(0)));
+				//	System.out.println("aaaa");
+				//	Helper.printList(kquery.keyword2deweylist.get(curKeywords.get(1)));
+					
 					// go index
 					if ((sizeA* 5) < sizeB  ) {
 						outStream.println("index based");
@@ -235,10 +239,12 @@ public class TestBasic implements TestCase {
 					new FileWriter(new File(PropertyReader
 							.getProperty("BasicAlgorithmResult")))));
 
-		
+			//warm up
+			runSingle(outStream);
+			
 			TimeRecorder.startRecord();
 			// run 5 times
-			for (int i = 0; i < 1; i++) {
+			for (int i = 0; i < 5; i++) {
 				runSingle(outStream);
 			}
 
