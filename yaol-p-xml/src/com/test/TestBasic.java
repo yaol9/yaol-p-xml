@@ -52,7 +52,7 @@ public class TestBasic implements TestCase {
 			while ((query = queryRead.readLine()) != null) {
 				outStream.printf("-- " + "Keyword Query: %s \n", query);
 				outStream.println();
-				System.out.printf("-- " + "Keyword Query: %s \n", query);
+		//		System.out.printf("-- " + "Keyword Query: %s \n", query);
 				
 				
 				if(!query.startsWith("#"))
@@ -75,7 +75,7 @@ public class TestBasic implements TestCase {
 				List<String> refinedkeywords = userQuery.remove(answerSeq++);
 
 				int keywordSize = refinedkeywords.size();
-				System.out.println(keywordSize);
+		//		System.out.println(keywordSize);
 
 				//get keyword count
 				HashMap<String,Integer> keywordCount=new HashMap<String,Integer>();
@@ -111,8 +111,7 @@ public class TestBasic implements TestCase {
 				outStream.printf("-- " + "Keyword Query: %s \n",
 						refinedkeywords);
 				outStream.println();
-				System.out.printf("-- " + "Keyword Query: %s \n",
-						refinedkeywords);
+	//			System.out.printf("-- " + "Keyword Query: %s \n",refinedkeywords);
 
 				SLCAEvaluation myEstimation = null;
 				
@@ -149,20 +148,20 @@ public class TestBasic implements TestCase {
 					// go index
 					if ((sizeA* 5) < sizeB  ) {
 						outStream.println("index based");
-						System.out.println("index based");
+	//					System.out.println("index based");
 						myEstimation = new IndexbasedEvaluation(outStream,
 								curKeywords, curKeywords.get(0));
 					} 
 					else if ((sizeB* 5) < sizeA  ) {
 						outStream.println("index based");
-						System.out.println("index based");
+		//				System.out.println("index based");
 						myEstimation = new IndexbasedEvaluation(outStream,
 								curKeywords, curKeywords.get(1));
 					} 
 					else // go stack
 					{
 						outStream.println("stack based");
-						System.out.println("stack based");
+		//				System.out.println("stack based");
 						myEstimation = new StackbasedEvaluation(outStream,
 								curKeywords);
 					}
@@ -254,8 +253,8 @@ public class TestBasic implements TestCase {
 			// get memory usage
 			long usagememory = Helper.getMemoryUsage();
 
-			outStream.println("Sequence Algorithms:");
-			System.out.println("Sequence Algorithms:");
+			outStream.println("Basic Algorithms:");
+			System.out.println("Basic Algorithms:");
 			outStream.printf("--" + "Response Time: %d \n", qtime);
 			outStream.println();
 			System.out.printf("--" + "Response Time: %d \n", qtime);

@@ -89,7 +89,7 @@ public class Helper {
 		for (String item : keywordSet) {
 			if (item != null) {
 				refinedkeywords.add(item);
-				System.out.println(item);
+		//		System.out.println(item);
 			}
 		}
 
