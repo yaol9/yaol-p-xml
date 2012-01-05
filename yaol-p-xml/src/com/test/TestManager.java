@@ -30,16 +30,23 @@ public class TestManager {
 	public static void main(String[] args) {
 
 		TestCase test = new TestBasic();
-		test.run();
+		long se=test.run();
 		
 		TestCase test2 = new TestQueryAware();
-		test2.run();
+		long a1=test2.run();
 		
 		TestCase test3 = new TestDataAware();
-		test3.run();
+		long a2=test3.run();
 		
 		TestCase test4 = new TestDataAwareSimple();
-		test4.run();
+		long a3=test4.run();
+		
+		System.out.println("Test Result:");
+		System.out.println("Algorithm SE : " + se + " ms");
+		System.out.println("Algorithm A1 : " + a1 + " ms");
+		System.out.println("Algorithm A2 : " + a2 + " ms");
+		System.out.println("Algorithm A3 : " + a3 + " ms");
+		
 	}	
 	
 

@@ -45,7 +45,7 @@ public class TestDataAwareSimple implements TestCase {
 		 
 	}
 	@Override
-	public void run() {
+	public long run() {
 			try {
 			
 			String databaseName = PropertyReader.getProperty("dbname");
@@ -86,10 +86,13 @@ public class TestDataAwareSimple implements TestCase {
 			outStream.close();
 			System.out.println("====================>>> Stop application!");
 			
+			return qtime;
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+			
+			return 0;
 
 	}
 
@@ -414,6 +417,9 @@ public class TestDataAwareSimple implements TestCase {
 			}
 			// add other keyword into schedule
 
+			//keep the same keyword sequence as user input
+			Collections.reverse(userQuery.get(i));
+			
 			for (String key : userQuery.get(i)) {
 				Boolean check = false;
 				if (lattice.containsKey(i)) {
@@ -426,24 +432,18 @@ public class TestDataAwareSimple implements TestCase {
 				if (!check) {
 					if (lattice.containsKey(i)) {
 						List<String> tempJointList = lattice.get(i);
-						tempJointList.add(key);
+						tempJointList.add(0,key);
 						lattice.put(i, tempJointList);
 					} else {
 						List<String> tempJointList = new ArrayList<String>();
-						tempJointList.add(key);
+						tempJointList.add(0,key);
 						lattice.put(i, tempJointList);
 					}
 
 				}
 			}
 		}
-
-		for(int i:lattice.keySet())
-		{
-			List<String> tempList = lattice.get(i);
-			Collections.reverse(tempList);
-			lattice.put(i, tempList);
-		}
+	
 		
 		
 		//Helper.printHashMap(lattice);
