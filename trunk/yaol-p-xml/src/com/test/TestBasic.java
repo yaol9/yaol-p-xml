@@ -227,7 +227,7 @@ public class TestBasic implements TestCase {
 	}
 	
 	@Override
-	public void run() {
+	public long run() {
 		try {
 			
 			String databaseName = PropertyReader.getProperty("dbname");
@@ -267,11 +267,13 @@ public class TestBasic implements TestCase {
 
 			outStream.close();
 			System.out.println("====================>>> Stop application!");
+			return qtime;
 			
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return 0;
 	}
 	/**
 	 * @param args
