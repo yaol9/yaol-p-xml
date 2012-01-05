@@ -103,11 +103,11 @@ public class IndexbasedEvaluation implements SLCAEvaluation {
 
 				// from _resultheap and _resultmonitor
 				SLCAResults.println("SLCA results as follow. ");
-				System.out.println("SLCA results as follow");
+			//	System.out.println("SLCA results as follow");
 
 				
 					SLCAResults.println("SLCA result: " + resultList);
-					System.out.println("SLCA result: " + resultList);
+		//			System.out.println("SLCA result: " + resultList);
 				
 
 				SLCAResults.println();

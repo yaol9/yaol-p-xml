@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -70,8 +71,8 @@ public class TestDataAwareSimple implements TestCase {
 			// get memory usage
 			long usagememory = Helper.getMemoryUsage();
 
-			outStream.println("Sequence Algorithms:");
-			System.out.println("Sequence Algorithms:");
+			outStream.println("DataAwareSimple Algorithms:");
+			System.out.println("DataAwareSimple Algorithms:");
 			outStream.printf("--" + "Response Time: %d \n", qtime);
 			outStream.println();
 			System.out.printf("--" + "Response Time: %d \n", qtime);
@@ -198,7 +199,7 @@ public class TestDataAwareSimple implements TestCase {
 				
 				outStream.printf("-- " + "Keyword Query:\n", userQuery.get(queryNum));
 				outStream.println();
-				System.out.printf("-- " + "Keyword Query: %s \n",  userQuery.get(queryNum));
+		//		System.out.printf("-- " + "Keyword Query: %s \n",  userQuery.get(queryNum));
 				
 				
 			
@@ -207,10 +208,10 @@ public class TestDataAwareSimple implements TestCase {
 
 				// from _resultheap and _resultmonitor
 				outStream.println("SLCA results as follow. ");
-				System.out.println("SLCA results as follow");
+		//		System.out.println("SLCA results as follow");
 
 			    outStream.println("SLCA result: " + result);
-				System.out.println("SLCA result: " + result);
+		//		System.out.println("SLCA result: " + result);
 			
 
 				outStream.println();
@@ -261,8 +262,8 @@ public class TestDataAwareSimple implements TestCase {
 					int shortestK2 = Integer.MAX_VALUE;
 					for(String ss: lattice.get(i))
 					{
-						if(!ss.contains("|"))
-						{
+						//if(!ss.contains("|"))
+						//{
 													
 							if(!ss.equalsIgnoreCase(s))
 							{
@@ -275,7 +276,7 @@ public class TestDataAwareSimple implements TestCase {
 									shortestK2=keywordCount.get(ss);							
 								}
 							}
-						}
+						//}
 					}
 					//count + 1
 					if(size_sf<shortestK2*threshold)
@@ -437,6 +438,14 @@ public class TestDataAwareSimple implements TestCase {
 			}
 		}
 
+		for(int i:lattice.keySet())
+		{
+			List<String> tempList = lattice.get(i);
+			Collections.reverse(tempList);
+			lattice.put(i, tempList);
+		}
+		
+		
 		//Helper.printHashMap(lattice);
 		return lattice;
 
@@ -492,20 +501,20 @@ public class TestDataAwareSimple implements TestCase {
 			// go index
 			if ((sizeA* 5) < sizeB  ) {
 				outStream.println("index based");
-				System.out.println("index based");
+	//			System.out.println("index based");
 				myEstimation = new IndexbasedEvaluation(outStream,
 						curKeywords, curKeywords.get(0));
 			} 
 			else if ((sizeB* 5) < sizeA  ) {
 				outStream.println("index based");
-				System.out.println("index based");
+	//			System.out.println("index based");
 				myEstimation = new IndexbasedEvaluation(outStream,
 						curKeywords, curKeywords.get(1));
 			} 
 			else // go stack
 			{
 				outStream.println("stack based");
-				System.out.println("stack based");
+	//			System.out.println("stack based");
 				myEstimation = new StackbasedEvaluation(outStream,
 						curKeywords);
 			}

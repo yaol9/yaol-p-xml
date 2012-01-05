@@ -1,7 +1,5 @@
-#wrench,cook,berlin,bag,chest
-#wrench,cook,berwick,family,fitness
-#bag,chest,autumn,banner,beautiful
-#core,eyesight,family,benefits,budget
-#witnesses,bag,beautiful,whale,talent
-pear,cook,yao
-pear,cook,chengfei
+wrench,cook,berlin,bag,chest
+wrench,cook,berwick,family,fitness
+bag,chest,autumn,banner,beautiful
+core,eyesight,family,benefits,budget
+witnesses,bag,beautiful,whale,talent
