@@ -3,3 +3,13 @@ climate,bank,habits,tree,australia
 habits,apple,pear,fruit,cook
 pear,cook,melbourne,drugs,create
 cedar,crosses,bliss,leaf,highest
+lambs,jump,humorous,highest,unlucky
+apple,lambs,jump,chairs,nearest
+glance,british,yellow,breakfast,pear
+breakfast,pear,fruit,australia,future
+breakfast,pear,properly,melbourne,december
+breakfast,yellow,apple,chairs,pear
+glance,british,apple,cousins,capable
+capable,apple,deck,cedar,ungentle
+housewife,lambs,cook,australia,prizes
+housewife,apple,pear,fruit,capable
