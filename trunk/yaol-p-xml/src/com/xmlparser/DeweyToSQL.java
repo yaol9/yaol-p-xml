@@ -238,7 +238,7 @@ public class DeweyToSQL {
 			
 		
 			DeweyToSQL sqlgen = new DeweyToSQL();
-			sqlgen.processElementLogFile(_elemFile);
+			//sqlgen.processElementLogFile(_elemFile);
 			sqlgen.processTextLogFile(_textFile);	
 					
 			outKeyword2Encode.close();

@@ -30,8 +30,8 @@ import com.tools.TimeRecorder;
 public class TestDataAwareSimple implements TestCase {
 
 	private int curUserQuery ; 
-	private double r_ratio = 0.02; // preset reductio ratio
-	private double threshold = 0.2; // sharing factor threshold
+	private double r_ratio = 0.0483; // preset reductio ratio
+	private double threshold = 0.5; // sharing factor threshold
 	private HashMap<String,Integer> steinerPoints ;
 	private HashMap<String, List<String>> shareFactor;
 	private HashMap<String,Integer> keywordCount;
