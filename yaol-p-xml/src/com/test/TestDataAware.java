@@ -30,7 +30,7 @@ import com.tools.TimeRecorder;
 public class TestDataAware implements TestCase {
 
 	private int curUserQuery ; 
-	private double r_ratio = 0.0483; // preset reductio ratio
+	private double r_ratio = 0.0015; // preset reductio ratio
 	private HashMap<String,Integer> steinerPoints ;
 	private HashMap<String, List<String>> shareFactor;
 	private HashMap<String,Integer> keywordCount;
@@ -100,7 +100,7 @@ public class TestDataAware implements TestCase {
 		try {
 			
 			userQuery.clear();
-			keywordCount.clear();
+		//	keywordCount.clear();
 			shareFactor.clear();
 			steinerPoints.clear();
 			
@@ -138,20 +138,24 @@ public class TestDataAware implements TestCase {
 					
 					for(String s:refinedkeywords)
 					{
-						String deweysql = "select sum(1) as count from KeywordDewey where keyword='"
-								+ s+"'";
-						ResultSet deweySet = DBHelper.performQuery(deweysql);
-						
-						try {
-							deweySet.next();
-							int count = deweySet.getInt("count");
-							keywordCount.put(s, count);
-													
-						} catch (SQLException e) {
+						if(!keywordCount.containsKey(s))
+						{
+							String deweysql = "select sum(1) as count from KeywordDewey where keyword='"
+									+ s+"'";
+							ResultSet deweySet = DBHelper.performQuery(deweysql);
 							
-							e.printStackTrace();
-						}
+							try {
+								deweySet.next();
+								int count = deweySet.getInt("count");
+								keywordCount.put(s, count);
+														
+							} catch (SQLException e) {
+								
+								e.printStackTrace();
+							}
 
+						}
+						
 					}
 				}
 				
