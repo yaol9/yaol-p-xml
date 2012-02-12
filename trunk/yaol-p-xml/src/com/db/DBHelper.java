@@ -288,9 +288,9 @@ public class DBHelper {
 						
 						String EncodeID = PropertyReader.getProperty("EncodeID");
 												
-						if (loadDataSet(EncodeID)){
-							System.out.println(".. The data "+ EncodeID + " have been loaded correctly.");
-						}	
+				//		if (loadDataSet(EncodeID)){
+				//			System.out.println(".. The data "+ EncodeID + " have been loaded correctly.");
+				//		}	
 						
 					}
 								
@@ -310,8 +310,8 @@ public class DBHelper {
 			propFile.close();
 
 			String dbname = prop.getProperty("dbname");
-			mySAXParser.StartSaxProgram();
-			DeweyToSQL.StartDeweyToSQL();
+		//	mySAXParser.StartSaxProgram();
+		//	DeweyToSQL.StartDeweyToSQL();
 
 			StartJdbcImplement(dbname);
 
