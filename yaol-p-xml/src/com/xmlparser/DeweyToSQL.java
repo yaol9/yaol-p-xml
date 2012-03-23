@@ -93,7 +93,7 @@ public class DeweyToSQL {
 				if (fields.length == 5){
 											
 					//we delete \\_ symbol to test uwc data set at 10 Sep, 2009
-					parse(fields[1], fields[2],fields[3],fields[4], "[\\s\\t\\n\\x0B\\f\\r\\#\\-\\'\\*\\~\\{\\}\\(\\)\\[\\]\\''\\``\\@\\\\]"); // text The \\s+ is equivalent to [ \\t\\n\\x0B\\f\\r]
+					parse(fields[1], fields[2],fields[3],fields[4], fields[0],"[\\s\\t\\n\\x0B\\f\\r\\#\\-\\'\\*\\~\\{\\}\\(\\)\\[\\]\\''\\``\\@\\\\]"); // text The \\s+ is equivalent to [ \\t\\n\\x0B\\f\\r]
 				} else{
 				
 					d(textLogFile + " : " + "line - " + currLine + 
@@ -177,7 +177,7 @@ public class DeweyToSQL {
 	
 	//we delete the same word in the same string text
 	
-	public void parse(String dewey, String text,String depth,String id, String sep)
+	public void parse(String dewey, String text,String depth,String id, String path,String sep)
 	{
 		Pattern splitter = Pattern.compile(sep);
 		
@@ -204,9 +204,9 @@ public class DeweyToSQL {
 					tempterms.add(token);
 					
 					System.out.printf("INSERT INTO "+ KEYWORD2ENCODE_TABLE_NAME 
-							+" VALUES (\"%s\", \"%s\",\"%s\",\"%s\");\n", token, dewey,depth,id);
+							+" VALUES (\"%s\", \"%s\",\"%s\",\"%s\",\"%s\");\n", token, dewey,depth,id,path);
 					outKeyword2Encode.printf("INSERT INTO "+ KEYWORD2ENCODE_TABLE_NAME
-							+" VALUES (\"%s\", \"%s\",\"%s\",\"%s\");\n", token, dewey,depth,id);
+							+" VALUES (\"%s\", \"%s\",\"%s\",\"%s\",\"%s\");\n", token, dewey,depth,id,path);
 				}
 			}	
 		}		
