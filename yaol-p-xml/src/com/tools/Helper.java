@@ -1,5 +1,6 @@
 package com.tools;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -110,13 +111,42 @@ public class Helper {
 	
 	public static String getMaxJointString(List<String> list1,List<String> list2)
 	{
-		String tempJoint="";
+	//	String tempJoint="";
+		List<String> tempList = new ArrayList<String>();
 		for(String keyword:list1)
 		{
 			for(String keyword2:list2)
 			{
 				if(keyword.equalsIgnoreCase(keyword2))
 				{
+		
+					Boolean isInserted  = false;
+					
+					for(int i =0;i<tempList.size();i++)
+					{
+						if(tempList.get(i).compareToIgnoreCase(keyword)<0)
+						{
+							
+						}
+						else
+						{
+							String temp=tempList.get(i);
+							//tempList.set(i, keyword);
+							tempList.add(i,keyword);
+							//keyword=temp;
+							isInserted=true;
+							break;
+						}
+						
+						
+					}
+					
+					if(!isInserted)
+					{
+						tempList.add(keyword);
+					}
+					
+					/*
 					if(tempJoint.isEmpty())
 					{
 						tempJoint += keyword;
@@ -125,18 +155,34 @@ public class Helper {
 					{
 						tempJoint += "|"+keyword;
 					}
-						
+						*/
 				}
 			}
 		}
-		if(tempJoint.contains("|"))
+		
+		String  returnS="";
+		if(tempList.size()>1)
 		{
-			return tempJoint;
+			for(int i =0;i<tempList.size();i++)
+			{
+				if(returnS.isEmpty())
+				{
+					returnS += tempList.get(i);
+				}
+				else
+				{
+					returnS += "|"+tempList.get(i);
+				}
+			}
 		}
-		else
-		{
-			return "";
-		}
+	//	if(tempJoint.contains("|"))
+		//{
+			//return tempJoint;
+		//}
+		//else
+		//{
+		return returnS;
+		//}
 		
 	}
 	

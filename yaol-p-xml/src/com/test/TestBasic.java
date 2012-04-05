@@ -79,34 +79,6 @@ public class TestBasic implements TestCase {
 
 				//get keyword count
 				HashMap<String,Integer> keywordCount=new HashMap<String,Integer>();
-				int shortestK =Integer.MAX_VALUE;
-			    //String shortestKeyword=null;
-				/*
-				for(String s:refinedkeywords)
-				{
-					String deweysql = "select sum(1) as count from KeywordDewey where keyword='"
-							+ s+"'";
-					ResultSet deweySet = DBHelper.performQuery(deweysql);
-					
-					try {
-						deweySet.next();
-						int count = deweySet.getInt("count");
-						keywordCount.put(s, count);
-						if(count<shortestK)
-						{
-							shortestKeyword=s;
-							shortestK=count;
-						}
-						
-					} catch (SQLException e) {
-						
-						e.printStackTrace();
-					}
-
-				}
-				*/
-				
-				
 				// Start to estimate
 				outStream.printf("-- " + "Keyword Query: %s \n",
 						refinedkeywords);
