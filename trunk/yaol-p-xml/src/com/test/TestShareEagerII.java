@@ -27,16 +27,15 @@ import com.tools.Helper;
 import com.tools.PropertyReader;
 import com.tools.TimeRecorder;
 
-public class TestDataAwareSimple implements TestCase {
+public class TestShareEagerII implements TestCase {
 
 	private int curUserQuery ; 
-	private double r_ratio = 0.0015; // preset reductio ratio dblp-0.0015 xmark-0.0483
-	private double threshold = 0.5; // sharing factor threshold
+	private double r_ratio = 0.0015; // preset reductio ratio
 	private HashMap<String,Integer> steinerPoints ;
 	private HashMap<String, List<String>> shareFactor;
 	private HashMap<String,Integer> keywordCount;
 	HashMap<Integer, List<String>> userQuery;
-	TestDataAwareSimple()
+	TestShareEagerII()
 	{
 		steinerPoints = new HashMap<String,Integer>();
 		shareFactor = new HashMap<String, List<String>>();
@@ -54,7 +53,7 @@ public class TestDataAwareSimple implements TestCase {
 			
 			PrintWriter outStream = new PrintWriter(new BufferedWriter(
 					new FileWriter(new File(PropertyReader
-							.getProperty("DataAwareSimpleAlgorithmResult")))));
+							.getProperty("ShareEagerIIAlgorithmResult")))));
 
 			//warm up
 			runSingle(outStream);
@@ -71,8 +70,8 @@ public class TestDataAwareSimple implements TestCase {
 			// get memory usage
 			long usagememory = Helper.getMemoryUsage();
 
-			outStream.println("DataAwareSimple Algorithms:");
-			System.out.println("DataAwareSimple Algorithms:");
+			outStream.println("ShareEager II Algorithms:");
+			System.out.println("ShareEager II Algorithms:");
 			outStream.printf("--" + "Response Time: %d \n", qtime);
 			outStream.println();
 			System.out.printf("--" + "Response Time: %d \n", qtime);
@@ -91,7 +90,6 @@ public class TestDataAwareSimple implements TestCase {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-			
 			return 0;
 
 	}
@@ -155,9 +153,9 @@ public class TestDataAwareSimple implements TestCase {
 								
 								e.printStackTrace();
 							}
+
 						}
 						
-
 					}
 				}
 				
@@ -206,7 +204,7 @@ public class TestDataAwareSimple implements TestCase {
 				
 				outStream.printf("-- " + "Keyword Query:\n", userQuery.get(queryNum));
 				outStream.println();
-		//		System.out.printf("-- " + "Keyword Query: %s \n",  userQuery.get(queryNum));
+	//			System.out.printf("-- " + "Keyword Query: %s \n",  userQuery.get(queryNum));
 				
 				
 			
@@ -215,10 +213,10 @@ public class TestDataAwareSimple implements TestCase {
 
 				// from _resultheap and _resultmonitor
 				outStream.println("SLCA results as follow. ");
-		//		System.out.println("SLCA results as follow");
+	//			System.out.println("SLCA results as follow");
 
 			    outStream.println("SLCA result: " + result);
-		//		System.out.println("SLCA result: " + result);
+	//			System.out.println("SLCA result: " + result);
 			
 
 				outStream.println();
@@ -241,8 +239,37 @@ public class TestDataAwareSimple implements TestCase {
 
 	private void cleanSharingFactor(HashMap<Integer, List<String>> lattice) {
 		// TODO Auto-generated method stub
-		HashMap<String,Integer> sf_score = new HashMap<String,Integer>();
-		for(int i : lattice.keySet())
+		HashMap<String,Double> sf_score = new HashMap<String,Double>();
+		for(String s : shareFactor.keySet())
+		{
+			System.out.println(s);
+			
+		}
+		int maxShare =Integer.MIN_VALUE;
+		for(int i :steinerPoints.values())
+		{
+			if(i>maxShare)
+			{
+				maxShare=i;
+			}
+		}
+		for(int i=0;i<maxShare;i++)
+		{
+			
+			for(String sf : steinerPoints.keySet())
+			{
+				// cal from bottom to up
+				if(steinerPoints.get(sf)==i)
+				{
+					//validate
+					
+					
+				}
+				
+			}
+		}
+		
+		for(int i : steinerPoints.values())
 		{
 			//each query is involved once
 			for(String s : lattice.get(i))
@@ -250,61 +277,28 @@ public class TestDataAwareSimple implements TestCase {
 				//is sharing factor
 				if(s.contains("|"))
 				{
-					/*
-					int shortestK = Integer.MAX_VALUE;
-					
 					List<String> sfList =Arrays.asList( s.split("[|]"));
+					if(!sf_score.containsKey(s))
+					{
+						//sf generation cost
+						sf_score.put(s, -calQueryCost(sfList)); 						
+					}
 					
-					for(String key:sfList)
+					List<String> uQ = userQuery.get(i);
+					List<String> newuQ = new LinkedList<String>();
+					double originC = calQueryCost(uQ);
+					for(String t:uQ)
 					{
-						if(keywordCount.get(key)<shortestK)
+						if(!sfList.contains(t))
 						{
-							shortestK=keywordCount.get(key);							
+							newuQ.add(t);							
 						}
 					}
-					*/
-					double size_sf = Helper.getSharingFactorSize(s, keywordCount, r_ratio);
-									
-				
-					int shortestK2 = Integer.MAX_VALUE;
-					for(String ss: lattice.get(i))
-					{
-						//if(!ss.contains("|"))
-						//{
-													
-							if(!ss.equalsIgnoreCase(s))
-							{
-								if(!keywordCount.containsKey(ss))
-								{
-									Helper.getSharingFactorSize(ss, keywordCount, r_ratio);
-								}
-								if(keywordCount.get(ss)<shortestK2)
-								{
-									shortestK2=keywordCount.get(ss);							
-								}
-							}
-						//}
-					}
-					//count + 1
-					if(size_sf<shortestK2*threshold)
-					{
-						if(sf_score.containsKey(s))
-						{
-							sf_score.put(s,sf_score.get(s)+1);
-						}
-						else
-						{
-							sf_score.put(s,1);
-						}
-					}
-					else
-					{
-						if(!sf_score.containsKey(s))
-						{
-							sf_score.put(s,0);
-						}
-					}
-									
+					newuQ.add(s);
+					double newC = calQueryCost(newuQ);
+					
+					double saving = originC-newC;
+					sf_score.put(s, sf_score.get(s)+saving); 					
 				}
 									
 			}
@@ -313,11 +307,9 @@ public class TestDataAwareSimple implements TestCase {
 		//Helper.printHashMap(sf_score);
 		//Helper.printHashMap(lattice);
 		//clean
-		
-		
 		for(String sf:sf_score.keySet())
 		{
-			if(sf_score.get(sf)<2)
+			if(sf_score.get(sf)<0)
 			{
 				//remove this sf
 				steinerPoints.remove(sf);
@@ -345,6 +337,77 @@ public class TestDataAwareSimple implements TestCase {
 	}
 	
 	
+	private double calQueryCost(List<String> query)
+	{
+		double stackCost=0;
+		double indexCost=0;
+		
+		int minK=Integer.MAX_VALUE;
+		
+		
+		String minKS=null;
+		 
+		for(String q : query)
+		{
+			int tempK=Integer.MAX_VALUE;
+			if(keywordCount.containsKey(q))
+			{
+				tempK=keywordCount.get(q);
+				
+			}
+			else
+			{
+				System.out.println("error");
+				/*
+				if(q.contains("|"))
+				{
+					List<String> sfList =Arrays.asList( q.split("[|]"));
+					int temp = Integer.MAX_VALUE;
+					for(String t:sfList)
+					{
+						if(keywordCount.get(t)<temp)
+						{
+							temp=keywordCount.get(t);
+						}
+					}
+					tempK=(int) (temp*r_ratio);
+					keywordCount.put(q, tempK);
+				}
+				*/
+			}
+			
+			if(tempK<minK)
+			{
+				minK=tempK;
+				minKS=q;
+			}
+		
+			stackCost+=2*tempK;			
+		}
+		
+		//cal index
+		for(String q : query)
+		{
+			int tempK=keywordCount.get(q);
+			if(!q.equalsIgnoreCase(minKS))
+			{
+				indexCost+=minK*Math.log(tempK)/Math.log(2.0);
+			}
+			
+		}
+		indexCost+=query.size()*minK;
+		
+		//return the less cost.
+		if(stackCost>indexCost)
+		{
+			return indexCost;
+		}
+		else
+		{
+			return stackCost;
+		}		
+		
+	}
 	private HashMap<Integer, List<String>> generateLattice(HashMap<Integer, List<String>> userQuery,
 			int counter,HashMap<String, List<String>> scheduler) {
 		HashMap<Integer, List<String>> lattice=new HashMap<Integer, List<String>> ();
@@ -447,7 +510,6 @@ public class TestDataAwareSimple implements TestCase {
 				}
 			}
 		}
-	
 		
 		
 		//Helper.printHashMap(lattice);
@@ -461,7 +523,7 @@ public class TestDataAwareSimple implements TestCase {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TestCase test = new TestDataAwareSimple();
+		TestCase test = new TestShareEagerII();
 		test.run();
 	}
 
@@ -505,7 +567,7 @@ public class TestDataAwareSimple implements TestCase {
 			// go index
 			if ((sizeA* 5) < sizeB  ) {
 				outStream.println("index based");
-	//			System.out.println("index based");
+		//		System.out.println("index based");
 				myEstimation = new IndexbasedEvaluation(outStream,
 						curKeywords, curKeywords.get(0));
 			} 
@@ -518,7 +580,7 @@ public class TestDataAwareSimple implements TestCase {
 			else // go stack
 			{
 				outStream.println("stack based");
-	//			System.out.println("stack based");
+		//		System.out.println("stack based");
 				myEstimation = new StackbasedEvaluation(outStream,
 						curKeywords);
 			}
@@ -542,9 +604,9 @@ public class TestDataAwareSimple implements TestCase {
 			}
 
 	//		System.out.println(curKeywords);
-		//	Helper.printHashMap(tempQuery.keyword2deweylist);
+	//		Helper.printHashMap(tempQuery.keyword2deweylist);
 			myEstimation.computeSLCA(tempQuery);
-		//	Helper.printList(myEstimation.getResult());
+
 			// release memory
 			tempQuery.clearMem();
 			System.gc();

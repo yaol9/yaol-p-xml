@@ -35,17 +35,17 @@ public class TestManager {
 		TestCase test2 = new TestQueryAware();
 		long a1=test2.run();
 		
-		TestCase test3 = new TestDataAware();
+		TestCase test3 = new TestShortEager();
 		long a2=test3.run();
 		
-		TestCase test4 = new TestDataAwareSimple();
+		TestCase test4 = new TestShareEagerII();
 		long a3=test4.run();
 		
 		System.out.println("Test Result:");
 		System.out.println("Algorithm SE : " + se + " ms");
-		System.out.println("Algorithm A1 : " + a1 + " ms");
-		System.out.println("Algorithm A2 : " + a2 + " ms");
-		System.out.println("Algorithm A3 : " + a3 + " ms");
+		System.out.println("Algorithm QA : " + a1 + " ms");
+		System.out.println("Algorithm Short Eager : " + a2 + " ms");
+		System.out.println("Algorithm Share Eager : " + a3 + " ms");
 		
 	}	
 	
