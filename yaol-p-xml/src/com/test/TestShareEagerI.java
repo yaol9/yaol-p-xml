@@ -26,22 +26,24 @@ import com.db.DBHelper;
 import com.tools.Helper;
 import com.tools.PropertyReader;
 import com.tools.TimeRecorder;
+import com.xmlparser.TokenPreprocessor;
 
 public class TestShareEagerI implements TestCase {
 
 	private int curUserQuery ; 
-	private double r_ratio = 0.0015; // preset reductio ratio
 	private HashMap<String,Integer> steinerPoints ;
 	private HashMap<String, List<String>> shareFactor;
 	private HashMap<String,Integer> keywordCount;
+	private HashMap<String,Integer> resultSize;
+	
 	HashMap<Integer, List<String>> userQuery;
 	TestShareEagerI()
 	{
 		steinerPoints = new HashMap<String,Integer>();
 		shareFactor = new HashMap<String, List<String>>();
 		keywordCount=new HashMap<String,Integer>();
-		userQuery = new HashMap<Integer, List<String>>();
-		 
+		resultSize=new HashMap<String,Integer>();
+		userQuery = new HashMap<Integer, List<String>>();		 
 	}
 	@Override
 	public long run() {
@@ -70,8 +72,8 @@ public class TestShareEagerI implements TestCase {
 			// get memory usage
 			long usagememory = Helper.getMemoryUsage();
 
-			outStream.println("TestShareEager I Algorithms:");
-			System.out.println("TestShareEager I Algorithms:");
+			outStream.println("ShareEager I Algorithms:");
+			System.out.println("ShareEager I Algorithms:");
 			outStream.printf("--" + "Response Time: %d \n", qtime);
 			outStream.println();
 			System.out.printf("--" + "Response Time: %d \n", qtime);
@@ -111,12 +113,8 @@ public class TestShareEagerI implements TestCase {
 							new FileInputStream(ksFile))));
 
 			String query = "";
-
 			 // user
-																								// query
-
-			
-			
+				
 			int counter = 0;
 			int maxSize =Integer.MIN_VALUE; //max query size
 
@@ -158,11 +156,26 @@ public class TestShareEagerI implements TestCase {
 						
 					}
 				}
+					
+			}
+			
+			//load log
+			String resultLog = PropertyReader.getProperty("resultLog");
+
+			BufferedReader resultLogRead = new BufferedReader(
+					new InputStreamReader(new DataInputStream(
+							new FileInputStream(resultLog))));
+
+			String resultLogItem = "";
+			
+			while ((resultLogItem = resultLogRead.readLine()) != null) {
+
+				String keywordSet[] = resultLogItem.split("[,]");
+
+				resultSize.put(keywordSet[0], Integer.valueOf(keywordSet[1]));
 				
 				
 			}
-			
-			
 			
 			
 			HashMap<String, List<String>> scheduler=new HashMap<String, List<String>> ();
@@ -197,7 +210,6 @@ public class TestShareEagerI implements TestCase {
 			
 		//	Helper.printHashMap(tempResult);
 		//	Helper.printHashMap(keywordCount);
-			
 		
 			for(int queryNum : lattice.keySet())
 			{
@@ -205,8 +217,6 @@ public class TestShareEagerI implements TestCase {
 				outStream.printf("-- " + "Keyword Query:\n", userQuery.get(queryNum));
 				outStream.println();
 	//			System.out.printf("-- " + "Keyword Query: %s \n",  userQuery.get(queryNum));
-				
-				
 			
 				List<String> result=answerQuery(keywordCount,lattice.get(queryNum),outStream);
 							
@@ -240,47 +250,76 @@ public class TestShareEagerI implements TestCase {
 	private void cleanSharingFactor(HashMap<Integer, List<String>> lattice) {
 		// TODO Auto-generated method stub
 		HashMap<String,Double> sf_score = new HashMap<String,Double>();
-		for(int i : lattice.keySet())
+		for(String s : shareFactor.keySet())
 		{
+			System.out.println(s);
+			
+		}
+		
+		for(String sf : steinerPoints.keySet())
+		{
+			double costSaving = 0;
 			//each query is involved once
-			for(String s : lattice.get(i))
+			for(int i : lattice.keySet())
 			{
 				//is sharing factor
-				if(s.contains("|"))
+				
+				if(lattice.get(i).contains(sf))
 				{
-					List<String> sfList =Arrays.asList( s.split("[|]"));
-					if(!sf_score.containsKey(s))
+					
+					//calculate a score
+					double scoreWithSF = calQueryCost(lattice.get(i));
+					
+					
+					String [] temp=sf.split("[|]");
+					List<String> sfList =new ArrayList<String>();
+					
+									
+					
+					for(String tempS:temp)
 					{
-						//sf generation cost
-						sf_score.put(s, -calQueryCost(sfList)); 						
+						sfList.add(tempS);
+						
 					}
 					
-					List<String> uQ = userQuery.get(i);
-					List<String> newuQ = new LinkedList<String>();
-					double originC = calQueryCost(uQ);
-					for(String t:uQ)
+					if(costSaving==0)
 					{
-						if(!sfList.contains(t))
+						costSaving=-calQueryCost(sfList);
+					}
+					for(String s:lattice.get(i))
+					{
+						if(!s.equalsIgnoreCase(sf))
 						{
-							newuQ.add(t);							
+							sfList.add(s);	
 						}
-					}
-					newuQ.add(s);
-					double newC = calQueryCost(newuQ);
+					}	
 					
-					double saving = originC-newC;
-					sf_score.put(s, sf_score.get(s)+saving); 					
+					double scoreWithoutSF = calQueryCost(sfList);
+					
+					costSaving += scoreWithSF-scoreWithoutSF;						
 				}
+				
 									
 			}
+			
+			if(sf_score.containsKey(sf))
+			{
+				sf_score.put(sf, sf_score.get(sf)+costSaving); 	
+			}
+			else
+			{
+				sf_score.put(sf, costSaving); 	
+			}
+			
 		}
 		
 		//Helper.printHashMap(sf_score);
 		//Helper.printHashMap(lattice);
+		
 		//clean
 		for(String sf:sf_score.keySet())
 		{
-			if(sf_score.get(sf)<0)
+			if(sf_score.get(sf)<1)
 			{
 				//remove this sf
 				steinerPoints.remove(sf);
@@ -310,11 +349,89 @@ public class TestShareEagerI implements TestCase {
 	
 	private double calQueryCost(List<String> query)
 	{
+		double totalCost=0;
+		
+		
+		List<String> curKeywords = new ArrayList<String>();
+		//2 shortest keyword
+		String shortestKeyword=Helper.getShortestKeyword(resultSize, query);
+		curKeywords.add(shortestKeyword);
+		query.remove(shortestKeyword);
+		
+		shortestKeyword=Helper.getShortestKeyword(keywordCount, query);
+		curKeywords.add(shortestKeyword);
+		query.remove(shortestKeyword);
+		
+		while (curKeywords.size()==2)
+		{
+			totalCost+=calQueryCostSingle(curKeywords);
+			
+			String joinK = curKeywords.get(0)+"|"+ curKeywords.get(1);
+			curKeywords.clear();
+			curKeywords.add(joinK);
+			
+			String secondK=Helper.getShortestKeyword(resultSize,query);
+			curKeywords.add(secondK);
+			query.remove(secondK);
+			
+			
+		}
+		
+		//calculate sharing factor generation cost
+		for(String s: query)
+		{
+			if(s.contains("|"))
+			{
+				List<String> sfList=new ArrayList<String>();
+				String [] sfs=s.split("[|]");
+				for(String sf: sfs)
+				{
+					sfList.add(sf);
+				}
+				
+				
+				curKeywords = new ArrayList<String>();
+				//2 shortest keyword
+				shortestKeyword=Helper.getShortestKeyword(resultSize, sfList);
+				curKeywords.add(shortestKeyword);
+				sfList.remove(shortestKeyword);
+				
+				shortestKeyword=Helper.getShortestKeyword(keywordCount, sfList);
+				curKeywords.add(shortestKeyword);
+				sfList.remove(shortestKeyword);
+				
+				while (curKeywords.size()==2)
+				{
+					totalCost+=calQueryCostSingle(curKeywords);
+					
+					String joinK = curKeywords.get(0)+"|"+ curKeywords.get(1);
+					curKeywords.clear();
+					curKeywords.add(joinK);
+					
+					String secondK=Helper.getShortestKeyword(resultSize, sfList);
+					curKeywords.add(secondK);
+					sfList.remove(secondK);
+					
+					
+				}
+				
+			}
+		}
+		
+		return totalCost;
+		
+		
+	}
+	private double calQueryCostSingle(List<String> query)
+	{
 		double stackCost=0;
 		double indexCost=0;
 		
 		int minK=Integer.MAX_VALUE;
+		
+		
 		String minKS=null;
+		 
 		for(String q : query)
 		{
 			int tempK=Integer.MAX_VALUE;
@@ -325,6 +442,8 @@ public class TestShareEagerI implements TestCase {
 			}
 			else
 			{
+				System.out.println("error");
+				/*
 				if(q.contains("|"))
 				{
 					List<String> sfList =Arrays.asList( q.split("[|]"));
@@ -339,6 +458,7 @@ public class TestShareEagerI implements TestCase {
 					tempK=(int) (temp*r_ratio);
 					keywordCount.put(q, tempK);
 				}
+				*/
 			}
 			
 			if(tempK<minK)
@@ -346,7 +466,8 @@ public class TestShareEagerI implements TestCase {
 				minK=tempK;
 				minKS=q;
 			}
-			stackCost+=tempK;			
+		
+			stackCost+=2*tempK;			
 		}
 		
 		//cal index
@@ -359,6 +480,7 @@ public class TestShareEagerI implements TestCase {
 			}
 			
 		}
+		indexCost+=query.size()*minK;
 		
 		//return the less cost.
 		if(stackCost>indexCost)

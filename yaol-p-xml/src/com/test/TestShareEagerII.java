@@ -30,7 +30,6 @@ import com.tools.TimeRecorder;
 public class TestShareEagerII implements TestCase {
 
 	private int curUserQuery ; 
-	private double r_ratio = 0.0015; // preset reductio ratio
 	private HashMap<String,Integer> steinerPoints ;
 	private HashMap<String, List<String>> shareFactor;
 	private HashMap<String,Integer> keywordCount;
@@ -245,60 +244,56 @@ public class TestShareEagerII implements TestCase {
 			System.out.println(s);
 			
 		}
-		int maxShare =Integer.MIN_VALUE;
-		for(int i :steinerPoints.values())
-		{
-			if(i>maxShare)
-			{
-				maxShare=i;
-			}
-		}
-		for(int i=0;i<maxShare;i++)
-		{
-			
-			for(String sf : steinerPoints.keySet())
-			{
-				// cal from bottom to up
-				if(steinerPoints.get(sf)==i)
-				{
-					//validate
-					
-					
-				}
-				
-			}
-		}
 		
-		for(int i : steinerPoints.values())
+		for(String sf : steinerPoints.keySet())
 		{
 			//each query is involved once
-			for(String s : lattice.get(i))
+			for(int i : lattice.keySet())
 			{
 				//is sharing factor
-				if(s.contains("|"))
+				if(lattice.get(i).contains(sf))
 				{
-					List<String> sfList =Arrays.asList( s.split("[|]"));
-					if(!sf_score.containsKey(s))
+					//calculate a score
+					String [] temp=sf.split("[|]");
+					List<String> sfList =new ArrayList<String>();
+					
+					for(String tempS:temp)
 					{
-						//sf generation cost
-						sf_score.put(s, -calQueryCost(sfList)); 						
+						sfList.add(tempS);
+						
 					}
 					
-					List<String> uQ = userQuery.get(i);
-					List<String> newuQ = new LinkedList<String>();
-					double originC = calQueryCost(uQ);
-					for(String t:uQ)
+					
+					double scoreDesc = calQueryCost(sfList);
+					
+					//get shortest
+					int shortest = Integer.MAX_VALUE;
+					String shortestOtherK="";
+					for(String other : lattice.get(i))
 					{
-						if(!sfList.contains(t))
+						if(!other.equalsIgnoreCase(sf))
 						{
-							newuQ.add(t);							
+							if(keywordCount.get(other)<shortest)
+							{
+								shortest=keywordCount.get(other);
+								shortestOtherK=other;
+							}
 						}
 					}
-					newuQ.add(s);
-					double newC = calQueryCost(newuQ);
-					
-					double saving = originC-newC;
-					sf_score.put(s, sf_score.get(s)+saving); 					
+					sfList.add(shortestOtherK);
+					double scoreAnces = calQueryCost(sfList);
+					if(scoreDesc<scoreAnces)
+					{
+						if(sf_score.containsKey(sf))
+						{
+							sf_score.put(sf, sf_score.get(sf)+1); 	
+						}
+						else
+						{
+							sf_score.put(sf, (double) 1); 	
+						}
+					}
+									
 				}
 									
 			}
@@ -306,10 +301,11 @@ public class TestShareEagerII implements TestCase {
 		
 		//Helper.printHashMap(sf_score);
 		//Helper.printHashMap(lattice);
+		
 		//clean
 		for(String sf:sf_score.keySet())
 		{
-			if(sf_score.get(sf)<0)
+			if(sf_score.get(sf)<1)
 			{
 				//remove this sf
 				steinerPoints.remove(sf);
