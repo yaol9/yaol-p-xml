@@ -26,7 +26,6 @@ import com.db.DBHelper;
 import com.tools.Helper;
 import com.tools.PropertyReader;
 import com.tools.TimeRecorder;
-import com.xmlparser.TokenPreprocessor;
 
 public class TestShareEagerI implements TestCase {
 
@@ -146,7 +145,7 @@ public class TestShareEagerI implements TestCase {
 								deweySet.next();
 								int count = deweySet.getInt("count");
 								keywordCount.put(s, count);
-														
+								resultSize.put(s, count);						
 							} catch (SQLException e) {
 								
 								e.printStackTrace();
@@ -349,18 +348,24 @@ public class TestShareEagerI implements TestCase {
 	
 	private double calQueryCost(List<String> query)
 	{
+		List tempQuery = new ArrayList<String>();
+		
+		for(String s : query)
+		{
+			tempQuery.add(s);
+		}
 		double totalCost=0;
 		
 		
 		List<String> curKeywords = new ArrayList<String>();
 		//2 shortest keyword
-		String shortestKeyword=Helper.getShortestKeyword(resultSize, query);
+		String shortestKeyword=Helper.getShortestKeyword(resultSize, tempQuery);
 		curKeywords.add(shortestKeyword);
-		query.remove(shortestKeyword);
+		tempQuery.remove(shortestKeyword);
 		
-		shortestKeyword=Helper.getShortestKeyword(keywordCount, query);
+		shortestKeyword=Helper.getShortestKeyword(keywordCount, tempQuery);
 		curKeywords.add(shortestKeyword);
-		query.remove(shortestKeyword);
+		tempQuery.remove(shortestKeyword);
 		
 		while (curKeywords.size()==2)
 		{
@@ -370,9 +375,13 @@ public class TestShareEagerI implements TestCase {
 			curKeywords.clear();
 			curKeywords.add(joinK);
 			
-			String secondK=Helper.getShortestKeyword(resultSize,query);
-			curKeywords.add(secondK);
-			query.remove(secondK);
+			String secondK=Helper.getShortestKeyword(resultSize,tempQuery);
+			if(secondK!=null)
+			{
+				curKeywords.add(secondK);
+				tempQuery.remove(secondK);	
+			}
+			
 			
 			
 		}
@@ -409,9 +418,12 @@ public class TestShareEagerI implements TestCase {
 					curKeywords.add(joinK);
 					
 					String secondK=Helper.getShortestKeyword(resultSize, sfList);
-					curKeywords.add(secondK);
-					sfList.remove(secondK);
 					
+					if(secondK!=null)
+					{
+						curKeywords.add(secondK);
+						sfList.remove(secondK);
+					}
 					
 				}
 				
@@ -435,30 +447,15 @@ public class TestShareEagerI implements TestCase {
 		for(String q : query)
 		{
 			int tempK=Integer.MAX_VALUE;
-			if(keywordCount.containsKey(q))
+			if(resultSize.containsKey(q))
 			{
-				tempK=keywordCount.get(q);
+				tempK=resultSize.get(q);
 				
 			}
 			else
 			{
 				System.out.println("error");
-				/*
-				if(q.contains("|"))
-				{
-					List<String> sfList =Arrays.asList( q.split("[|]"));
-					int temp = Integer.MAX_VALUE;
-					for(String t:sfList)
-					{
-						if(keywordCount.get(t)<temp)
-						{
-							temp=keywordCount.get(t);
-						}
-					}
-					tempK=(int) (temp*r_ratio);
-					keywordCount.put(q, tempK);
-				}
-				*/
+				
 			}
 			
 			if(tempK<minK)
@@ -473,7 +470,7 @@ public class TestShareEagerI implements TestCase {
 		//cal index
 		for(String q : query)
 		{
-			int tempK=keywordCount.get(q);
+			int tempK=resultSize.get(q);
 			if(!q.equalsIgnoreCase(minKS))
 			{
 				indexCost+=minK*Math.log(tempK)/Math.log(2.0);
