@@ -62,7 +62,7 @@ public class TestShortEager implements TestCase {
 			
 			TimeRecorder.startRecord();
 			// run 5 times
-			for (int i = 0; i < 1; i++) {
+			for (int i = 0; i < 5; i++) {
 				runSingle(outStream);
 			}
 
