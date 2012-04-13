@@ -70,6 +70,7 @@ public class GenerateLog {
 			queryRead.close();
 			outStream.close();
 
+			System.out.println("finished");
 	}
 	catch(Exception e)
 	{

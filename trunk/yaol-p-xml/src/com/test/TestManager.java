@@ -29,23 +29,27 @@ public class TestManager {
 	 */
 	public static void main(String[] args) {
 
-		TestCase test = new TestBasic();
-		long se=test.run();
+		TestCase test_ba = new TestBasic();
+		long ba=test_ba.run();
 		
-		TestCase test2 = new TestQueryAware();
-		long a1=test2.run();
+		TestCase test_qa = new TestQueryAware();
+		long qa=test_qa.run();
 		
-		TestCase test3 = new TestShortEager();
-		long a2=test3.run();
+		TestCase test_sa = new TestShortEager();
+		long sa=test_sa.run();
 		
-		TestCase test4 = new TestShareEagerII();
-		long a3=test4.run();
+		TestCase test_sa_i = new TestShareEagerI();
+	//	long sa_i=test_sa_i.run();
+		
+		TestCase test_sa_ii = new TestShareEagerII();
+		long sa_ii=test_sa_ii.run();
 		
 		System.out.println("Test Result:");
-		System.out.println("Algorithm SE : " + se + " ms");
-		System.out.println("Algorithm QA : " + a1 + " ms");
-		System.out.println("Algorithm Short Eager : " + a2 + " ms");
-		System.out.println("Algorithm Share Eager : " + a3 + " ms");
+		System.out.println("Algorithm BA : " + ba + " ms");
+		System.out.println("Algorithm QA : " + qa + " ms");
+		System.out.println("Algorithm Short Eager : " + sa + " ms");
+	//	System.out.println("Algorithm Share Eager I : " + sa_i + " ms");
+		System.out.println("Algorithm Share Eager II: " + sa_ii + " ms");
 		
 	}	
 	
