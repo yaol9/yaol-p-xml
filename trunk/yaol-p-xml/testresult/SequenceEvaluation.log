@@ -1,0 +1,33 @@
+-- Keyword Query: order,money,apple 
+
+index basedKeyword Size order -> number: 11197
+
+Keyword Size money -> number: 11319
+
+Keyword Size apple -> number: 19
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.2, 1.1.4, 1.1.5.4832, 1.1.5.5741, 1.1.6.10296, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: order,money,australia 
+
+index basedKeyword Size order -> number: 11197
+
+Keyword Size money -> number: 11319
+
+Keyword Size australia -> number: 30
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.2, 1.1.3, 1.1.4.542, 1.1.5.5373]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sequence Algorithms:
+--Response Time: 4313 
+
+--Memory usage: 3990688 
+

@@ -39,7 +39,7 @@ public class TestManager {
 		long sa=test_sa.run();
 		
 		TestCase test_sa_i = new TestShareEagerI();
-	//	long sa_i=test_sa_i.run();
+		long sa_i=test_sa_i.run();
 		
 		TestCase test_sa_ii = new TestShareEagerII();
 		long sa_ii=test_sa_ii.run();
@@ -48,7 +48,7 @@ public class TestManager {
 		System.out.println("Algorithm BA : " + ba + " ms");
 		System.out.println("Algorithm QA : " + qa + " ms");
 		System.out.println("Algorithm Short Eager : " + sa + " ms");
-	//	System.out.println("Algorithm Share Eager I : " + sa_i + " ms");
+		System.out.println("Algorithm Share Eager I : " + sa_i + " ms");
 		System.out.println("Algorithm Share Eager II: " + sa_ii + " ms");
 		
 	}	

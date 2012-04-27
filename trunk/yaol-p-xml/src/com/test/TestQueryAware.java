@@ -1,4 +1,4 @@
-package com.test;
+	package com.test;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,6 +17,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import com.QueryEvaluation.IndexbasedEvaluation;
 import com.QueryEvaluation.KeywordQuery;
@@ -54,7 +55,7 @@ public class TestQueryAware implements TestCase {
 			
 			TimeRecorder.startRecord();
 			// run 5 times
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 1; i++) {
 				runSingle(outStream);
 			}
 
@@ -316,12 +317,25 @@ public class TestQueryAware implements TestCase {
 				if (!check) {
 					if (lattice.containsKey(i)) {
 						List<String> tempJointList = lattice.get(i);
-						tempJointList.add(0,key);
+						//tempJointList.add(0,key);
 						
+						if(i%2==1)
+						{
+							tempJointList.add(0,key);
+						}
+						else
+						{
+							tempJointList.add(key);
+						}
+					//	randomPlace=randomPlace%tempJointList.size();
+					//	tempJointList.add(randomPlace,key);	
+				//		tempJointList.add(key);
 						lattice.put(i, tempJointList);
 					} else {
 						List<String> tempJointList = new ArrayList<String>();
-						tempJointList.add(0,key);
+						
+						//tempJointList.add(0,key);
+						tempJointList.add(key);
 						lattice.put(i, tempJointList);
 					}
 
@@ -375,7 +389,7 @@ public class TestQueryAware implements TestCase {
 			else
 			{
 				
-				tempQuery.LoadSpecificInformation(s);
+				tempQuery.LoadKeywordNodesfromDisc(s);
 			}
 		}
 	
@@ -458,7 +472,7 @@ public class TestQueryAware implements TestCase {
 				else
 				{
 					
-					tempQuery.LoadSpecificInformation(secondK);
+					tempQuery.LoadKeywordNodesfromDisc(secondK);
 				}
 				
 				tempQuery.LoadSpecificInformationFromList(joinK,myEstimation.getResult());

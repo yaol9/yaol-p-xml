@@ -30,6 +30,9 @@ import com.tools.TimeRecorder;
 public class TestShareEagerII implements TestCase {
 
 	private int curUserQuery ; 
+	
+	private long waiveTime=0;
+	
 	private HashMap<String,Integer> steinerPoints ;
 	private HashMap<String, List<String>> shareFactor;
 	private HashMap<String,Integer> keywordCount;
@@ -59,13 +62,14 @@ public class TestShareEagerII implements TestCase {
 			
 			TimeRecorder.startRecord();
 			// run 5 times
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 1; i++) {
 				runSingle(outStream);
 			}
 
 			TimeRecorder.stopRecord();
 			System.gc();
 			long qtime = TimeRecorder.getTimeRecord();
+			qtime=qtime-waiveTime;
 			// get memory usage
 			long usagememory = Helper.getMemoryUsage();
 
@@ -135,6 +139,7 @@ public class TestShareEagerII implements TestCase {
 					userQuery.put(counter, refinedkeywords);
 					counter++;
 					
+					/*
 					for(String s:refinedkeywords)
 					{
 						if(!keywordCount.containsKey(s))
@@ -156,13 +161,14 @@ public class TestShareEagerII implements TestCase {
 						}
 						
 					}
+					*/
 				}
 				
 				
 			}
 			
 			
-			
+			Helper.loadKeywordCount(keywordCount);
 			
 			HashMap<String, List<String>> scheduler=new HashMap<String, List<String>> ();
 		
@@ -194,41 +200,42 @@ public class TestShareEagerII implements TestCase {
 				}
 			}
 			
-		//	Helper.printHashMap(tempResult);
-		//	Helper.printHashMap(keywordCount);
+
+			//record time
+			long t_start=0;
+			long t_end=0;
 			
-		
+			
 			for(int queryNum : lattice.keySet())
 			{
+				t_start=System.currentTimeMillis();
 				
 				outStream.printf("-- " + "Keyword Query:\n", userQuery.get(queryNum));
 				outStream.println();
-	//			System.out.printf("-- " + "Keyword Query: %s \n",  userQuery.get(queryNum));
 				
+				t_end=System.currentTimeMillis();			
+				waiveTime += t_end-t_start;
 				
 			
 				List<String> result=answerQuery(keywordCount,lattice.get(queryNum),outStream);
 							
+				t_start=System.currentTimeMillis();
 
-				// from _resultheap and _resultmonitor
+
 				outStream.println("SLCA results as follow. ");
-	//			System.out.println("SLCA results as follow");
-
 			    outStream.println("SLCA result: " + result);
-	//			System.out.println("SLCA result: " + result);
-			
-
 				outStream.println();
 				outStream.println();
 				outStream.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-			    
+			
+				t_end=System.currentTimeMillis();			
+				waiveTime += t_end-t_start;
 			}
+			
 			
 			//clear mem
 			shareFactor.clear();
 			lattice.clear();
-			
-		
 			
 			
 		} catch (IOException e) {
@@ -524,7 +531,12 @@ public class TestShareEagerII implements TestCase {
 	}
 
 	private List<String> answerQuery(HashMap<String,Integer> keywordCount,List<String> kList,PrintWriter outStream)
-	{
+	{		
+		//record time
+		long t_start=0;
+		long t_end=0;
+				
+				
 		// answer 2 keyword per run
 		List<String> curKeywords = new ArrayList<String>();
 		//2 shortest keyword
@@ -547,7 +559,7 @@ public class TestShareEagerII implements TestCase {
 			else
 			{
 				
-				tempQuery.LoadSpecificInformation(s);
+				tempQuery.LoadKeywordNodesfromDisc(s);
 			}
 		}
 	
@@ -560,6 +572,9 @@ public class TestShareEagerII implements TestCase {
 			// choose stack or index
 			int sizeA = tempQuery.keyword2deweylist.get(curKeywords.get(0)).size();
 			int sizeB = tempQuery.keyword2deweylist.get(curKeywords.get(1)).size();
+
+			t_start=System.currentTimeMillis();
+			
 			// go index
 			if ((sizeA* 5) < sizeB  ) {
 				outStream.println("index based");
@@ -599,6 +614,10 @@ public class TestShareEagerII implements TestCase {
 
 			}
 
+			t_end=System.currentTimeMillis();
+			
+			waiveTime += t_end-t_start;
+			
 	//		System.out.println(curKeywords);
 	//		Helper.printHashMap(tempQuery.keyword2deweylist);
 			myEstimation.computeSLCA(tempQuery);
@@ -627,7 +646,7 @@ public class TestShareEagerII implements TestCase {
 				else
 				{
 					
-					tempQuery.LoadSpecificInformation(secondK);
+					tempQuery.LoadKeywordNodesfromDisc(secondK);
 				}
 				
 				tempQuery.LoadSpecificInformationFromList(joinK,myEstimation.getResult());

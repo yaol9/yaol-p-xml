@@ -1,5 +1,11 @@
 package com.tools;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -221,7 +227,16 @@ public class Helper {
 		String shortestKeyword=null;
 		for(String s:refinedkeywords)
 		{
-			int count=keywordCount.get(s);
+			int count=0;
+			if(keywordCount.containsKey(s))
+			{
+				count=keywordCount.get(s);
+			}
+			else
+			{
+				System.out.println(s);
+			}
+			
 			if(count<shortestK)
 			{
 				shortestKeyword=s;
@@ -254,5 +269,35 @@ public class Helper {
 		keywordCount.put(s,(int) size_sf);
 		return size_sf;
 	}
-	
+
+	public static void loadKeywordCount(HashMap<String,Integer> keywordCount)
+	{
+		String fileName="./keyword/keywordcount.txt";
+		
+		try {
+			BufferedReader queryRead = new BufferedReader(
+					new InputStreamReader(new DataInputStream(
+							new FileInputStream(fileName))));
+
+			String node = "";
+		
+			try {
+				while ((node = queryRead.readLine()) != null) {
+
+					String [] s = node.split("[,]");					
+					keywordCount.put(s[0].trim(), Integer.parseInt(s[1].trim()));
+					
+				}
+						
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
 }

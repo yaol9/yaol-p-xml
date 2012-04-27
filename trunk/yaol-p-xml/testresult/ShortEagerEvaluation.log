@@ -1,0 +1,545 @@
+-- Keyword Query:
+
+stack based
+Keyword Size mining -> number: 15703
+
+Keyword Size machine -> number: 17074
+
+index based
+Keyword Size machine|mining -> number: 186
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size machine|mining|research -> number: 6
+
+Keyword Size performance -> number: 42425
+
+index based
+Keyword Size machine|mining|research|performance -> number: 1
+
+Keyword Size learning -> number: 50011
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size business -> number: 10637
+
+Keyword Size notes -> number: 16220
+
+index based
+Keyword Size business|notes -> number: 121
+
+Keyword Size services -> number: 19125
+
+index based
+Keyword Size business|notes|services -> number: 6
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size business|notes|services|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size advanced -> number: 6623
+
+Keyword Size complexity -> number: 20693
+
+index based
+Keyword Size advanced|complexity -> number: 14
+
+Keyword Size methods -> number: 20792
+
+index based
+Keyword Size advanced|complexity|methods -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size advanced|complexity|methods|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size platform -> number: 5907
+
+Keyword Size digital -> number: 21290
+
+index based
+Keyword Size digital|platform -> number: 105
+
+Keyword Size graph -> number: 21376
+
+index based
+Keyword Size digital|platform|graph -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size digital|platform|graph|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size middleware -> number: 4686
+
+Keyword Size automatic -> number: 17988
+
+index based
+Keyword Size automatic|middleware -> number: 21
+
+Keyword Size communication -> number: 22242
+
+index based
+Keyword Size automatic|middleware|communication -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size automatic|middleware|communication|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size reference -> number: 25818
+
+Keyword Size process -> number: 28267
+
+index based
+Keyword Size process|reference -> number: 187
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size process|reference|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+index based
+Keyword Size performance|process|reference|research -> number: 1
+
+Keyword Size transactions -> number: 46434
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size interface -> number: 10009
+
+Keyword Size resource -> number: 10159
+
+index based
+Keyword Size interface|resource -> number: 24
+
+Keyword Size representation -> number: 10592
+
+index based
+Keyword Size interface|resource|representation -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size interface|resource|representation|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size reliability -> number: 9005
+
+Keyword Size mathematical -> number: 9463
+
+index based
+Keyword Size mathematical|reliability -> number: 20
+
+Keyword Size agents -> number: 10303
+
+index based
+Keyword Size agents|mathematical|reliability -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size agents|mathematical|reliability|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size evolution -> number: 8523
+
+Keyword Size traffic -> number: 8920
+
+index based
+Keyword Size evolution|traffic -> number: 18
+
+Keyword Size collaborative -> number: 9725
+
+index based
+Keyword Size collaborative|evolution|traffic -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size collaborative|evolution|traffic|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size functional -> number: 8577
+
+Keyword Size visual -> number: 15675
+
+index based
+Keyword Size functional|visual -> number: 50
+
+Keyword Size fast -> number: 16220
+
+index based
+Keyword Size fast|functional|visual -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size fast|functional|visual|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size mining -> number: 15703
+
+Keyword Size machine -> number: 17074
+
+index based
+Keyword Size machine|mining -> number: 186
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size machine|mining|research -> number: 6
+
+Keyword Size performance -> number: 42425
+
+index based
+Keyword Size machine|mining|research|performance -> number: 1
+
+Keyword Size learning -> number: 50011
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size business -> number: 10637
+
+Keyword Size notes -> number: 16220
+
+index based
+Keyword Size business|notes -> number: 121
+
+Keyword Size services -> number: 19125
+
+index based
+Keyword Size business|notes|services -> number: 6
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size business|notes|services|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size advanced -> number: 6623
+
+Keyword Size complexity -> number: 20693
+
+index based
+Keyword Size advanced|complexity -> number: 14
+
+Keyword Size methods -> number: 20792
+
+index based
+Keyword Size advanced|complexity|methods -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size advanced|complexity|methods|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size platform -> number: 5907
+
+Keyword Size digital -> number: 21290
+
+index based
+Keyword Size digital|platform -> number: 105
+
+Keyword Size graph -> number: 21376
+
+index based
+Keyword Size digital|platform|graph -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size digital|platform|graph|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size middleware -> number: 4686
+
+Keyword Size automatic -> number: 17988
+
+index based
+Keyword Size automatic|middleware -> number: 21
+
+Keyword Size communication -> number: 22242
+
+index based
+Keyword Size automatic|middleware|communication -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size automatic|middleware|communication|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size reference -> number: 25818
+
+Keyword Size process -> number: 28267
+
+index based
+Keyword Size process|reference -> number: 187
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size process|reference|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+index based
+Keyword Size performance|process|reference|research -> number: 1
+
+Keyword Size transactions -> number: 46434
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size interface -> number: 10009
+
+Keyword Size resource -> number: 10159
+
+index based
+Keyword Size interface|resource -> number: 24
+
+Keyword Size representation -> number: 10592
+
+index based
+Keyword Size interface|resource|representation -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size interface|resource|representation|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size reliability -> number: 9005
+
+Keyword Size mathematical -> number: 9463
+
+index based
+Keyword Size mathematical|reliability -> number: 20
+
+Keyword Size agents -> number: 10303
+
+index based
+Keyword Size agents|mathematical|reliability -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size agents|mathematical|reliability|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size evolution -> number: 8523
+
+Keyword Size traffic -> number: 8920
+
+index based
+Keyword Size evolution|traffic -> number: 18
+
+Keyword Size collaborative -> number: 9725
+
+index based
+Keyword Size collaborative|evolution|traffic -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size collaborative|evolution|traffic|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size functional -> number: 8577
+
+Keyword Size visual -> number: 15675
+
+index based
+Keyword Size functional|visual -> number: 50
+
+Keyword Size fast -> number: 16220
+
+index based
+Keyword Size fast|functional|visual -> number: 1
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size fast|functional|visual|research -> number: 1
+
+Keyword Size performance -> number: 42425
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Short Eager Algorithms:
+--Response Time: 14484 
+
+--Memory usage: 828216 
+

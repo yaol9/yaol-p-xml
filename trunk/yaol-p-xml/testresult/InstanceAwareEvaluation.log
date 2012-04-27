@@ -1,0 +1,111 @@
+-- Keyword Query: book,orange,australia,cook 
+
+-- Keyword Query: book,microsoft 
+
+-- Keyword Query: apple,orange,knife 
+
+-- Keyword Query: company,cook,australia 
+
+-- Keyword Query: apple,orange,pear 
+
+-- Keyword Query: order,money 
+
+
+-- Keyword Query: [order, money] 
+
+stack basedThe number of checked nodes is: 46626
+SLCA results as follow. 
+SLCA result: 1.1.1
+SLCA result: 1.1.2
+SLCA result: 1.1.3
+SLCA result: 1.1.4.3
+SLCA result: 1.1.4.5
+SLCA result: 1.1.5.1
+SLCA result: 1.1.5.977
+SLCA result: 1.1.6.10092
+SLCA result: 1.1.6.10177
+SLCA result: 1.1.6.10327
+SLCA result: 1.1.6.10395
+SLCA result: 1.1.6.10412
+SLCA result: 1.1.6.10517
+SLCA result: 1.1.6.10550
+SLCA result: 1.1.6.10734
+SLCA result: 1.2
+SLCA result: 1.5
+SLCA result: 1.6
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- Keyword Query: [book, microsoft] 
+
+stack basedThe number of checked nodes is: 3964
+SLCA results as follow. 
+SLCA result: 1.1.1
+SLCA result: 1.1.2
+SLCA result: 1.1.3
+SLCA result: 1.1.4
+SLCA result: 1.1.5
+SLCA result: 1.1.6.10826.18
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- Keyword Query: [orange, australia|cook, book] 
+
+index basedThe number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: 1.1.2
+SLCA result: 1.1.3
+SLCA result: 1.1.4
+SLCA result: 1.1.5
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- Keyword Query: [australia|cook, company] 
+
+index basedThe number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: 1.1.2
+SLCA result: 1.1.3
+SLCA result: 1.1.4
+SLCA result: 1.1.5
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- Keyword Query: [orange, apple|orange, knife] 
+
+index basedThe number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: 1.1.2
+SLCA result: 1.1.3
+SLCA result: 1.1.4
+SLCA result: 1.1.5
+SLCA result: 1.1.6
+SLCA result: 1.5
+SLCA result: 1.6
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- Keyword Query: [orange, apple|orange, pear] 
+
+index basedThe number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: 1.1.2
+SLCA result: 1.1.3
+SLCA result: 1.1.4
+SLCA result: 1.1.5
+SLCA result: 1.1.6
+SLCA result: 1.5
+SLCA result: 1.6
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Instance Aware Algorithms:
+--Response Time: 3031 
+
+--Memory usage: 2595864 
+

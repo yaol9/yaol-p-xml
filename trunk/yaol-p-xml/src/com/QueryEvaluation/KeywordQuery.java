@@ -1,5 +1,11 @@
 package com.QueryEvaluation;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -56,6 +62,29 @@ public List<String> curKeywordList;
 			}
 		}	
 	}
+	
+	public void LoadAllInformationDisc(HashMap<String, LinkedList<String>> shareFactor) {
+		
+		for (int i = 0; i < keywordList.size(); i++) {
+			// remove null from the refined keywords
+			if (keywordList.get(i) != null) {
+				
+				
+				
+				String keyword = keywordList.get(i).trim();
+				
+				if(shareFactor.containsKey(keyword))
+				{
+					LoadSpecificInformationFromList(keyword,shareFactor.get(keyword));
+				}
+				else
+				{
+					LoadKeywordNodesfromDisc(keyword);	
+				}
+						
+			}
+		}
+	}
 
 	public void LoadSpecificInformation(String keyword) {
 		LoadKeywordNodes(keyword.trim());	
@@ -67,6 +96,39 @@ public List<String> curKeywordList;
 		
 	}
 	
+	public void LoadKeywordNodesfromDisc(String keyword) {
+	
+		String fileName="./keyword/"+keyword+".log";
+		
+		try {
+			BufferedReader queryRead = new BufferedReader(
+					new InputStreamReader(new DataInputStream(
+							new FileInputStream(fileName))));
+
+			String node = "";
+			LinkedList<String> keywordList = new LinkedList<String>();
+
+			try {
+				while ((node = queryRead.readLine()) != null) {
+
+					keywordList.add(node.trim());
+				}
+				
+				keyword2deweylist.put(keyword, keywordList);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+
+	}
+	
+		
 	/*
 	 * For a keyword, we load its relevant dewey code into a ArrayList or
 	 * LinkedList. At the same time, we retrieve the prdewey for each dewey and
@@ -92,6 +154,7 @@ public List<String> curKeywordList;
 					String dewey = deweySet.getString("dewey");
 					dewey = dewey.trim();
 
+					
 					// write dewey into keyword2deweylist
 					if (keyword2deweylist.containsKey(keyword)) {
 						mylist = keyword2deweylist.get(keyword);

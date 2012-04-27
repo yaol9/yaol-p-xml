@@ -62,7 +62,7 @@ public class TestShortEager implements TestCase {
 			
 			TimeRecorder.startRecord();
 			// run 5 times
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 1; i++) {
 				runSingle(outStream);
 			}
 
@@ -138,6 +138,7 @@ public class TestShortEager implements TestCase {
 					userQuery.put(counter, refinedkeywords);
 					counter++;
 					
+					/*
 					for(String s:refinedkeywords)
 					{
 						if(!keywordCount.containsKey(s))
@@ -155,16 +156,15 @@ public class TestShortEager implements TestCase {
 								
 								e.printStackTrace();
 							}
-						}
-						
+						}						
 
 					}
-				}
-				
+					*/
+				}				
 				
 			}	
 			
-			
+			Helper.loadKeywordCount(keywordCount);
 			
 			HashMap<String, List<String>> scheduler=new HashMap<String, List<String>> ();
 		
@@ -383,7 +383,7 @@ public class TestShortEager implements TestCase {
 			else
 			{
 				
-				tempQuery.LoadSpecificInformation(s);
+				tempQuery.LoadKeywordNodesfromDisc(s);
 			}
 		}
 	
@@ -471,7 +471,7 @@ public class TestShortEager implements TestCase {
 				else
 				{
 					
-					tempQuery.LoadSpecificInformation(secondK);
+					tempQuery.LoadKeywordNodesfromDisc(secondK);
 				}
 				
 				tempQuery.LoadSpecificInformationFromList(joinK,myEstimation.getResult());
