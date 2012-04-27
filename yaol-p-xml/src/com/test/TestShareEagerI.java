@@ -30,10 +30,15 @@ import com.tools.TimeRecorder;
 public class TestShareEagerI implements TestCase {
 
 	private int curUserQuery ; 
+	
+	private long waiveTime=0;
+	
 	private HashMap<String,Integer> steinerPoints ;
 	private HashMap<String, List<String>> shareFactor;
 	private HashMap<String,Integer> keywordCount;
 	private HashMap<String,Integer> resultSize;
+	private HashMap<String,Integer> costCounter;
+	
 	
 	HashMap<Integer, List<String>> userQuery;
 	TestShareEagerI()
@@ -42,7 +47,8 @@ public class TestShareEagerI implements TestCase {
 		shareFactor = new HashMap<String, List<String>>();
 		keywordCount=new HashMap<String,Integer>();
 		resultSize=new HashMap<String,Integer>();
-		userQuery = new HashMap<Integer, List<String>>();		 
+		userQuery = new HashMap<Integer, List<String>>();		
+		costCounter=new HashMap<String,Integer>();	
 	}
 	@Override
 	public long run() {
@@ -61,13 +67,16 @@ public class TestShareEagerI implements TestCase {
 			
 			TimeRecorder.startRecord();
 			// run 5 times
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 1; i++) {
 				runSingle(outStream);
 			}
 
 			TimeRecorder.stopRecord();
 			System.gc();
 			long qtime = TimeRecorder.getTimeRecord();
+
+			qtime=qtime-waiveTime;
+			
 			// get memory usage
 			long usagememory = Helper.getMemoryUsage();
 
@@ -133,6 +142,7 @@ public class TestShareEagerI implements TestCase {
 					userQuery.put(counter, refinedkeywords);
 					counter++;
 					
+					/*
 					for(String s:refinedkeywords)
 					{
 						if(!keywordCount.containsKey(s))
@@ -154,9 +164,13 @@ public class TestShareEagerI implements TestCase {
 						}
 						
 					}
+					*/
 				}
 					
 			}
+			
+			Helper.loadKeywordCount(keywordCount);
+			Helper.loadKeywordCount(resultSize);
 			
 			//load log
 			String resultLog = PropertyReader.getProperty("resultLog");
@@ -283,7 +297,7 @@ public class TestShareEagerI implements TestCase {
 					
 					if(costSaving==0)
 					{
-						costSaving=-calQueryCost(sfList);
+					//	costSaving=-calQueryCost(sfList);
 					}
 					for(String s:lattice.get(i))
 					{
@@ -295,7 +309,7 @@ public class TestShareEagerI implements TestCase {
 					
 					double scoreWithoutSF = calQueryCost(sfList);
 					
-					costSaving += scoreWithSF-scoreWithoutSF;						
+					costSaving += scoreWithoutSF-scoreWithSF;						
 				}
 				
 									
@@ -391,6 +405,14 @@ public class TestShareEagerI implements TestCase {
 		{
 			if(s.contains("|"))
 			{
+				if(costCounter.containsKey(s))
+				{
+					continue;
+					
+				}
+				
+				double tempCost=0.0;
+				
 				List<String> sfList=new ArrayList<String>();
 				String [] sfs=s.split("[|]");
 				for(String sf: sfs)
@@ -411,7 +433,8 @@ public class TestShareEagerI implements TestCase {
 				
 				while (curKeywords.size()==2)
 				{
-					totalCost+=calQueryCostSingle(curKeywords);
+					tempCost+=calQueryCostSingle(curKeywords);
+					
 					
 					String joinK = curKeywords.get(0)+"|"+ curKeywords.get(1);
 					curKeywords.clear();
@@ -426,6 +449,8 @@ public class TestShareEagerI implements TestCase {
 					}
 					
 				}
+				costCounter.put(s, 1);
+				totalCost+=tempCost;
 				
 			}
 		}
@@ -454,7 +479,7 @@ public class TestShareEagerI implements TestCase {
 			}
 			else
 			{
-				System.out.println("error");
+				System.out.println(q);
 				
 			}
 			
@@ -470,7 +495,16 @@ public class TestShareEagerI implements TestCase {
 		//cal index
 		for(String q : query)
 		{
-			int tempK=resultSize.get(q);
+			int tempK=0;
+			if(resultSize.containsKey(q))
+			{
+				tempK=resultSize.get(q);
+			}
+			else
+			{
+				System.out.println(q);
+				
+			} 
 			if(!q.equalsIgnoreCase(minKS))
 			{
 				indexCost+=minK*Math.log(tempK)/Math.log(2.0);
@@ -611,6 +645,11 @@ public class TestShareEagerI implements TestCase {
 
 	private List<String> answerQuery(HashMap<String,Integer> keywordCount,List<String> kList,PrintWriter outStream)
 	{
+		//record time
+		long t_start=0;
+		long t_end=0;
+		
+		
 		// answer 2 keyword per run
 		List<String> curKeywords = new ArrayList<String>();
 		//2 shortest keyword
@@ -633,7 +672,7 @@ public class TestShareEagerI implements TestCase {
 			else
 			{
 				
-				tempQuery.LoadSpecificInformation(s);
+				tempQuery.LoadKeywordNodesfromDisc(s);
 			}
 		}
 	
@@ -646,6 +685,9 @@ public class TestShareEagerI implements TestCase {
 			// choose stack or index
 			int sizeA = tempQuery.keyword2deweylist.get(curKeywords.get(0)).size();
 			int sizeB = tempQuery.keyword2deweylist.get(curKeywords.get(1)).size();
+			
+			t_start=System.currentTimeMillis();
+			
 			// go index
 			if ((sizeA* 5) < sizeB  ) {
 				outStream.println("index based");
@@ -685,8 +727,10 @@ public class TestShareEagerI implements TestCase {
 
 			}
 
-	//		System.out.println(curKeywords);
-	//		Helper.printHashMap(tempQuery.keyword2deweylist);
+			t_end=System.currentTimeMillis();
+			
+			waiveTime += t_end-t_start;
+		
 			myEstimation.computeSLCA(tempQuery);
 
 			// release memory
@@ -713,7 +757,7 @@ public class TestShareEagerI implements TestCase {
 				else
 				{
 					
-					tempQuery.LoadSpecificInformation(secondK);
+					tempQuery.LoadKeywordNodesfromDisc(secondK);
 				}
 				
 				tempQuery.LoadSpecificInformationFromList(joinK,myEstimation.getResult());

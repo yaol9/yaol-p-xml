@@ -105,8 +105,10 @@ public class TestBasic implements TestCase {
 				refinedkeywords.remove(shortestKeyword);
 				*/
 				
+				HashMap<String, LinkedList<String>> shareFactor=new HashMap<String, LinkedList<String>> ();
+				
 				KeywordQuery kquery = new KeywordQuery(curKeywords);
-				kquery.LoadAllInformation();
+				kquery.LoadAllInformationDisc(shareFactor); //empty share factor
 				while (curKeywords.size() == 2) {
 
 					
@@ -177,7 +179,7 @@ public class TestBasic implements TestCase {
 					    refinedkeywords.remove(0);
 						
 						kquery=new KeywordQuery(curKeywords);
-						kquery.LoadSpecificInformation(secondK);
+						kquery.LoadKeywordNodesfromDisc(secondK);
 						kquery.LoadSpecificInformationFromList(joinK,myEstimation.getResult());
 						
 					}
@@ -215,7 +217,7 @@ public class TestBasic implements TestCase {
 			
 			TimeRecorder.startRecord();
 			// run 5 times
-			for (int i = 0; i < 5; i++) {
+			for (int i = 0; i < 1; i++) {
 				runSingle(outStream);
 			}
 

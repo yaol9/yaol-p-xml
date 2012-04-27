@@ -1,0 +1,36 @@
+Successfully connected to MySQL server.
+index
+query:model:70077|learning:50011 process time:48955 ms result size:1983
+stack
+query:model:70077|learning:50011 process time:18376 ms result size:1983
+index
+query:model:70077|business:10637 process time:11016 ms result size:785
+stack
+query:model:70077|business:10637 process time:8735 ms result size:785
+index
+query:model:70077|advanced:6623 process time:5734 ms result size:232
+stack
+query:model:70077|advanced:6623 process time:8063 ms result size:232
+index
+query:model:70077|platform:5907 process time:7266 ms result size:192
+stack
+query:model:70077|platform:5907 process time:7860 ms result size:192
+index
+query:model:70077|middleware:4686 process time:5657 ms result size:93
+stack
+query:model:70077|middleware:4686 process time:186256 ms result size:93
+
+
+index
+query:model:70077|learning:50011|research:34491 process time:71127 ms result size:84
+stack
+query:model:70077|learning:50011|research:34491 process time:37189 ms result size:84
+index
+query:model:70077|business:10637|research:34491 process time:20923 ms result size:28
+stack
+query:model:70077|business:10637|research:34491 process time:18815 ms result size:28
+index
+query:model:70077|advanced:6623|research:34491 process time:8954 ms result size:11
+stack
+query:model:70077|advanced:6623|research:34491 process time:58880 ms result size:11
+

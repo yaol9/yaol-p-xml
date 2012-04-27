@@ -1,0 +1,605 @@
+-- Keyword Query: performance,learning,research,machine,mining 
+
+-- Keyword Query: performance,business,research,notes,services 
+
+-- Keyword Query: performance,advanced,research,methods,complexity 
+
+-- Keyword Query: performance,platform,research,digital,graph 
+
+-- Keyword Query: performance,middleware,research,communication,automatic 
+
+-- Keyword Query: performance,process,research,transactions,reference 
+
+-- Keyword Query: performance,representation,research,resource,interface 
+
+-- Keyword Query: performance,agents,research,mathematical,reliability 
+
+-- Keyword Query: performance,collaborative,research,traffic,evolution 
+
+-- Keyword Query: performance,functional,research,visual,fast 
+
+-- Keyword Query: [performance, learning, research, machine, mining] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size learning -> number: 50011
+
+index based
+Keyword Size performance|learning -> number: 465
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|learning|research -> number: 9
+
+Keyword Size machine -> number: 17074
+
+index based
+Keyword Size performance|learning|research|machine -> number: 6
+
+Keyword Size mining -> number: 15703
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, business, research, notes, services] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size business -> number: 10637
+
+index based
+Keyword Size performance|business -> number: 231
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|business|research -> number: 5
+
+Keyword Size notes -> number: 16220
+
+index based
+Keyword Size performance|business|research|notes -> number: 1
+
+Keyword Size services -> number: 19125
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, advanced, research, methods, complexity] 
+
+index based
+Keyword Size performance -> number: 42425
+
+Keyword Size advanced -> number: 6623
+
+index based
+Keyword Size performance|advanced -> number: 60
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|advanced|research -> number: 1
+
+Keyword Size methods -> number: 20792
+
+index based
+Keyword Size performance|advanced|research|methods -> number: 1
+
+Keyword Size complexity -> number: 20693
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, platform, research, digital, graph] 
+
+index based
+Keyword Size performance -> number: 42425
+
+Keyword Size platform -> number: 5907
+
+index based
+Keyword Size performance|platform -> number: 98
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|platform|research -> number: 1
+
+Keyword Size digital -> number: 21290
+
+index based
+Keyword Size performance|platform|research|digital -> number: 1
+
+Keyword Size graph -> number: 21376
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, middleware, research, communication, automatic] 
+
+index based
+Keyword Size performance -> number: 42425
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size performance|middleware -> number: 81
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|middleware|research -> number: 1
+
+Keyword Size communication -> number: 22242
+
+index based
+Keyword Size performance|middleware|research|communication -> number: 1
+
+Keyword Size automatic -> number: 17988
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, process, research, transactions, reference] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size process -> number: 28267
+
+index based
+Keyword Size performance|process -> number: 504
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|process|research -> number: 7
+
+Keyword Size transactions -> number: 46434
+
+index based
+Keyword Size performance|process|research|transactions -> number: 1
+
+Keyword Size reference -> number: 25818
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, representation, research, resource, interface] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size representation -> number: 10592
+
+index based
+Keyword Size performance|representation -> number: 52
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|representation|research -> number: 1
+
+Keyword Size resource -> number: 10159
+
+index based
+Keyword Size performance|representation|research|resource -> number: 1
+
+Keyword Size interface -> number: 10009
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, agents, research, mathematical, reliability] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size agents -> number: 10303
+
+index based
+Keyword Size performance|agents -> number: 111
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|agents|research -> number: 1
+
+Keyword Size mathematical -> number: 9463
+
+index based
+Keyword Size performance|agents|research|mathematical -> number: 1
+
+Keyword Size reliability -> number: 9005
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, collaborative, research, traffic, evolution] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size collaborative -> number: 9725
+
+index based
+Keyword Size performance|collaborative -> number: 136
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|collaborative|research -> number: 1
+
+Keyword Size traffic -> number: 8920
+
+index based
+Keyword Size performance|collaborative|research|traffic -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, functional, research, visual, fast] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size functional -> number: 8577
+
+index based
+Keyword Size performance|functional -> number: 111
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|functional|research -> number: 1
+
+Keyword Size visual -> number: 15675
+
+index based
+Keyword Size performance|functional|research|visual -> number: 1
+
+Keyword Size fast -> number: 16220
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: performance,learning,research,machine,mining 
+
+-- Keyword Query: performance,business,research,notes,services 
+
+-- Keyword Query: performance,advanced,research,methods,complexity 
+
+-- Keyword Query: performance,platform,research,digital,graph 
+
+-- Keyword Query: performance,middleware,research,communication,automatic 
+
+-- Keyword Query: performance,process,research,transactions,reference 
+
+-- Keyword Query: performance,representation,research,resource,interface 
+
+-- Keyword Query: performance,agents,research,mathematical,reliability 
+
+-- Keyword Query: performance,collaborative,research,traffic,evolution 
+
+-- Keyword Query: performance,functional,research,visual,fast 
+
+-- Keyword Query: [performance, learning, research, machine, mining] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size learning -> number: 50011
+
+index based
+Keyword Size performance|learning -> number: 465
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|learning|research -> number: 9
+
+Keyword Size machine -> number: 17074
+
+index based
+Keyword Size performance|learning|research|machine -> number: 6
+
+Keyword Size mining -> number: 15703
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, business, research, notes, services] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size business -> number: 10637
+
+index based
+Keyword Size performance|business -> number: 231
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|business|research -> number: 5
+
+Keyword Size notes -> number: 16220
+
+index based
+Keyword Size performance|business|research|notes -> number: 1
+
+Keyword Size services -> number: 19125
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, advanced, research, methods, complexity] 
+
+index based
+Keyword Size performance -> number: 42425
+
+Keyword Size advanced -> number: 6623
+
+index based
+Keyword Size performance|advanced -> number: 60
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|advanced|research -> number: 1
+
+Keyword Size methods -> number: 20792
+
+index based
+Keyword Size performance|advanced|research|methods -> number: 1
+
+Keyword Size complexity -> number: 20693
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, platform, research, digital, graph] 
+
+index based
+Keyword Size performance -> number: 42425
+
+Keyword Size platform -> number: 5907
+
+index based
+Keyword Size performance|platform -> number: 98
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|platform|research -> number: 1
+
+Keyword Size digital -> number: 21290
+
+index based
+Keyword Size performance|platform|research|digital -> number: 1
+
+Keyword Size graph -> number: 21376
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, middleware, research, communication, automatic] 
+
+index based
+Keyword Size performance -> number: 42425
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size performance|middleware -> number: 81
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|middleware|research -> number: 1
+
+Keyword Size communication -> number: 22242
+
+index based
+Keyword Size performance|middleware|research|communication -> number: 1
+
+Keyword Size automatic -> number: 17988
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, process, research, transactions, reference] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size process -> number: 28267
+
+index based
+Keyword Size performance|process -> number: 504
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|process|research -> number: 7
+
+Keyword Size transactions -> number: 46434
+
+index based
+Keyword Size performance|process|research|transactions -> number: 1
+
+Keyword Size reference -> number: 25818
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, representation, research, resource, interface] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size representation -> number: 10592
+
+index based
+Keyword Size performance|representation -> number: 52
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|representation|research -> number: 1
+
+Keyword Size resource -> number: 10159
+
+index based
+Keyword Size performance|representation|research|resource -> number: 1
+
+Keyword Size interface -> number: 10009
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, agents, research, mathematical, reliability] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size agents -> number: 10303
+
+index based
+Keyword Size performance|agents -> number: 111
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|agents|research -> number: 1
+
+Keyword Size mathematical -> number: 9463
+
+index based
+Keyword Size performance|agents|research|mathematical -> number: 1
+
+Keyword Size reliability -> number: 9005
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, collaborative, research, traffic, evolution] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size collaborative -> number: 9725
+
+index based
+Keyword Size performance|collaborative -> number: 136
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|collaborative|research -> number: 1
+
+Keyword Size traffic -> number: 8920
+
+index based
+Keyword Size performance|collaborative|research|traffic -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [performance, functional, research, visual, fast] 
+
+stack based
+Keyword Size performance -> number: 42425
+
+Keyword Size functional -> number: 8577
+
+index based
+Keyword Size performance|functional -> number: 111
+
+Keyword Size research -> number: 34491
+
+index based
+Keyword Size performance|functional|research -> number: 1
+
+Keyword Size visual -> number: 15675
+
+index based
+Keyword Size performance|functional|research|visual -> number: 1
+
+Keyword Size fast -> number: 16220
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Basic Algorithms:
+--Response Time: 53109 
+
+--Memory usage: 789376 
+
