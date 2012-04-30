@@ -1,179 +1,39 @@
-stack based
-Keyword Size chengfei -> number: 112
-
-Keyword Size jianxin -> number: 466
-
 -- Keyword Query:
 
 index based
-Keyword Size chengfei|jianxin -> number: 15
+Keyword Size chengfei -> number: 6
 
-Keyword Size xml -> number: 8341
+Keyword Size pear -> number: 77
+
+index based
+Keyword Size chengfei|pear -> number: 2
+
+Keyword Size cook -> number: 163
 
 SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198, 1.2211294, 1.2211511, 1.2582172, 1.2582519]
+SLCA result: [1.1.4, 1.1.5]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 -- Keyword Query:
 
 index based
-Keyword Size chengfei|jianxin -> number: 15
+Keyword Size yao -> number: 5
 
-Keyword Size edbt -> number: 3837
-
-SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-stack based
-Keyword Size chengfei -> number: 112
-
-Keyword Size jianxin -> number: 466
-
--- Keyword Query:
+Keyword Size pear -> number: 77
 
 index based
-Keyword Size chengfei|jianxin -> number: 15
+Keyword Size yao|pear -> number: 3
 
-Keyword Size xml -> number: 8341
+Keyword Size cook -> number: 163
 
 SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198, 1.2211294, 1.2211511, 1.2582172, 1.2582519]
+SLCA result: [1.1.2, 1.1.3, 1.1.4]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
+Sequence Algorithms:
+--Response Time: 135 
 
-index based
-Keyword Size chengfei|jianxin -> number: 15
-
-Keyword Size edbt -> number: 3837
-
-SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-stack based
-Keyword Size chengfei -> number: 112
-
-Keyword Size jianxin -> number: 466
-
--- Keyword Query:
-
-index based
-Keyword Size chengfei|jianxin -> number: 15
-
-Keyword Size xml -> number: 8341
-
-SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198, 1.2211294, 1.2211511, 1.2582172, 1.2582519]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-index based
-Keyword Size chengfei|jianxin -> number: 15
-
-Keyword Size edbt -> number: 3837
-
-SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-stack based
-Keyword Size chengfei -> number: 112
-
-Keyword Size jianxin -> number: 466
-
--- Keyword Query:
-
-index based
-Keyword Size chengfei|jianxin -> number: 15
-
-Keyword Size xml -> number: 8341
-
-SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198, 1.2211294, 1.2211511, 1.2582172, 1.2582519]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-index based
-Keyword Size chengfei|jianxin -> number: 15
-
-Keyword Size edbt -> number: 3837
-
-SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-stack based
-Keyword Size chengfei -> number: 112
-
-Keyword Size jianxin -> number: 466
-
--- Keyword Query:
-
-index based
-Keyword Size chengfei|jianxin -> number: 15
-
-Keyword Size xml -> number: 8341
-
-SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198, 1.2211294, 1.2211511, 1.2582172, 1.2582519]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-index based
-Keyword Size chengfei|jianxin -> number: 15
-
-Keyword Size edbt -> number: 3837
-
-SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-stack based
-Keyword Size chengfei -> number: 112
-
-Keyword Size jianxin -> number: 466
-
--- Keyword Query:
-
-index based
-Keyword Size chengfei|jianxin -> number: 15
-
-Keyword Size xml -> number: 8341
-
-SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198, 1.2211294, 1.2211511, 1.2582172, 1.2582519]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-index based
-Keyword Size chengfei|jianxin -> number: 15
-
-Keyword Size edbt -> number: 3837
-
-SLCA results as follow. 
-SLCA result: [1.2160412, 1.2161198]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-DataAware Algorithms:
---Response Time: 3344 
-
---Memory usage: 6152192 
+--Memory usage: 1013384 
 

@@ -9,27 +9,29 @@ import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 import com.QueryEvaluation.IndexbasedEvaluation;
 import com.QueryEvaluation.KeywordQuery;
 import com.QueryEvaluation.SLCAEvaluation;
+import com.QueryEvaluation.StackbasedEvaluation;
 import com.db.DBHelper;
 import com.tools.Helper;
 import com.tools.PropertyReader;
 
 public class GenerateLog {
 
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
+		HashSet <String> processLog = new HashSet<String> ();
+		
 		try {
-			
-			String databaseName = PropertyReader.getProperty("dbname");
-			DBHelper.ConnectToDB(databaseName);
-			
 			
 			PrintWriter outStream = new PrintWriter(new BufferedWriter(
 					new FileWriter(new File(PropertyReader
@@ -52,18 +54,30 @@ public class GenerateLog {
 				{
 					List<String> refinedkeywords = Helper.getRefinedKeywords(query);
 					
-					KeywordQuery kquery = new KeywordQuery(refinedkeywords);
-					kquery.LoadAllInformation();
-					SLCAEvaluation myEstimation =new IndexbasedEvaluation(outStream,
-							refinedkeywords, refinedkeywords.get(1));
-					myEstimation.computeSLCA(kquery);
-					String combineS=refinedkeywords.get(0);
+					//make combination
+					int keywordCount = refinedkeywords.size();
 					
-					for(int i =1;i< refinedkeywords.size();i++)
+					// 2 words combination
+					logFor2wordCombination(processLog, outStream,
+							refinedkeywords);
+					
+					//3 words combination
+					logFor3wordCombination(processLog, outStream,
+							refinedkeywords);
+					
+					//4 words combination
+					logFor4wordCombination(processLog, outStream,
+							refinedkeywords);
+					
+					//5 words
+					if(keywordCount>5)
 					{
-						combineS+="|"+refinedkeywords.get(i);
+						logFor5wordCombination(processLog, outStream,
+								refinedkeywords);						
+						
 					}
-					outStream.println(combineS+","+myEstimation.getResult().size());
+					
+					
 				}
 			}
 			
@@ -77,6 +91,166 @@ public class GenerateLog {
 	
 	}
 		
+	}
+
+	private static void logFor5wordCombination(HashSet<String> processLog,
+			PrintWriter outStream, List<String> refinedkeywords) {
+		for(String s: refinedkeywords)
+		{
+			for(String s2:refinedkeywords)
+			{
+				for(String s3:refinedkeywords)
+				{
+					for(String s4:refinedkeywords)
+					{
+						for(String s5:refinedkeywords)
+						{
+							if( (!s.equalsIgnoreCase(s2)) && (!s.equalsIgnoreCase(s3)) && (!s.equalsIgnoreCase(s4)) && (!s.equalsIgnoreCase(s5)))
+							{
+								List<String> mixList= new LinkedList<String>();
+								mixList.add(s);
+								mixList.add(s2);
+								mixList.add(s3);
+								mixList.add(s4);
+								mixList.add(s5);
+								String mix = Helper.getMixString(mixList);
+								if(!processLog.contains(mix))
+								{
+									//calculate
+									
+									processQuery(outStream, mixList, mix);
+									
+									//log
+									processLog.add(mix);
+								}								
+								
+							}
+
+						}
+						
+					}
+				
+				}
+			
+			}
+		}
+		
+	}
+	
+	private static void logFor4wordCombination(HashSet<String> processLog,
+			PrintWriter outStream, List<String> refinedkeywords) {
+		for(String s: refinedkeywords)
+		{
+			for(String s2:refinedkeywords)
+			{
+				for(String s3:refinedkeywords)
+				{
+					for(String s4:refinedkeywords)
+					{
+						if( (!s.equalsIgnoreCase(s2)) && (!s.equalsIgnoreCase(s3)) && (!s.equalsIgnoreCase(s4)) )
+						{
+							List<String> mixList= new LinkedList<String>();
+							mixList.add(s);
+							mixList.add(s2);
+							mixList.add(s3);
+							mixList.add(s4);
+							String mix = Helper.getMixString(mixList);
+							if(!processLog.contains(mix))
+							{
+								//calculate
+								
+								processQuery(outStream, mixList, mix);
+								
+								//log
+								processLog.add(mix);
+							}								
+							
+						}
+					}
+				
+				}
+			
+			}
+		}
+		
+	}
+
+	
+	private static void logFor3wordCombination(HashSet<String> processLog,
+			PrintWriter outStream, List<String> refinedkeywords) {
+		for(String s: refinedkeywords)
+		{
+			for(String s2:refinedkeywords)
+			{
+				for(String s3:refinedkeywords)
+				{
+					if( (!s.equalsIgnoreCase(s2)) && (!s.equalsIgnoreCase(s3)) )
+					{
+						List<String> mixList= new LinkedList<String>();
+						mixList.add(s);
+						mixList.add(s2);
+						mixList.add(s3);
+						String mix = Helper.getMixString(mixList);
+						if(!processLog.contains(mix))
+						{
+							//calculate
+							
+							processQuery(outStream, mixList, mix);
+							
+							//log
+							processLog.add(mix);
+						}								
+						
+					}
+				}
+			
+			}
+		}
+		
+	}
+
+	private static void logFor2wordCombination(HashSet<String> processLog,
+			PrintWriter outStream, List<String> refinedkeywords) 
+	{
+		for(String s: refinedkeywords)
+		{
+			for(String s2:refinedkeywords)
+			{
+				if(!s.equalsIgnoreCase(s2))
+				{
+					List<String> mixList= new LinkedList<String>();
+					mixList.add(s);
+					mixList.add(s2);
+					String mix = Helper.getMixString(mixList);
+					if(!processLog.contains(mix))
+					{
+						//calculate
+						
+						processQuery(outStream, mixList, mix);
+						
+						//log
+						processLog.add(mix);
+					}
+					
+				}
+			}
+		}
+	}
+
+	private static void processQuery(PrintWriter outStream,
+			List<String> mixList, String mix) {
+		KeywordQuery kquery = new KeywordQuery(mixList);
+		for(String m:mixList)
+		{
+			kquery.LoadKeywordNodesfromDisc(m);
+		}
+		
+		SLCAEvaluation myEstimation =new StackbasedEvaluation(outStream,
+				mixList);
+		
+		myEstimation.computeSLCA(kquery);
+		
+		outStream.println(mix+","+myEstimation.getResult().size());
 	}
 
 }

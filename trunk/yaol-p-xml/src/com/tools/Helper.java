@@ -192,6 +192,7 @@ public class Helper {
 		
 	}
 	
+	//return 1 if dewey1>dewey2
 	public static int compareDewey(String dewey1, String dewey2)
 	{
 		int returnVal =0;
@@ -299,5 +300,39 @@ public class Helper {
 		}
 		
 		
+	}
+
+	public static String getMixString(List<String> mixList) {
+	
+		List<String> localMixList = new LinkedList<String>();
+		for(String s: mixList)
+		{
+			localMixList.add(s);
+		}
+			
+		
+		String mixString="";
+		
+		while(localMixList.size()>1)
+		{
+			String sTemp =localMixList.get(0);
+			for(String s: localMixList)
+			{
+				if(!s.equalsIgnoreCase(sTemp))
+				{
+					if(sTemp.compareToIgnoreCase(s)>0)
+					{
+						sTemp=s;
+					}
+				}
+				
+			}
+			mixString=mixString+sTemp+"|";
+			localMixList.remove(sTemp);
+		}
+		mixString = mixString + localMixList.get(0);
+			
+		
+		return mixString;
 	}
 }
