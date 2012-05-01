@@ -28,11 +28,13 @@ public class TestShareEager implements TestCase {
 	
 	private HashMap<Integer,List<HashMap<Integer,List<String>>>> planSet;
 	
+	private HashMap<String,Integer> planScoreRecord;
 	TestShareEager()
 	{
 		userQuery = new HashMap<Integer, List<String>>();
 		resultSize = new HashMap<String,Integer>();		
 		planSet=new HashMap<Integer,List<HashMap<Integer,List<String>>>>();
+		planScoreRecord=new HashMap<String,Integer>();
 	}
 	
 	@Override
@@ -100,19 +102,37 @@ public class TestShareEager implements TestCase {
 		
 		//generate plan for individual query
 		for(int i=0;i<queryCount;i++)
-		{
-			
+		{		
 			
 			//(keyword.size - 1) calculation 
 			
-			
 			HashMap<Integer,List<String>> plan = new HashMap<Integer,List<String>>();
-					
-			
 			generatePlan(userQuery.get(i),0,userQuery.get(i).size(),plan,0,i);
 			
 		}
 
+		//check plan
+		for(int i=0;i<queryCount;i++)
+		{	
+			
+			
+			List<HashMap<Integer,List<String>>> plans=planSet.get(i);
+			
+			for(int j=0;j<plans.size();j++)
+			{
+				System.out.println("for query "+i+", Plan:");
+				
+				for(int k=0;k<userQuery.get(i).size()-1;k++)
+				{
+					System.out.println("Step "+k+": "+plans.get(j).get(k));					
+				}
+				
+				System.out.println("score: "+planScoreRecord.get(plans.get(j).toString()));	
+				
+								
+			}
+			
+		}
 	}
 
 	private void generatePlan(List<String> query,int sequenceId,int keywordsCount,HashMap<Integer,List<String>> plan,int planScore,int queryId)
@@ -124,15 +144,44 @@ public class TestShareEager implements TestCase {
 			{
 				//need sort
 				List<HashMap<Integer,List<String>>> plans=planSet.get(queryId);
-				plans.add(plan);
 				
-				System.out.println("for query "+queryId+", Plan:");
+				
+				int curScore = planScoreRecord.get(plan.toString());
+				
+				if( curScore<planScoreRecord.get(plans.get(0).toString()))
+				{
+					plans.add(0,plan);
+				}
+				else if(curScore>planScoreRecord.get(plans.get(plans.size()-1).toString()))
+				{
+					plans.add(plan);
+				}
+				else
+				{
+					for(int i=0;i<plans.size()-2;i++)
+					{
+						int preScore=planScoreRecord.get(plans.get(i).toString());
+						int postScore=planScoreRecord.get(plans.get(i+1).toString());
+						
+						if( (curScore>=preScore) && (curScore <=postScore) )
+						{
+							plans.add(i+1,plan);
+							break;
+						}	
+						
+					
+					}
+				}	
+				
+				planSet.put(queryId, plans);
+		//		System.out.println("for query "+queryId+", Plan:");
 				
 				for(int i=0;i<sequenceId;i++)
 				{
-					System.out.println("Step "+i+": "+plan.get(i));					
+				//	System.out.println("Step "+i+": "+plan.get(i));					
 				}
 				
+			//	System.out.println("score: "+planScoreRecord.get(plan.toString()));	
 			}
 			else
 			{
@@ -140,12 +189,15 @@ public class TestShareEager implements TestCase {
 				plans.add(plan);
 				planSet.put(queryId, plans);
 				
-				System.out.println("for query "+queryId+", Plan:");
+				
+	//			System.out.println("for query "+queryId+", Plan:");
 				
 				for(int i=0;i<sequenceId;i++)
 				{
-					System.out.println("Step "+i+": "+plan.get(i));					
+		//			System.out.println("Step "+i+": "+plan.get(i));					
 				}
+			//	System.out.println("score: "+planScoreRecord.get(plan.toString()));	
+				
 			}
 		}
 		else
@@ -201,7 +253,23 @@ public class TestShareEager implements TestCase {
 						copyQuery.remove(s1);
 						copyQuery.remove(s2);
 						
+						//get pre score
+						int preScore=0;
+						if(planScoreRecord.containsKey(plan))
+						{
+							preScore=planScoreRecord.get(plan.toString());
+							
+						}
+						
 						plan.put(sequenceId, itemsForCal);
+						
+						
+						//calculate score						
+						
+						preScore += resultSize.get(s1)+resultSize.get(s2);
+												
+						planScoreRecord.put(plan.toString(),preScore);
+						
 						generatePlan(copyQuery, sequenceId+1,keywordsCount, plan,planScore,queryId);
 						
 					}
