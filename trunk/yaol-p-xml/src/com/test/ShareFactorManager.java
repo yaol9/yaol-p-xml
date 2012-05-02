@@ -16,14 +16,10 @@ public class ShareFactorManager {
 	{
 		if(!isShareFactorExist(sf))
 		{
-			sf.maximumShareCount=1;
 			sfList.add(sf);
 		}
 		else
 		{
-			//find existing item, update counter
-			ShareFactor existSF = findShareFactor(sf);
-			existSF.maximumShareCount++;
 		}
 	}
 	
@@ -32,14 +28,11 @@ public class ShareFactorManager {
 		ShareFactor sf = new ShareFactor(itemList);
 		if(!isShareFactorExist(sf))
 		{
-			sf.maximumShareCount=1;
 			sfList.add(sf);
 		}
 		else
 		{
-			//find existing item, update counter
-			ShareFactor existSF = findShareFactor(sf);
-			existSF.maximumShareCount++;
+		
 		}
 	}
 	
@@ -90,6 +83,40 @@ public class ShareFactorManager {
 		
 	}
 	
+	public ShareFactor getExistFromFullOrPartList(List<String> itemList)
+	{
+		ShareFactor sf = new ShareFactor(itemList);
+		
+		
+		//boolean isOrPartOfShareFactorExist=false;
+		for(ShareFactor sf_temp: sfList)
+		{
+			if(sf_temp.isEqual(sf))
+			{
+				return sf_temp;
+			}
+			else
+			{
+				if(sf_temp.items.size()>sf.items.size())
+				{
+					int count=0;
+					for(String s : sf.items)
+					{
+						if(sf_temp.items.contains(s))
+						{
+							count++;
+						}
+					}
+					if(count==sf.items.size())
+					{
+						return sf_temp;					
+					}
+				}
+			}
+			
+		}
+		return null;
+	}
 	public boolean isOrPartOfShareFactorExist(List<String> itemList)
 	{
 		ShareFactor sf = new ShareFactor(itemList);

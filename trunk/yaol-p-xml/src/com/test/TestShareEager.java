@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,13 +29,25 @@ public class TestShareEager implements TestCase {
 	
 	private HashMap<Integer,List<HashMap<Integer,List<String>>>> planSet;
 	
-	private HashMap<String,Integer> planScoreRecord;
+	private HashMap<String,Double> planScoreRecord;
+	
+	private ShareFactorManager sfm;
+	
+	private HashMap<Integer,Integer> combinationRecorder ;
+	
+	private List<HashMap<Integer,Integer>> combinationPool ;
+	
+	
+	
 	TestShareEager()
 	{
 		userQuery = new HashMap<Integer, List<String>>();
 		resultSize = new HashMap<String,Integer>();		
 		planSet=new HashMap<Integer,List<HashMap<Integer,List<String>>>>();
-		planScoreRecord=new HashMap<String,Integer>();
+		planScoreRecord=new HashMap<String,Double>();
+		sfm=new ShareFactorManager();
+		combinationRecorder= new HashMap<Integer,Integer>();
+		combinationPool=new LinkedList<HashMap<Integer,Integer>>();
 	}
 	
 	@Override
@@ -51,7 +64,7 @@ public class TestShareEager implements TestCase {
 							.getProperty("ShareEagerAlgorithmResult")))));
 
 			//warm up
-			runSingle(outStream);
+		//	runSingle(outStream);
 			
 			TimeRecorder.startRecord();
 			// run 5 times
@@ -100,38 +113,129 @@ public class TestShareEager implements TestCase {
 		//load size log to resultSize
 		loadSizeLog();
 		
-		//generate plan for individual query
+		//generate share factor		
+		
+		generateShareFactor();
+		
+		//generate intra-query plan
 		for(int i=0;i<queryCount;i++)
-		{		
-			
-			//(keyword.size - 1) calculation 
-			
+		{						
 			HashMap<Integer,List<String>> plan = new HashMap<Integer,List<String>>();
-			generatePlan(userQuery.get(i),0,userQuery.get(i).size(),plan,0,i);
-			
+			generatePlan(userQuery.get(i),0,userQuery.get(i).size(),plan,0,i);			
 		}
 
-		//check plan
+		//check plan			
+	//	checkPlan();
+		
+		
+		//generate inter-plan
+				
+		//init combination recorder
 		for(int i=0;i<queryCount;i++)
 		{	
+			combinationRecorder.put(i,0); 
+		}
+		
+		//get next combination
+		HashMap<Integer,Integer> nextComb =	getNextCombination();
+		
+		
+	}
+
+	private HashMap<Integer, Integer> getNextCombination() {
+		
+		HashMap<Integer, Integer> nextComb = new HashMap<Integer, Integer> ();
+		if(combinationPool.size() == 0)
+		{
+			for(int i=0;i<queryCount;i++)
+			{	
+				nextComb.put(i,0); 
+			}
+		}
+		else
+		{
+			//select lowest from pool
 			
+			//add new one to pool
+			
+			
+		}
+		
+		return nextComb;
+	}
+
+	private void generateShareFactor() {
+		for (int i = 0; i < queryCount; i++)
+		{
+			for (int j = queryCount - 1; j > i; j--)
+			{
+				List<String> tempJoint = Helper.getMaxJointStringList(userQuery.get(i),userQuery.get(j));
+				
+				if ( (!tempJoint.isEmpty()) && (tempJoint.size()>1) )
+				{
+					//this is a share factor
+					
+					ShareFactor sf = new ShareFactor(tempJoint);
+										
+					if(sfm.isShareFactorExist(sf))
+					{
+						sfm.findShareFactor(sf).involvedQuery.add(i);
+						sfm.findShareFactor(sf).involvedQuery.add(j);
+
+					}					
+					else
+					{
+						sf.involvedQuery.add(i);
+						sf.involvedQuery.add(j);						
+						sfm.addShareFactor(sf);
+					}
+					
+					
+				}
+			}		
+		}
+			
+		//check sharefactor
+		for(ShareFactor sf : sfm.sfList)
+		{
+			System.out.println("sf: " + sf.items.toString()+"  maxCount: " + sf.getMaxShareCount());
+		}
+		
+	}
+
+	private void checkPlan() {
+		try {
+			
+		String fileName="./testresult/intraPlanForQuery.log";
+		PrintWriter outStreamT = new PrintWriter(new BufferedWriter(
+					new FileWriter(new File(fileName))));
+				
+		for(int i=0;i<queryCount;i++)
+		{	
+				
+			outStreamT.println("for query "+i+", Plans:");
 			
 			List<HashMap<Integer,List<String>>> plans=planSet.get(i);
 			
+						
 			for(int j=0;j<plans.size();j++)
-			{
-				System.out.println("for query "+i+", Plan:");
+			{				
 				
+				outStreamT.println(j+":");
 				for(int k=0;k<userQuery.get(i).size()-1;k++)
 				{
-					System.out.println("Step "+k+": "+plans.get(j).get(k));					
+					outStreamT.println("Step "+k+": "+plans.get(j).get(k));					
 				}
 				
-				System.out.println("score: "+planScoreRecord.get(plans.get(j).toString()));	
-				
+				outStreamT.println("score: "+planScoreRecord.get(plans.get(j).toString()));					
 								
 			}
 			
+		}		
+		outStreamT.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -146,13 +250,14 @@ public class TestShareEager implements TestCase {
 				List<HashMap<Integer,List<String>>> plans=planSet.get(queryId);
 				
 				
-				int curScore = planScoreRecord.get(plan.toString());
-				
-				if( curScore<planScoreRecord.get(plans.get(0).toString()))
+				Double curScore = planScoreRecord.get(plan.toString());
+				Double firstScore = planScoreRecord.get(plans.get(0).toString());
+				Double lastScore = planScoreRecord.get(plans.get(plans.size()-1).toString());
+				if( curScore<=firstScore)
 				{
 					plans.add(0,plan);
 				}
-				else if(curScore>planScoreRecord.get(plans.get(plans.size()-1).toString()))
+				else if(curScore>lastScore)
 				{
 					plans.add(plan);
 				}
@@ -160,10 +265,10 @@ public class TestShareEager implements TestCase {
 				{
 					for(int i=0;i<plans.size()-2;i++)
 					{
-						int preScore=planScoreRecord.get(plans.get(i).toString());
-						int postScore=planScoreRecord.get(plans.get(i+1).toString());
+						Double preScore=planScoreRecord.get(plans.get(i).toString());
+						Double postScore=planScoreRecord.get(plans.get(i+1).toString());
 						
-						if( (curScore>=preScore) && (curScore <=postScore) )
+						if( (curScore>preScore) && (curScore <=postScore) )
 						{
 							plans.add(i+1,plan);
 							break;
@@ -176,10 +281,10 @@ public class TestShareEager implements TestCase {
 				planSet.put(queryId, plans);
 		//		System.out.println("for query "+queryId+", Plan:");
 				
-				for(int i=0;i<sequenceId;i++)
-				{
+		//		for(int i=0;i<sequenceId;i++)
+		//		{
 				//	System.out.println("Step "+i+": "+plan.get(i));					
-				}
+		//		}
 				
 			//	System.out.println("score: "+planScoreRecord.get(plan.toString()));	
 			}
@@ -192,10 +297,10 @@ public class TestShareEager implements TestCase {
 				
 	//			System.out.println("for query "+queryId+", Plan:");
 				
-				for(int i=0;i<sequenceId;i++)
-				{
+		//		for(int i=0;i<sequenceId;i++)
+		//		{
 		//			System.out.println("Step "+i+": "+plan.get(i));					
-				}
+		//		}
 			//	System.out.println("score: "+planScoreRecord.get(plan.toString()));	
 				
 			}
@@ -203,6 +308,8 @@ public class TestShareEager implements TestCase {
 		else
 		{
 			
+			//local process log
+			HashSet<String> localLog=new HashSet<String>();
 			
 			for(String s1:query)
 			{
@@ -211,66 +318,91 @@ public class TestShareEager implements TestCase {
 					if(!s1.equalsIgnoreCase(s2))
 					{
 						
-						List<String> itemsForCal = new LinkedList<String>();
-						itemsForCal.add(s1);
-						itemsForCal.add(s2);
-						
-						
-						List<String>mixList = new LinkedList<String>();
-						if(s1.contains("|"))
+						if( (!localLog.contains(s2+s1)) && (!localLog.contains(s1+s2)) )
 						{
-							String[] s=s1.split("[|]");
-							for(String ss:s)
+							localLog.add(s1+s2);
+							
+							List<String> itemsForCal = new LinkedList<String>();
+							itemsForCal.add(s1);
+							itemsForCal.add(s2);
+							
+							
+							List<String>mixList = new LinkedList<String>();
+							if(s1.contains("|"))
 							{
-								mixList.add(ss);
+								String[] s=s1.split("[|]");
+								for(String ss:s)
+								{
+									mixList.add(ss);
+								}
 							}
-						}
-						else
-						{
-							mixList.add(s1);
-						}
-						
-						if(s2.contains("|"))
-						{
-							String[] s=s2.split("[|]");
-							for(String ss:s)
+							else
 							{
-								mixList.add(ss);
+								mixList.add(s1);
 							}
-						}
-						else
-						{
-							mixList.add(s2);
-						}
-						String mix = Helper.getMixString(mixList);
-			
-						List<String> copyQuery = new LinkedList<String>();
-						for(String s:query)
-						{
-							copyQuery.add(s);
-						}
-						copyQuery.add(mix);
-						copyQuery.remove(s1);
-						copyQuery.remove(s2);
-						
-						//get pre score
-						int preScore=0;
-						if(planScoreRecord.containsKey(plan))
-						{
-							preScore=planScoreRecord.get(plan.toString());
+							
+							if(s2.contains("|"))
+							{
+								String[] s=s2.split("[|]");
+								for(String ss:s)
+								{
+									mixList.add(ss);
+								}
+							}
+							else
+							{
+								mixList.add(s2);
+							}
+							String mix = Helper.getMixString(mixList);
+				
+							List<String> copyQuery = new LinkedList<String>();
+							for(String s:query)
+							{
+								copyQuery.add(s);
+							}
+							copyQuery.add(mix);
+							copyQuery.remove(s1);
+							copyQuery.remove(s2);
+							
+							//get pre score
+							Double preScore = 0.0;
+							if(planScoreRecord.containsKey(plan.toString()))
+							{
+								preScore=planScoreRecord.get(plan.toString());
+								
+							}
+							
+							//create new plan , add new process to plan
+							HashMap<Integer,List<String>> newPlan = new HashMap<Integer,List<String>>();
+							for(Integer p : plan.keySet())
+							{
+								newPlan.put(p, plan.get(p));
+							}
+							newPlan.put(sequenceId, itemsForCal);
+							
+							
+							//calculate score						
+							//check if sharefactor
+							ShareFactor sf = sfm.getExistFromFullOrPartList(mixList);
+							if(sf!=null)
+							{
+								int maxShare = sf.getMaxShareCount();
+								
+								preScore += ( resultSize.get(s1)+resultSize.get(s2)) / maxShare;
+							}
+							else
+							{
+								preScore += resultSize.get(s1)+resultSize.get(s2);
+							}
+							
+							
+													
+							planScoreRecord.put(newPlan.toString(),preScore);
+							
+			//				System.out.println(copyQuery);
+							generatePlan(copyQuery, sequenceId+1,keywordsCount, newPlan,planScore,queryId);
 							
 						}
-						
-						plan.put(sequenceId, itemsForCal);
-						
-						
-						//calculate score						
-						
-						preScore += resultSize.get(s1)+resultSize.get(s2);
-												
-						planScoreRecord.put(plan.toString(),preScore);
-						
-						generatePlan(copyQuery, sequenceId+1,keywordsCount, plan,planScore,queryId);
 						
 					}
 				}
@@ -326,7 +458,7 @@ public class TestShareEager implements TestCase {
 		while ((query = queryRead.readLine()) != null) {
 			outStream.printf("-- " + "Keyword Query: %s \n", query);
 			outStream.println();
-			System.out.println("-- " + "Keyword Query: "+query);
+	//		System.out.println("-- " + "Keyword Query: "+query);
 						
 			if(!query.startsWith("#"))
 			{

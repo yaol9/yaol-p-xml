@@ -192,6 +192,69 @@ public class Helper {
 		
 	}
 	
+	public static List<String> getMaxJointStringList(List<String> list1,List<String> list2)
+	{
+	//	String tempJoint="";
+		List<String> tempList = new ArrayList<String>();
+		
+		for(String keyword:list1)
+		{
+			for(String keyword2:list2)
+			{
+				if(keyword.equalsIgnoreCase(keyword2))
+				{
+		
+					Boolean isInserted  = false;
+					
+					for(int i =0;i<tempList.size();i++)
+					{
+						if(tempList.get(i).compareToIgnoreCase(keyword)<0)
+						{
+							
+						}
+						else
+						{
+							String temp=tempList.get(i);
+							//tempList.set(i, keyword);
+							tempList.add(i,keyword);
+							//keyword=temp;
+							isInserted=true;
+							break;
+						}
+						
+						
+					}
+					
+					if(!isInserted)
+					{
+						tempList.add(keyword);
+					}
+					
+					/*
+					if(tempJoint.isEmpty())
+					{
+						tempJoint += keyword;
+					}
+					else
+					{
+						tempJoint += "|"+keyword;
+					}
+						*/
+				}
+			}
+		}
+		
+		
+	//	if(tempJoint.contains("|"))
+		//{
+			//return tempJoint;
+		//}
+		//else
+		//{
+		return tempList;
+		//}		
+	}
+	
 	//return 1 if dewey1>dewey2
 	public static int compareDewey(String dewey1, String dewey2)
 	{
