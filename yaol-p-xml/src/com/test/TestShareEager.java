@@ -9,11 +9,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.QueryEvaluation.IndexbasedEvaluation;
+import com.QueryEvaluation.KeywordQuery;
+import com.QueryEvaluation.SLCAEvaluation;
+import com.QueryEvaluation.StackbasedEvaluation;
 import com.db.DBHelper;
 import com.tools.Helper;
 import com.tools.PropertyReader;
@@ -21,6 +26,8 @@ import com.tools.TimeRecorder;
 
 public class TestShareEager implements TestCase {
 
+	PrintWriter outStream;
+	
 	private HashMap<Integer, List<String>> userQuery;
 	
 	private int queryCount=0;
@@ -33,7 +40,7 @@ public class TestShareEager implements TestCase {
 	
 	private ShareFactorManager sfm;
 	
-	private HashMap<Integer,Integer> combinationRecorder ;
+	
 	
 	private List<HashMap<Integer,Integer>> combinationPool ;
 	
@@ -46,7 +53,6 @@ public class TestShareEager implements TestCase {
 		planSet=new HashMap<Integer,List<HashMap<Integer,List<String>>>>();
 		planScoreRecord=new HashMap<String,Double>();
 		sfm=new ShareFactorManager();
-		combinationRecorder= new HashMap<Integer,Integer>();
 		combinationPool=new LinkedList<HashMap<Integer,Integer>>();
 	}
 	
@@ -59,7 +65,7 @@ public class TestShareEager implements TestCase {
 			DBHelper.ConnectToDB(databaseName);
 			
 			
-			PrintWriter outStream = new PrintWriter(new BufferedWriter(
+			outStream = new PrintWriter(new BufferedWriter(
 					new FileWriter(new File(PropertyReader
 							.getProperty("ShareEagerAlgorithmResult")))));
 
@@ -116,6 +122,10 @@ public class TestShareEager implements TestCase {
 		//generate share factor		
 		
 		generateShareFactor();
+	
+	
+
+		
 		
 		//generate intra-query plan
 		for(int i=0;i<queryCount;i++)
@@ -125,21 +135,171 @@ public class TestShareEager implements TestCase {
 		}
 
 		//check plan			
-	//	checkPlan();
+		//checkPlan();
 		
 		
 		//generate inter-plan
 				
-		//init combination recorder
-		for(int i=0;i<queryCount;i++)
-		{	
-			combinationRecorder.put(i,0); 
-		}
-		
 		//get next combination
 		HashMap<Integer,Integer> nextComb =	getNextCombination();
+		double lowScoreAlreadySee = Double.MAX_VALUE;
+		HashMap<Integer,Integer> finalComb = new HashMap<Integer,Integer>();
 		
+		while(nextComb != null)
+		{
+			//calculate 
+			
+			double realScore = getCombRealScore(nextComb);
+			double lowboundScore = getCombLowboundScore(nextComb);
+			
+			if(realScore == lowboundScore)
+			{
+				finalComb=nextComb;
+				break;
+			}
+			else
+			{
+				if(lowboundScore>=lowScoreAlreadySee)
+				{
+					finalComb=nextComb;
+					break;
+				}
+				if(realScore<lowScoreAlreadySee)
+				{
+					lowScoreAlreadySee=realScore;
+					finalComb=nextComb;
+				}
+				
+			}
+			//get next
+			nextComb =	getNextCombination();
+			
+		}
 		
+		//calculate final combination
+		calculateFinalComb(finalComb);
+		
+	
+		
+	}
+
+	private void calculateFinalComb(HashMap<Integer, Integer> finalComb) {
+		
+		//intermediate result recorder
+		HashMap<String,List<String>> interResultSet = new HashMap<String,List<String>>();
+		
+		//i queries 
+		for(int i =0; i<finalComb.size();i++)
+		{
+			HashMap<Integer,List<String>> planForSingleQuery = planSet.get(i).get(finalComb.get(i));
+			
+			//j steps
+			for(int j=0;j< planSet.get(i).get(finalComb.get(i)).size();j++)
+			{
+				
+				List<String> curKeywords = planForSingleQuery.get(j);
+				KeywordQuery tempQuery = new KeywordQuery(curKeywords);
+				
+				SLCAEvaluation myEstimation;
+				int size1 = resultSize.get(curKeywords.get(0));
+				int size2 = resultSize.get(curKeywords.get(1));
+				
+				if(size1*10<size2)
+				{
+					myEstimation=new IndexbasedEvaluation(outStream,curKeywords,curKeywords.get(0));
+				}
+				else if(size1>size2*10)
+				{
+					myEstimation=new IndexbasedEvaluation(outStream,curKeywords,curKeywords.get(1));
+				}
+				else
+				{
+					myEstimation=new StackbasedEvaluation(outStream,curKeywords);
+				}
+				
+				//if exist, no need to calculate
+				if(interResultSet.containsKey(curKeywords.get(0)+"|"+curKeywords.get(1)) || interResultSet.containsKey(curKeywords.get(1)+"|"+curKeywords.get(0)))
+				{
+					
+				}
+				else
+				{
+					for(String s : curKeywords)
+					{
+						if(interResultSet.containsKey(s))
+						{
+							tempQuery.LoadSpecificInformationFromList(s,(LinkedList<String>) interResultSet.get(s));
+							
+						}
+						else
+						{
+							tempQuery.LoadKeywordNodesfromDisc(s);
+						}
+					}
+					myEstimation.computeSLCA(tempQuery);
+					
+				}
+				
+				
+				if(j==planSet.get(i).get(finalComb.get(i)).size()-1)
+				{
+					//output result
+					outStream.println("query "+ i+ ": "+userQuery.get(i));
+					outStream.println("result: ");
+					outStream.println(myEstimation.getResult());		
+					
+					System.out.println("query "+ i+ ": "+userQuery.get(i));
+					System.out.println("result: ");
+					System.out.println(myEstimation.getResult());
+					
+				}
+				else
+				{
+					if(myEstimation.getResult().size()>0)
+					{
+						List<String>mixList = new LinkedList<String>();
+						String s1=curKeywords.get(0);
+						String s2=curKeywords.get(1);
+						
+						if(s1.contains("|"))
+						{
+							String[] s=s1.split("[|]");
+							for(String ss:s)
+							{
+								mixList.add(ss);
+							}
+						}
+						else
+						{
+							mixList.add(s1);
+						}
+						
+						if(s2.contains("|"))
+						{
+							String[] s=s2.split("[|]");
+							for(String ss:s)
+							{
+								mixList.add(ss);
+							}
+						}
+						else
+						{
+							mixList.add(s2);
+						}
+						String mix = Helper.getMixString(mixList);
+						
+						
+						interResultSet.put(mix,myEstimation.getResult());
+												
+						resultSize.put(mix,myEstimation.getResult().size());
+						
+					}
+					
+				}
+				
+			}		
+			
+		}
 	}
 
 	private HashMap<Integer, Integer> getNextCombination() {
@@ -151,17 +311,134 @@ public class TestShareEager implements TestCase {
 			{	
 				nextComb.put(i,0); 
 			}
+			
+			//generate pool
+			//new comb from current one
+			
+			
+			for(int i=0;i<queryCount;i++)
+			{
+				HashMap<Integer, Integer> newComb=new HashMap<Integer, Integer> ();
+				for(int j=0;j<queryCount;j++)
+				{	
+					if(j==i)
+					{
+						newComb.put(j,1); 
+					}
+					else
+					{
+						newComb.put(j,0); 
+					}					
+				}
+				combinationPool.add(newComb);
+								
+			}
+			
 		}
 		else
 		{
 			//select lowest from pool
+			double lowestScore = Double.MAX_VALUE;
+			
+			for(HashMap<Integer, Integer> comb : combinationPool)
+			{
+				double tempScore  = getCombLowboundScore(comb);
+				if(tempScore<lowestScore)
+				{
+					lowestScore=tempScore;
+					nextComb=comb;
+				}
+				
+			}
+			
+			combinationPool.remove(nextComb);
 			
 			//add new one to pool
+			//new comb from current one
 			
+			double minGap=Double.MAX_VALUE;
+			HashMap<Integer, Integer> tempComb = new HashMap<Integer, Integer>();		
+			for(int i=0;i<queryCount;i++)
+			{
+				HashMap<Integer, Integer> newComb=new HashMap<Integer, Integer> ();
+				for(int j=0;j<queryCount;j++)
+				{	
+					int pos = nextComb.get(j);
+					if(j==i)
+					{
+						if(pos+1<=planSet.get(i).size()-1)
+						{
+							newComb.put(j,nextComb.get(j)+1); 
+							
+							double gap = planScoreRecord.get(planSet.get(i).get(pos+1).toString())-planScoreRecord.get(planSet.get(i).get(pos).toString());
+							if(gap<minGap)
+							{
+								minGap=gap;
+								tempComb=newComb;
+							}
+							
+						}
+						
+					}
+					else
+					{
+						newComb.put(j,pos); 
+					}	
+					
+				}								
+			}
+			if(tempComb.size()>0)
+			{
+				combinationPool.add(tempComb);
+			}			
 			
 		}
 		
 		return nextComb;
+	}
+
+	private double getCombLowboundScore(HashMap<Integer, Integer> comb) {
+		double tempScore=0.0;
+		for(int i=0;i<comb.keySet().size();i++)
+		{
+			tempScore += planScoreRecord.get(planSet.get(i).get(comb.get(i)).toString());
+		}
+		return tempScore;
+	}
+
+	private Double getCombRealScore(HashMap<Integer, Integer> comb) {
+		
+		double score = 0.0;
+		
+		int size = comb.keySet().size(); 
+		
+		HashSet<String> shareRegister = new HashSet<String>();
+		for(int i =0;i<size;i++)
+		{
+			int place = comb.get(i);
+			HashMap<Integer,List<String>> plan = planSet.get(i).get(place);
+			
+			//recalculate cost for plan
+			int sizeOfStep = plan.keySet().size();
+			for(int j=0;j<sizeOfStep;j++)
+			{
+				String s1= plan.get(j).get(0);
+				String s2= plan.get(j).get(1);
+				
+				if((!shareRegister.contains(s1+s2)) && (!shareRegister.contains(s2+s1)))
+				{
+					score += resultSize.get(s1);
+					score += resultSize.get(s2);										
+					
+				}
+								
+				shareRegister.add(s2+s1);
+				shareRegister.add(s1+s2);
+								
+			}
+		}
+		
+		return score;
 	}
 
 	private void generateShareFactor() {

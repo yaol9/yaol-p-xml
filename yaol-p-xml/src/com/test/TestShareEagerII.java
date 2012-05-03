@@ -564,6 +564,7 @@ public class TestShareEagerII implements TestCase {
 		}
 	
 	
+		
 		SLCAEvaluation myEstimation = null;
 		
 		while (curKeywords.size() == 2) {
