@@ -34,16 +34,29 @@ public class GenerateDataFromDB {
 
 		try {
 			
-			String [] keywords = {"performance","learning","research","machine","mining",
-					"performance","business","research","notes","services",
-					"performance","advanced","research","methods","complexity",
-					"performance","platform","research","digital","graph",
-					"performance","middleware","research","communication","automatic",
-					"performance","process","research","transactions","reference",
-					"performance","representation","research","resource","interface",
-					"performance","agents","research","mathematical","reliability",
-					"performance","collaborative","research","traffic","evolution",
-					"performance","functional","research","visual","fast"};
+			String ksFile = PropertyReader.getProperty("ksFile");
+
+			BufferedReader queryRead = new BufferedReader(
+					new InputStreamReader(new DataInputStream(
+							new FileInputStream(ksFile))));
+			
+			String query = "";
+			
+			List<String> keywords = new LinkedList<String>();
+			
+			while ((query = queryRead.readLine()) != null) {
+				List<String> refinedkeywords = Helper.getRefinedKeywords(query);
+				for(String s:refinedkeywords)
+				{
+					if(!keywords.contains(s))
+					{
+						keywords.add(s);
+					}
+				}
+			}
+			
+			queryRead.close();
+			
 			
 			for(String keyword:keywords)
 			{
