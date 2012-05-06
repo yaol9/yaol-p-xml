@@ -1,55 +1,55 @@
 -- Keyword Query: performance,learning,research,machine,mining 
 
--- Keyword Query: performance,business,research,notes,services 
+-- Keyword Query: performance,business,research,notes,services,mining 
 
--- Keyword Query: performance,advanced,research,methods,complexity 
+-- Keyword Query: performance,advanced,research,methods,complexity,mining 
 
--- Keyword Query: performance,platform,research,digital,graph 
+-- Keyword Query: performance,platform,research,digital,graph,mining 
 
--- Keyword Query: performance,middleware,research,communication,automatic 
+-- Keyword Query: performance,middleware,research,communication,automatic,mining 
 
--- Keyword Query: performance,process,research,transactions,reference 
+-- Keyword Query: performance,process,research,transactions,reference,mining 
 
--- Keyword Query: performance,representation,research,resource,interface 
+-- Keyword Query: performance,representation,research,resource,interface,mining 
 
--- Keyword Query: performance,agents,research,mathematical,reliability 
+-- Keyword Query: performance,agents,research,mathematical,reliability,mining 
 
--- Keyword Query: performance,collaborative,research,traffic,evolution 
+-- Keyword Query: performance,collaborative,research,traffic,evolution,mining 
 
--- Keyword Query: performance,functional,research,visual,fast 
+-- Keyword Query: performance,functional,research,visual,fast,mining 
 
 query 0: [performance, learning, research, machine, mining]
 result: 
 [1]
-query 1: [performance, business, research, notes, services]
+query 1: [performance, business, research, notes, services, mining]
 result: 
 [1]
-query 2: [performance, advanced, research, methods, complexity]
+query 2: [performance, advanced, research, methods, complexity, mining]
 result: 
 [1]
-query 3: [performance, platform, research, digital, graph]
+query 3: [performance, platform, research, digital, graph, mining]
 result: 
 [1]
-query 4: [performance, middleware, research, communication, automatic]
+query 4: [performance, middleware, research, communication, automatic, mining]
 result: 
 [1]
-query 5: [performance, process, research, transactions, reference]
+query 5: [performance, process, research, transactions, reference, mining]
 result: 
 [1]
-query 6: [performance, representation, research, resource, interface]
+query 6: [performance, representation, research, resource, interface, mining]
 result: 
 [1]
-query 7: [performance, agents, research, mathematical, reliability]
+query 7: [performance, agents, research, mathematical, reliability, mining]
 result: 
 [1]
-query 8: [performance, collaborative, research, traffic, evolution]
+query 8: [performance, collaborative, research, traffic, evolution, mining]
 result: 
 [1]
-query 9: [performance, functional, research, visual, fast]
+query 9: [performance, functional, research, visual, fast, mining]
 result: 
 [1]
 ShareEager Algorithms:
---Response Time: 10594 
+--Response Time: 176507 
 
---Memory usage: 3827904 
+--Memory usage: 41887128 
 
