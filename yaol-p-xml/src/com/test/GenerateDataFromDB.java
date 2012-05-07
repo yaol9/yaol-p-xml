@@ -65,27 +65,33 @@ public class GenerateDataFromDB {
 				
 				String fileName="./keyword/"+keyword+".log";
 				
-				PrintWriter outStream = new PrintWriter(new BufferedWriter(
-						new FileWriter(new File(fileName))));
+				File f = new File(fileName);
+				
+				if(!f.exists())
+				{
+					PrintWriter outStream = new PrintWriter(new BufferedWriter(
+							new FileWriter(new File(fileName))));
 
-				
-				String deweysql =  "select dewey from KeywordDewey where keyword=" + "'" + keyword+ "' order by XMLid ASC";
-				
-				ResultSet deweySet = DBHelper.performQuery(deweysql);
-				
-				try {
-					while (deweySet.next()) {
-						String dewey = deweySet.getString("dewey");
-						dewey = dewey.trim();
-						outStream.println(dewey);
-					}
 					
-				} catch (SQLException e) {
-					e.printStackTrace();
+					String deweysql =  "select dewey from KeywordDewey where keyword=" + "'" + keyword+ "' order by XMLid ASC";
+					
+					ResultSet deweySet = DBHelper.performQuery(deweysql);
+					
+					try {
+						while (deweySet.next()) {
+							String dewey = deweySet.getString("dewey");
+							dewey = dewey.trim();
+							outStream.println(dewey);
+						}
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					outStream.close();
 				}
 				
 				
-				outStream.close();
+				
 
 				System.out.println("finished");
 				

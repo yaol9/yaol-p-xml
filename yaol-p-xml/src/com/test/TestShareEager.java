@@ -40,7 +40,7 @@ public class TestShareEager implements TestCase {
 	
 	private ShareFactorManager sfm;
 	
-	
+	private HashMap<Integer,HashSet<Double>> topScores;
 	
 	private List<HashMap<Integer,Integer>> combinationPool ;
 	
@@ -54,6 +54,7 @@ public class TestShareEager implements TestCase {
 		planScoreRecord=new HashMap<String,Double>();
 		sfm=new ShareFactorManager();
 		combinationPool=new LinkedList<HashMap<Integer,Integer>>();
+		topScores = new HashMap<Integer,HashSet<Double>>();
 	}
 	
 	@Override
@@ -126,14 +127,18 @@ public class TestShareEager implements TestCase {
 	
 
 		
-		
+		//long t1= System.currentTimeMillis();
 		//generate intra-query plan
+		
 		for(int i=0;i<queryCount;i++)
 		{						
 			HashMap<Integer,List<String>> plan = new HashMap<Integer,List<String>>();
 			generatePlan(userQuery.get(i),0,userQuery.get(i).size(),plan,0,i);			
 		}
-
+		
+		//long t2= System.currentTimeMillis();
+		
+		//System.out.println("generate seperate plan time:"+(t2-t1));
 		//check plan			
 		//checkPlan();
 		
@@ -511,7 +516,7 @@ public class TestShareEager implements TestCase {
 		}		
 		outStreamT.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
@@ -520,50 +525,75 @@ public class TestShareEager implements TestCase {
 	{
 		if(sequenceId==keywordsCount-1)
 		{
+			
 			//output plan
 			if(planSet.containsKey(queryId))
 			{
-				//need sort
+				
+				//need sort 
 				List<HashMap<Integer,List<String>>> plans=planSet.get(queryId);
 				
 				
 				Double curScore = planScoreRecord.get(plan.toString());
 				Double firstScore = planScoreRecord.get(plans.get(0).toString());
 				Double lastScore = planScoreRecord.get(plans.get(plans.size()-1).toString());
-				if( curScore<=firstScore)
+				
+				//only keep top 5 scores
+				HashSet<Double> scoreList = topScores.get(queryId);
+				boolean isGen = false;
+				
+				if(scoreList.size()<5)
 				{
-					plans.add(0,plan);
-				}
-				else if(curScore>lastScore)
-				{
-					plans.add(plan);
+					scoreList.add(curScore);	
+					isGen=true;
 				}
 				else
 				{
-					for(int i=0;i<plans.size()-2;i++)
+					double removeItem =0.0;
+					for(double d: scoreList)
 					{
-						Double preScore=planScoreRecord.get(plans.get(i).toString());
-						Double postScore=planScoreRecord.get(plans.get(i+1).toString());
-						
-						if( (curScore>preScore) && (curScore <=postScore) )
+						if(d > curScore)
 						{
-							plans.add(i+1,plan);
-							break;
-						}	
-						
-					
+							removeItem=d;
+						}
 					}
-				}	
+					if(removeItem>0)
+					{
+						scoreList.remove(removeItem);
+						scoreList.add(curScore);
+						isGen=true;
+					}
+				}
 				
-				planSet.put(queryId, plans);
-		//		System.out.println("for query "+queryId+", Plan:");
-				
-		//		for(int i=0;i<sequenceId;i++)
-		//		{
-				//	System.out.println("Step "+i+": "+plan.get(i));					
-		//		}
-				
-			//	System.out.println("score: "+planScoreRecord.get(plan.toString()));	
+				if(isGen)
+				{
+					if( curScore<=firstScore)
+					{
+						plans.add(0,plan);
+					}
+					else if(curScore>lastScore)
+					{
+						plans.add(plan);
+					}
+					else
+					{
+						for(int i=0;i<plans.size()-2;i++)
+						{
+							Double preScore=planScoreRecord.get(plans.get(i).toString());
+							Double postScore=planScoreRecord.get(plans.get(i+1).toString());
+							
+							if( (curScore>preScore) && (curScore <=postScore) )
+							{
+								plans.add(i+1,plan);
+								break;
+							}								
+						
+						}
+					}	
+					
+					planSet.put(queryId, plans);
+				}				
+		
 			}
 			else
 			{
@@ -571,14 +601,11 @@ public class TestShareEager implements TestCase {
 				plans.add(plan);
 				planSet.put(queryId, plans);
 				
-				
-	//			System.out.println("for query "+queryId+", Plan:");
-				
-		//		for(int i=0;i<sequenceId;i++)
-		//		{
-		//			System.out.println("Step "+i+": "+plan.get(i));					
-		//		}
-			//	System.out.println("score: "+planScoreRecord.get(plan.toString()));	
+				//update top 10 scores
+				HashSet<Double> scoreList = new HashSet<Double>();
+				scoreList.add(planScoreRecord.get(plan.toString()));
+				topScores.put(queryId, scoreList);
+
 				
 			}
 		}
@@ -757,7 +784,7 @@ public class TestShareEager implements TestCase {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		TestCase test = new TestShareEager();
 		test.run();
 	}
