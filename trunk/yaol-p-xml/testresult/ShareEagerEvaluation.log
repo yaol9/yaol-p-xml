@@ -1,105 +1,55 @@
--- Keyword Query: multimedia,resource,interface,visual,fast,mining 
+-- Keyword Query: multimedia,performance,middleware,code,evolution,mining 
 
--- Keyword Query: multimedia,resource,interface,middleware 
+-- Keyword Query: date,quality,middleware,code,evolution,agents 
 
--- Keyword Query: multimedia,resource,interface,user,automatic,artificial 
+-- Keyword Query: online,database,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,traffic,evolution 
+-- Keyword Query: communication,dimensional,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,digital,graph 
+-- Keyword Query: machine,estimation,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,driven,notes 
+-- Keyword Query: transactions,reference,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,methods,online 
+-- Keyword Query: notes,services,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,agents,services,transactions 
+-- Keyword Query: transactions,learning,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,mathematical,reliability 
+-- Keyword Query: implementation,automatic,middleware,code,evolution 
 
--- Keyword Query: performance,database,mathematical,reliability,learning 
+-- Keyword Query: icc,hybrid,middleware,code,evolution 
 
--- Keyword Query: performance,database,framework,middleware,vldb,implementation 
-
--- Keyword Query: performance,database,business,dimensional,robot 
-
--- Keyword Query: performance,database,statistical,index,scheduling,frequency 
-
--- Keyword Query: performance,database,hierarchical,practice,decision 
-
--- Keyword Query: performance,database,internet,study,real 
-
--- Keyword Query: performance,database,multimedia,problem,energy 
-
--- Keyword Query: performance,database,extraction,tracking,segmentation 
-
--- Keyword Query: performance,database,visualization,date,quality 
-
--- Keyword Query: performance,database,intelligence,cikm,code 
-
--- Keyword Query: performance,database,cikm,code,article 
-
-query 0: [multimedia, resource, interface, visual, fast, mining]
+query 0: [multimedia, performance, middleware, code, evolution, mining]
 result: 
 [1]
-query 1: [multimedia, resource, interface, middleware]
-result: 
-[1]
-query 2: [multimedia, resource, interface, user, automatic, artificial]
-result: 
-[1]
-query 3: [multimedia, resource, interface, traffic, evolution]
-result: 
-[1]
-query 4: [multimedia, resource, interface, digital, graph]
-result: 
-[1]
-query 5: [multimedia, resource, interface, driven, notes]
-result: 
-[1]
-query 6: [multimedia, resource, interface, methods, online]
-result: 
-[1]
-query 7: [multimedia, resource, interface, agents, services, transactions]
-result: 
-[1]
-query 8: [multimedia, resource, interface, mathematical, reliability]
-result: 
-[1]
-query 9: [performance, database, mathematical, reliability, learning]
-result: 
-[1]
-query 10: [performance, database, framework, middleware, vldb, implementation]
-result: 
-[1]
-query 11: [performance, database, business, dimensional, robot]
+query 1: [date, quality, middleware, code, evolution, agents]
 result: 
 []
-query 12: [performance, database, statistical, index, scheduling, frequency]
+query 2: [online, database, middleware, code, evolution]
 result: 
 [1]
-query 13: [performance, database, hierarchical, practice, decision]
+query 3: [communication, dimensional, middleware, code, evolution]
 result: 
 [1]
-query 14: [performance, database, internet, study, real]
+query 4: [machine, estimation, middleware, code, evolution]
 result: 
 [1]
-query 15: [performance, database, multimedia, problem, energy]
+query 5: [transactions, reference, middleware, code, evolution]
 result: 
 [1]
-query 16: [performance, database, extraction, tracking, segmentation]
+query 6: [notes, services, middleware, code, evolution]
 result: 
 [1]
-query 17: [performance, database, visualization, date, quality]
+query 7: [transactions, learning, middleware, code, evolution]
 result: 
 [1]
-query 18: [performance, database, intelligence, cikm, code]
+query 8: [implementation, automatic, middleware, code, evolution]
 result: 
 [1]
-query 19: [performance, database, cikm, code, article]
+query 9: [icc, hybrid, middleware, code, evolution]
 result: 
 [1]
 ShareEager Algorithms:
---Response Time: 19752 
+--Response Time: 3516 
 
---Memory usage: 16670424 
+--Memory usage: 7229600 
 

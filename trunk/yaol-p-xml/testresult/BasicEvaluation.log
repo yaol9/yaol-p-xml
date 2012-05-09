@@ -1,67 +1,47 @@
--- Keyword Query: multimedia,resource,interface,visual,fast,mining 
+-- Keyword Query: multimedia,performance,middleware,code,evolution,mining 
 
--- Keyword Query: multimedia,resource,interface,resource,middleware 
+-- Keyword Query: framework,vldb,middleware,code,evolution,agents 
 
--- Keyword Query: multimedia,resource,interface,user,automatic,artificial 
+-- Keyword Query: online,database,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,traffic,evolution 
+-- Keyword Query: communication,dimensional,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,digital,graph 
+-- Keyword Query: machine,estimation,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,driven,notes 
+-- Keyword Query: transactions,reference,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,methods,online 
+-- Keyword Query: notes,services,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,agents,services,transactions 
+-- Keyword Query: transactions,learning,middleware,code,evolution 
 
--- Keyword Query: multimedia,resource,interface,mathematical,reliability 
+-- Keyword Query: implementation,automatic,middleware,code,evolution 
 
--- Keyword Query: performance,database,mathematical,reliability,learning 
+-- Keyword Query: icc,hybrid,middleware,code,evolution 
 
--- Keyword Query: performance,database,framework,middleware,vldb,implementation 
-
--- Keyword Query: performance,database,business,dimensional,robot 
-
--- Keyword Query: performance,database,statistical,index,scheduling,frequency 
-
--- Keyword Query: performance,database,hierarchical,practice,decision 
-
--- Keyword Query: performance,database,internet,study,real 
-
--- Keyword Query: performance,database,multimedia,problem,energy 
-
--- Keyword Query: performance,database,extraction,tracking,segmentation 
-
--- Keyword Query: performance,database,visualization,date,quality 
-
--- Keyword Query: performance,database,intelligence,cikm,code 
-
--- Keyword Query: performance,database,cikm,code,article 
-
--- Keyword Query: [multimedia, resource, interface, visual, fast, mining] 
+-- Keyword Query: [multimedia, performance, middleware, code, evolution, mining] 
 
 stack based
 Keyword Size multimedia -> number: 20480
 
-Keyword Size resource -> number: 10159
+Keyword Size performance -> number: 42425
 
 index based
-Keyword Size multimedia|resource -> number: 247
+Keyword Size multimedia|performance -> number: 409
 
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size visual -> number: 15675
+Keyword Size middleware -> number: 4686
 
 index based
-Keyword Size multimedia|resource|interface|visual -> number: 1
+Keyword Size multimedia|performance|middleware -> number: 1
 
-Keyword Size fast -> number: 16220
+Keyword Size code -> number: 8073
 
 index based
-Keyword Size multimedia|resource|interface|visual|fast -> number: 1
+Keyword Size multimedia|performance|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+index based
+Keyword Size multimedia|performance|middleware|code|evolution -> number: 1
 
 Keyword Size mining -> number: 15703
 
@@ -71,60 +51,32 @@ SLCA result: [1]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, resource, middleware] 
+-- Keyword Query: [framework, vldb, middleware, code, evolution, agents] 
 
 stack based
-Keyword Size multimedia -> number: 20480
+Keyword Size framework -> number: 25198
 
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
+Keyword Size vldb -> number: 24048
 
 index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource|interface|resource -> number: 1
+Keyword Size framework|vldb -> number: 109
 
 Keyword Size middleware -> number: 4686
 
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
+index based
+Keyword Size framework|vldb|middleware -> number: 1
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, user, automatic, artificial] 
-
-stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
+Keyword Size code -> number: 8073
 
 index based
-Keyword Size multimedia|resource -> number: 247
+Keyword Size framework|vldb|middleware|code -> number: 1
 
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size user -> number: 19414
+Keyword Size evolution -> number: 8523
 
 index based
-Keyword Size multimedia|resource|interface|user -> number: 1
+Keyword Size framework|vldb|middleware|code|evolution -> number: 1
 
-Keyword Size automatic -> number: 17988
-
-index based
-Keyword Size multimedia|resource|interface|user|automatic -> number: 1
-
-Keyword Size artificial -> number: 13831
+Keyword Size agents -> number: 10303
 
 The number of checked nodes is: 0
 SLCA results as follow. 
@@ -132,25 +84,25 @@ SLCA result: [1]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, traffic, evolution] 
+-- Keyword Query: [online, database, middleware, code, evolution] 
 
 stack based
-Keyword Size multimedia -> number: 20480
+Keyword Size online -> number: 12892
 
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
+Keyword Size database -> number: 23517
 
 index based
-Keyword Size multimedia|resource|interface -> number: 1
+Keyword Size online|database -> number: 128
 
-Keyword Size traffic -> number: 8920
+Keyword Size middleware -> number: 4686
 
 index based
-Keyword Size multimedia|resource|interface|traffic -> number: 1
+Keyword Size online|database|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size online|database|middleware|code -> number: 1
 
 Keyword Size evolution -> number: 8523
 
@@ -160,462 +112,27 @@ SLCA result: [1]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, digital, graph] 
+-- Keyword Query: [communication, dimensional, middleware, code, evolution] 
 
 stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size digital -> number: 21290
-
-index based
-Keyword Size multimedia|resource|interface|digital -> number: 1
-
-Keyword Size graph -> number: 21376
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, driven, notes] 
-
-stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size driven -> number: 10491
-
-index based
-Keyword Size multimedia|resource|interface|driven -> number: 1
-
-Keyword Size notes -> number: 16220
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, methods, online] 
-
-stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size methods -> number: 20792
-
-index based
-Keyword Size multimedia|resource|interface|methods -> number: 1
-
-Keyword Size online -> number: 12892
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, agents, services, transactions] 
-
-stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size agents -> number: 10303
-
-index based
-Keyword Size multimedia|resource|interface|agents -> number: 1
-
-Keyword Size services -> number: 19125
-
-index based
-Keyword Size multimedia|resource|interface|agents|services -> number: 1
-
-Keyword Size transactions -> number: 46434
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, mathematical, reliability] 
-
-stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size mathematical -> number: 9463
-
-index based
-Keyword Size multimedia|resource|interface|mathematical -> number: 1
-
-Keyword Size reliability -> number: 9005
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, mathematical, reliability, learning] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size mathematical -> number: 9463
-
-index based
-Keyword Size performance|database|mathematical -> number: 1
-
-Keyword Size reliability -> number: 9005
-
-index based
-Keyword Size performance|database|mathematical|reliability -> number: 1
-
-Keyword Size learning -> number: 50011
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, framework, middleware, vldb, implementation] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size framework -> number: 25198
-
-index based
-Keyword Size performance|database|framework -> number: 3
-
-Keyword Size middleware -> number: 4686
-
-index based
-Keyword Size performance|database|framework|middleware -> number: 1
-
-Keyword Size vldb -> number: 24048
-
-index based
-Keyword Size performance|database|framework|middleware|vldb -> number: 1
-
-Keyword Size implementation -> number: 18288
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, business, dimensional, robot] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size business -> number: 10637
-
-index based
-Keyword Size performance|database|business -> number: 1
+Keyword Size communication -> number: 22242
 
 Keyword Size dimensional -> number: 10910
 
 index based
-Keyword Size performance|database|business|dimensional -> number: 1
+Keyword Size communication|dimensional -> number: 41
 
-Keyword Size robot -> number: 17057
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, statistical, index, scheduling, frequency] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
+Keyword Size middleware -> number: 4686
 
 index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size statistical -> number: 8864
-
-index based
-Keyword Size performance|database|statistical -> number: 2
-
-Keyword Size index -> number: 15115
-
-index based
-Keyword Size performance|database|statistical|index -> number: 1
-
-Keyword Size scheduling -> number: 19883
-
-index based
-Keyword Size performance|database|statistical|index|scheduling -> number: 1
-
-Keyword Size frequency -> number: 7974
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, hierarchical, practice, decision] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size hierarchical -> number: 9455
-
-index based
-Keyword Size performance|database|hierarchical -> number: 1
-
-Keyword Size practice -> number: 8171
-
-index based
-Keyword Size performance|database|hierarchical|practice -> number: 1
-
-Keyword Size decision -> number: 17083
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, internet, study, real] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size internet -> number: 17019
-
-index based
-Keyword Size performance|database|internet -> number: 1
-
-Keyword Size study -> number: 28585
-
-index based
-Keyword Size performance|database|internet|study -> number: 1
-
-Keyword Size real -> number: 26989
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, multimedia, problem, energy] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size multimedia -> number: 20480
-
-index based
-Keyword Size performance|database|multimedia -> number: 3
-
-Keyword Size problem -> number: 25620
-
-index based
-Keyword Size performance|database|multimedia|problem -> number: 1
-
-Keyword Size energy -> number: 10465
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, extraction, tracking, segmentation] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size extraction -> number: 9970
-
-index based
-Keyword Size performance|database|extraction -> number: 1
-
-Keyword Size tracking -> number: 11207
-
-index based
-Keyword Size performance|database|extraction|tracking -> number: 1
-
-Keyword Size segmentation -> number: 12087
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, visualization, date, quality] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size visualization -> number: 12651
-
-index based
-Keyword Size performance|database|visualization -> number: 1
-
-Keyword Size date -> number: 13414
-
-index based
-Keyword Size performance|database|visualization|date -> number: 1
-
-Keyword Size quality -> number: 13842
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, intelligence, cikm, code] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size intelligence -> number: 15334
-
-index based
-Keyword Size performance|database|intelligence -> number: 1
-
-Keyword Size cikm -> number: 8076
-
-index based
-Keyword Size performance|database|intelligence|cikm -> number: 1
-
-Keyword Size code -> number: 8073
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, cikm, code, article] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size cikm -> number: 8076
-
-index based
-Keyword Size performance|database|cikm -> number: 1
+Keyword Size communication|dimensional|middleware -> number: 1
 
 Keyword Size code -> number: 8073
 
 index based
-Keyword Size performance|database|cikm|code -> number: 1
+Keyword Size communication|dimensional|middleware|code -> number: 1
 
-Keyword Size article -> number: 11939
+Keyword Size evolution -> number: 8523
 
 The number of checked nodes is: 0
 SLCA results as follow. 
@@ -623,70 +140,218 @@ SLCA result: [1]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: multimedia,resource,interface,visual,fast,mining 
+-- Keyword Query: [machine, estimation, middleware, code, evolution] 
 
--- Keyword Query: multimedia,resource,interface,resource,middleware 
+stack based
+Keyword Size machine -> number: 17074
 
--- Keyword Query: multimedia,resource,interface,user,automatic,artificial 
+Keyword Size estimation -> number: 21175
 
--- Keyword Query: multimedia,resource,interface,traffic,evolution 
+index based
+Keyword Size machine|estimation -> number: 132
 
--- Keyword Query: multimedia,resource,interface,digital,graph 
+Keyword Size middleware -> number: 4686
 
--- Keyword Query: multimedia,resource,interface,driven,notes 
+index based
+Keyword Size machine|estimation|middleware -> number: 1
 
--- Keyword Query: multimedia,resource,interface,methods,online 
+Keyword Size code -> number: 8073
 
--- Keyword Query: multimedia,resource,interface,agents,services,transactions 
+index based
+Keyword Size machine|estimation|middleware|code -> number: 1
 
--- Keyword Query: multimedia,resource,interface,mathematical,reliability 
+Keyword Size evolution -> number: 8523
 
--- Keyword Query: performance,database,mathematical,reliability,learning 
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
 
--- Keyword Query: performance,database,framework,middleware,vldb,implementation 
 
--- Keyword Query: performance,database,business,dimensional,robot 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [transactions, reference, middleware, code, evolution] 
 
--- Keyword Query: performance,database,statistical,index,scheduling,frequency 
+stack based
+Keyword Size transactions -> number: 46434
 
--- Keyword Query: performance,database,hierarchical,practice,decision 
+Keyword Size reference -> number: 25818
 
--- Keyword Query: performance,database,internet,study,real 
+index based
+Keyword Size transactions|reference -> number: 134
 
--- Keyword Query: performance,database,multimedia,problem,energy 
+Keyword Size middleware -> number: 4686
 
--- Keyword Query: performance,database,extraction,tracking,segmentation 
+index based
+Keyword Size transactions|reference|middleware -> number: 1
 
--- Keyword Query: performance,database,visualization,date,quality 
+Keyword Size code -> number: 8073
 
--- Keyword Query: performance,database,intelligence,cikm,code 
+index based
+Keyword Size transactions|reference|middleware|code -> number: 1
 
--- Keyword Query: performance,database,cikm,code,article 
+Keyword Size evolution -> number: 8523
 
--- Keyword Query: [multimedia, resource, interface, visual, fast, mining] 
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [notes, services, middleware, code, evolution] 
+
+stack based
+Keyword Size notes -> number: 16220
+
+Keyword Size services -> number: 19125
+
+index based
+Keyword Size notes|services -> number: 150
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size notes|services|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size notes|services|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [transactions, learning, middleware, code, evolution] 
+
+stack based
+Keyword Size transactions -> number: 46434
+
+Keyword Size learning -> number: 50011
+
+index based
+Keyword Size transactions|learning -> number: 785
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size transactions|learning|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size transactions|learning|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [implementation, automatic, middleware, code, evolution] 
+
+stack based
+Keyword Size implementation -> number: 18288
+
+Keyword Size automatic -> number: 17988
+
+index based
+Keyword Size implementation|automatic -> number: 138
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size implementation|automatic|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size implementation|automatic|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [icc, hybrid, middleware, code, evolution] 
+
+stack based
+Keyword Size icc -> number: 19557
+
+Keyword Size hybrid -> number: 15980
+
+index based
+Keyword Size icc|hybrid -> number: 98
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size icc|hybrid|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size icc|hybrid|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: multimedia,performance,middleware,code,evolution,mining 
+
+-- Keyword Query: framework,vldb,middleware,code,evolution,agents 
+
+-- Keyword Query: online,database,middleware,code,evolution 
+
+-- Keyword Query: communication,dimensional,middleware,code,evolution 
+
+-- Keyword Query: machine,estimation,middleware,code,evolution 
+
+-- Keyword Query: transactions,reference,middleware,code,evolution 
+
+-- Keyword Query: notes,services,middleware,code,evolution 
+
+-- Keyword Query: transactions,learning,middleware,code,evolution 
+
+-- Keyword Query: implementation,automatic,middleware,code,evolution 
+
+-- Keyword Query: icc,hybrid,middleware,code,evolution 
+
+-- Keyword Query: [multimedia, performance, middleware, code, evolution, mining] 
 
 stack based
 Keyword Size multimedia -> number: 20480
 
-Keyword Size resource -> number: 10159
+Keyword Size performance -> number: 42425
 
 index based
-Keyword Size multimedia|resource -> number: 247
+Keyword Size multimedia|performance -> number: 409
 
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size visual -> number: 15675
+Keyword Size middleware -> number: 4686
 
 index based
-Keyword Size multimedia|resource|interface|visual -> number: 1
+Keyword Size multimedia|performance|middleware -> number: 1
 
-Keyword Size fast -> number: 16220
+Keyword Size code -> number: 8073
 
 index based
-Keyword Size multimedia|resource|interface|visual|fast -> number: 1
+Keyword Size multimedia|performance|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+index based
+Keyword Size multimedia|performance|middleware|code|evolution -> number: 1
 
 Keyword Size mining -> number: 15703
 
@@ -696,60 +361,32 @@ SLCA result: [1]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, resource, middleware] 
+-- Keyword Query: [framework, vldb, middleware, code, evolution, agents] 
 
 stack based
-Keyword Size multimedia -> number: 20480
+Keyword Size framework -> number: 25198
 
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
+Keyword Size vldb -> number: 24048
 
 index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource|interface|resource -> number: 1
+Keyword Size framework|vldb -> number: 109
 
 Keyword Size middleware -> number: 4686
 
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
+index based
+Keyword Size framework|vldb|middleware -> number: 1
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, user, automatic, artificial] 
-
-stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
+Keyword Size code -> number: 8073
 
 index based
-Keyword Size multimedia|resource -> number: 247
+Keyword Size framework|vldb|middleware|code -> number: 1
 
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size user -> number: 19414
+Keyword Size evolution -> number: 8523
 
 index based
-Keyword Size multimedia|resource|interface|user -> number: 1
+Keyword Size framework|vldb|middleware|code|evolution -> number: 1
 
-Keyword Size automatic -> number: 17988
-
-index based
-Keyword Size multimedia|resource|interface|user|automatic -> number: 1
-
-Keyword Size artificial -> number: 13831
+Keyword Size agents -> number: 10303
 
 The number of checked nodes is: 0
 SLCA results as follow. 
@@ -757,25 +394,25 @@ SLCA result: [1]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, traffic, evolution] 
+-- Keyword Query: [online, database, middleware, code, evolution] 
 
 stack based
-Keyword Size multimedia -> number: 20480
+Keyword Size online -> number: 12892
 
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
+Keyword Size database -> number: 23517
 
 index based
-Keyword Size multimedia|resource|interface -> number: 1
+Keyword Size online|database -> number: 128
 
-Keyword Size traffic -> number: 8920
+Keyword Size middleware -> number: 4686
 
 index based
-Keyword Size multimedia|resource|interface|traffic -> number: 1
+Keyword Size online|database|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size online|database|middleware|code -> number: 1
 
 Keyword Size evolution -> number: 8523
 
@@ -785,462 +422,195 @@ SLCA result: [1]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, digital, graph] 
+-- Keyword Query: [communication, dimensional, middleware, code, evolution] 
 
 stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size digital -> number: 21290
-
-index based
-Keyword Size multimedia|resource|interface|digital -> number: 1
-
-Keyword Size graph -> number: 21376
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, driven, notes] 
-
-stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size driven -> number: 10491
-
-index based
-Keyword Size multimedia|resource|interface|driven -> number: 1
-
-Keyword Size notes -> number: 16220
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, methods, online] 
-
-stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size methods -> number: 20792
-
-index based
-Keyword Size multimedia|resource|interface|methods -> number: 1
-
-Keyword Size online -> number: 12892
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, agents, services, transactions] 
-
-stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size agents -> number: 10303
-
-index based
-Keyword Size multimedia|resource|interface|agents -> number: 1
-
-Keyword Size services -> number: 19125
-
-index based
-Keyword Size multimedia|resource|interface|agents|services -> number: 1
-
-Keyword Size transactions -> number: 46434
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [multimedia, resource, interface, mathematical, reliability] 
-
-stack based
-Keyword Size multimedia -> number: 20480
-
-Keyword Size resource -> number: 10159
-
-index based
-Keyword Size multimedia|resource -> number: 247
-
-Keyword Size interface -> number: 10009
-
-index based
-Keyword Size multimedia|resource|interface -> number: 1
-
-Keyword Size mathematical -> number: 9463
-
-index based
-Keyword Size multimedia|resource|interface|mathematical -> number: 1
-
-Keyword Size reliability -> number: 9005
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, mathematical, reliability, learning] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size mathematical -> number: 9463
-
-index based
-Keyword Size performance|database|mathematical -> number: 1
-
-Keyword Size reliability -> number: 9005
-
-index based
-Keyword Size performance|database|mathematical|reliability -> number: 1
-
-Keyword Size learning -> number: 50011
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, framework, middleware, vldb, implementation] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size framework -> number: 25198
-
-index based
-Keyword Size performance|database|framework -> number: 3
-
-Keyword Size middleware -> number: 4686
-
-index based
-Keyword Size performance|database|framework|middleware -> number: 1
-
-Keyword Size vldb -> number: 24048
-
-index based
-Keyword Size performance|database|framework|middleware|vldb -> number: 1
-
-Keyword Size implementation -> number: 18288
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, business, dimensional, robot] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size business -> number: 10637
-
-index based
-Keyword Size performance|database|business -> number: 1
+Keyword Size communication -> number: 22242
 
 Keyword Size dimensional -> number: 10910
 
 index based
-Keyword Size performance|database|business|dimensional -> number: 1
+Keyword Size communication|dimensional -> number: 41
 
-Keyword Size robot -> number: 17057
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, statistical, index, scheduling, frequency] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
+Keyword Size middleware -> number: 4686
 
 index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size statistical -> number: 8864
-
-index based
-Keyword Size performance|database|statistical -> number: 2
-
-Keyword Size index -> number: 15115
-
-index based
-Keyword Size performance|database|statistical|index -> number: 1
-
-Keyword Size scheduling -> number: 19883
-
-index based
-Keyword Size performance|database|statistical|index|scheduling -> number: 1
-
-Keyword Size frequency -> number: 7974
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, hierarchical, practice, decision] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size hierarchical -> number: 9455
-
-index based
-Keyword Size performance|database|hierarchical -> number: 1
-
-Keyword Size practice -> number: 8171
-
-index based
-Keyword Size performance|database|hierarchical|practice -> number: 1
-
-Keyword Size decision -> number: 17083
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, internet, study, real] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size internet -> number: 17019
-
-index based
-Keyword Size performance|database|internet -> number: 1
-
-Keyword Size study -> number: 28585
-
-index based
-Keyword Size performance|database|internet|study -> number: 1
-
-Keyword Size real -> number: 26989
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, multimedia, problem, energy] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size multimedia -> number: 20480
-
-index based
-Keyword Size performance|database|multimedia -> number: 3
-
-Keyword Size problem -> number: 25620
-
-index based
-Keyword Size performance|database|multimedia|problem -> number: 1
-
-Keyword Size energy -> number: 10465
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, extraction, tracking, segmentation] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size extraction -> number: 9970
-
-index based
-Keyword Size performance|database|extraction -> number: 1
-
-Keyword Size tracking -> number: 11207
-
-index based
-Keyword Size performance|database|extraction|tracking -> number: 1
-
-Keyword Size segmentation -> number: 12087
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, visualization, date, quality] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size visualization -> number: 12651
-
-index based
-Keyword Size performance|database|visualization -> number: 1
-
-Keyword Size date -> number: 13414
-
-index based
-Keyword Size performance|database|visualization|date -> number: 1
-
-Keyword Size quality -> number: 13842
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, intelligence, cikm, code] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size intelligence -> number: 15334
-
-index based
-Keyword Size performance|database|intelligence -> number: 1
-
-Keyword Size cikm -> number: 8076
-
-index based
-Keyword Size performance|database|intelligence|cikm -> number: 1
-
-Keyword Size code -> number: 8073
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [performance, database, cikm, code, article] 
-
-stack based
-Keyword Size performance -> number: 42425
-
-Keyword Size database -> number: 23517
-
-index based
-Keyword Size performance|database -> number: 588
-
-Keyword Size cikm -> number: 8076
-
-index based
-Keyword Size performance|database|cikm -> number: 1
+Keyword Size communication|dimensional|middleware -> number: 1
 
 Keyword Size code -> number: 8073
 
 index based
-Keyword Size performance|database|cikm|code -> number: 1
+Keyword Size communication|dimensional|middleware|code -> number: 1
 
-Keyword Size article -> number: 11939
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [machine, estimation, middleware, code, evolution] 
+
+stack based
+Keyword Size machine -> number: 17074
+
+Keyword Size estimation -> number: 21175
+
+index based
+Keyword Size machine|estimation -> number: 132
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size machine|estimation|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size machine|estimation|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [transactions, reference, middleware, code, evolution] 
+
+stack based
+Keyword Size transactions -> number: 46434
+
+Keyword Size reference -> number: 25818
+
+index based
+Keyword Size transactions|reference -> number: 134
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size transactions|reference|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size transactions|reference|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [notes, services, middleware, code, evolution] 
+
+stack based
+Keyword Size notes -> number: 16220
+
+Keyword Size services -> number: 19125
+
+index based
+Keyword Size notes|services -> number: 150
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size notes|services|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size notes|services|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [transactions, learning, middleware, code, evolution] 
+
+stack based
+Keyword Size transactions -> number: 46434
+
+Keyword Size learning -> number: 50011
+
+index based
+Keyword Size transactions|learning -> number: 785
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size transactions|learning|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size transactions|learning|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [implementation, automatic, middleware, code, evolution] 
+
+stack based
+Keyword Size implementation -> number: 18288
+
+Keyword Size automatic -> number: 17988
+
+index based
+Keyword Size implementation|automatic -> number: 138
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size implementation|automatic|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size implementation|automatic|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [icc, hybrid, middleware, code, evolution] 
+
+stack based
+Keyword Size icc -> number: 19557
+
+Keyword Size hybrid -> number: 15980
+
+index based
+Keyword Size icc|hybrid -> number: 98
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size icc|hybrid|middleware -> number: 1
+
+Keyword Size code -> number: 8073
+
+index based
+Keyword Size icc|hybrid|middleware|code -> number: 1
+
+Keyword Size evolution -> number: 8523
 
 The number of checked nodes is: 0
 SLCA results as follow. 
@@ -1249,7 +619,7 @@ SLCA result: [1]
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Basic Algorithms:
---Response Time: 83069 
+--Response Time: 38828 
 
---Memory usage: 789608 
+--Memory usage: 800232 
 
