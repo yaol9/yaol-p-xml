@@ -1,0 +1,415 @@
+stack based
+Keyword Size code -> number: 8073
+
+Keyword Size evolution -> number: 8523
+
+index based
+Keyword Size code|evolution -> number: 79
+
+Keyword Size middleware -> number: 4686
+
+stack based
+Keyword Size code -> number: 8073
+
+Keyword Size evolution -> number: 8523
+
+index based
+Keyword Size code|evolution -> number: 79
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size transactions -> number: 46434
+
+-- Keyword Query:
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size mining -> number: 15703
+
+index based
+Keyword Size code|evolution|middleware|mining -> number: 1
+
+Keyword Size performance -> number: 42425
+
+index based
+Keyword Size code|evolution|middleware|mining|performance -> number: 1
+
+Keyword Size multimedia -> number: 20480
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size framework -> number: 25198
+
+Keyword Size vldb -> number: 24048
+
+index based
+Keyword Size framework|vldb -> number: 109
+
+Keyword Size agents -> number: 10303
+
+stack based
+Keyword Size framework|vldb|agents -> number: 1
+
+Keyword Size code|evolution|middleware -> number: 1
+
+SLCA results as follow. 
+SLCA result: []
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size database -> number: 23517
+
+index based
+Keyword Size code|evolution|middleware|database -> number: 1
+
+Keyword Size online -> number: 12892
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size communication -> number: 22242
+
+Keyword Size dimensional -> number: 10910
+
+index based
+Keyword Size communication|dimensional -> number: 41
+
+Keyword Size code|evolution|middleware -> number: 1
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size estimation -> number: 21175
+
+index based
+Keyword Size code|evolution|middleware|estimation -> number: 1
+
+Keyword Size machine -> number: 17074
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size reference -> number: 25818
+
+Keyword Size code|evolution|middleware -> number: 1
+
+stack based
+Keyword Size reference|code|evolution|middleware -> number: 1
+
+Keyword Size code|evolution|middleware|transactions -> number: 1
+
+SLCA results as follow. 
+SLCA result: []
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size services -> number: 19125
+
+index based
+Keyword Size code|evolution|middleware|services -> number: 1
+
+Keyword Size notes -> number: 16220
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size learning -> number: 50011
+
+Keyword Size code|evolution|middleware -> number: 1
+
+stack based
+Keyword Size learning|code|evolution|middleware -> number: 1
+
+Keyword Size code|evolution|middleware|transactions -> number: 1
+
+SLCA results as follow. 
+SLCA result: []
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size automatic -> number: 17988
+
+index based
+Keyword Size code|evolution|middleware|automatic -> number: 1
+
+Keyword Size implementation -> number: 18288
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size icc -> number: 19557
+
+Keyword Size hybrid -> number: 15980
+
+index based
+Keyword Size icc|hybrid -> number: 98
+
+Keyword Size code|evolution|middleware -> number: 1
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+stack based
+Keyword Size code -> number: 8073
+
+Keyword Size evolution -> number: 8523
+
+index based
+Keyword Size code|evolution -> number: 79
+
+Keyword Size middleware -> number: 4686
+
+stack based
+Keyword Size code -> number: 8073
+
+Keyword Size evolution -> number: 8523
+
+index based
+Keyword Size code|evolution -> number: 79
+
+Keyword Size middleware -> number: 4686
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size transactions -> number: 46434
+
+-- Keyword Query:
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size mining -> number: 15703
+
+index based
+Keyword Size code|evolution|middleware|mining -> number: 1
+
+Keyword Size performance -> number: 42425
+
+index based
+Keyword Size code|evolution|middleware|mining|performance -> number: 1
+
+Keyword Size multimedia -> number: 20480
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size framework -> number: 25198
+
+Keyword Size vldb -> number: 24048
+
+index based
+Keyword Size framework|vldb -> number: 109
+
+Keyword Size agents -> number: 10303
+
+stack based
+Keyword Size framework|vldb|agents -> number: 1
+
+Keyword Size code|evolution|middleware -> number: 1
+
+SLCA results as follow. 
+SLCA result: []
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size database -> number: 23517
+
+index based
+Keyword Size code|evolution|middleware|database -> number: 1
+
+Keyword Size online -> number: 12892
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size communication -> number: 22242
+
+Keyword Size dimensional -> number: 10910
+
+index based
+Keyword Size communication|dimensional -> number: 41
+
+Keyword Size code|evolution|middleware -> number: 1
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size estimation -> number: 21175
+
+index based
+Keyword Size code|evolution|middleware|estimation -> number: 1
+
+Keyword Size machine -> number: 17074
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size reference -> number: 25818
+
+Keyword Size code|evolution|middleware -> number: 1
+
+stack based
+Keyword Size reference|code|evolution|middleware -> number: 1
+
+Keyword Size code|evolution|middleware|transactions -> number: 1
+
+SLCA results as follow. 
+SLCA result: []
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size services -> number: 19125
+
+index based
+Keyword Size code|evolution|middleware|services -> number: 1
+
+Keyword Size notes -> number: 16220
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size learning -> number: 50011
+
+Keyword Size code|evolution|middleware -> number: 1
+
+stack based
+Keyword Size learning|code|evolution|middleware -> number: 1
+
+Keyword Size code|evolution|middleware|transactions -> number: 1
+
+SLCA results as follow. 
+SLCA result: []
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+index based
+Keyword Size code|evolution|middleware -> number: 1
+
+Keyword Size automatic -> number: 17988
+
+index based
+Keyword Size code|evolution|middleware|automatic -> number: 1
+
+Keyword Size implementation -> number: 18288
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size icc -> number: 19557
+
+Keyword Size hybrid -> number: 15980
+
+index based
+Keyword Size icc|hybrid -> number: 98
+
+Keyword Size code|evolution|middleware -> number: 1
+
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+QueryAware Algorithms:
+--Response Time: 8547 
+
+--Memory usage: 790304 
+
