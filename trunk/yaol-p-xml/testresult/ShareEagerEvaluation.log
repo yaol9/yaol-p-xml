@@ -1,55 +1,55 @@
--- Keyword Query: multimedia,performance,middleware,code,evolution,mining 
+-- Keyword Query: male,college,new,bell,she 
 
--- Keyword Query: date,quality,middleware,code,evolution,agents 
+-- Keyword Query: new,bell,temple,fortune,shame 
 
--- Keyword Query: online,database,middleware,code,evolution 
+-- Keyword Query: new,bell,tears,ear,love,fight 
 
--- Keyword Query: communication,dimensional,middleware,code,evolution 
+-- Keyword Query: new,bell,action,good,high 
 
--- Keyword Query: machine,estimation,middleware,code,evolution 
+-- Keyword Query: new,bell,wife,head,nurse 
 
--- Keyword Query: transactions,reference,middleware,code,evolution 
+-- Keyword Query: new,bell,dear,state,lord,set 
 
--- Keyword Query: notes,services,middleware,code,evolution 
+-- Keyword Query: new,bell,purpose,time,romeo 
 
--- Keyword Query: transactions,learning,middleware,code,evolution 
+-- Keyword Query: new,bell,weep,berkeley,school 
 
--- Keyword Query: implementation,automatic,middleware,code,evolution 
+-- Keyword Query: new,bell,swear,enter,little 
 
--- Keyword Query: icc,hybrid,middleware,code,evolution 
+-- Keyword Query: new,bell,strange,more,mine 
 
-query 0: [multimedia, performance, middleware, code, evolution, mining]
+query 0: [male, college, new, bell, she]
 result: 
-[1]
-query 1: [date, quality, middleware, code, evolution, agents]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 1: [new, bell, temple, fortune, shame]
 result: 
-[]
-query 2: [online, database, middleware, code, evolution]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 2: [new, bell, tears, ear, love, fight]
 result: 
-[1]
-query 3: [communication, dimensional, middleware, code, evolution]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 3: [new, bell, action, good, high]
 result: 
-[1]
-query 4: [machine, estimation, middleware, code, evolution]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 4: [new, bell, wife, head, nurse]
 result: 
-[1]
-query 5: [transactions, reference, middleware, code, evolution]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 5: [new, bell, dear, state, lord, set]
 result: 
-[1]
-query 6: [notes, services, middleware, code, evolution]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 6: [new, bell, purpose, time, romeo]
 result: 
-[1]
-query 7: [transactions, learning, middleware, code, evolution]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 7: [new, bell, weep, berkeley, school]
 result: 
-[1]
-query 8: [implementation, automatic, middleware, code, evolution]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 8: [new, bell, swear, enter, little]
 result: 
-[1]
-query 9: [icc, hybrid, middleware, code, evolution]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 9: [new, bell, strange, more, mine]
 result: 
-[1]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 ShareEager Algorithms:
---Response Time: 3516 
+--Response Time: 1563 
 
---Memory usage: 7229600 
+--Memory usage: 5983072 
 
