@@ -1,55 +1,55 @@
--- Keyword Query: male,college,new,bell,she 
+-- Keyword Query: duke,berkeley,head,nurse,mehrdad 
 
--- Keyword Query: new,bell,temple,fortune,shame 
+-- Keyword Query: high,berkeley,head,nurse,female 
 
--- Keyword Query: new,bell,tears,ear,love,fight 
+-- Keyword Query: school,berkeley,head,nurse,ask 
 
--- Keyword Query: new,bell,action,good,high 
+-- Keyword Query: college,berkeley,head,nurse,put 
 
--- Keyword Query: new,bell,wife,head,nurse 
+-- Keyword Query: new,berkeley,head,nurse,ship 
 
--- Keyword Query: new,bell,dear,state,lord,set 
+-- Keyword Query: male,berkeley,head,nurse,lord 
 
--- Keyword Query: new,bell,purpose,time,romeo 
+-- Keyword Query: description,berkeley,head,nurse,romeo 
 
--- Keyword Query: new,bell,weep,berkeley,school 
+-- Keyword Query: fixed,berkeley,head,nurse,forth 
 
--- Keyword Query: new,bell,swear,enter,little 
+-- Keyword Query: york,berkeley,head,nurse,graduate 
 
--- Keyword Query: new,bell,strange,more,mine 
+-- Keyword Query: forth,berkeley,head,nurse,org 
 
-query 0: [male, college, new, bell, she]
+query 0: [duke, berkeley, head, nurse, mehrdad]
+result: 
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+query 1: [high, berkeley, head, nurse, female]
 result: 
 [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 1: [new, bell, temple, fortune, shame]
+query 2: [school, berkeley, head, nurse, ask]
 result: 
 [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 2: [new, bell, tears, ear, love, fight]
+query 3: [college, berkeley, head, nurse, put]
 result: 
 [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 3: [new, bell, action, good, high]
+query 4: [new, berkeley, head, nurse, ship]
 result: 
 [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 4: [new, bell, wife, head, nurse]
+query 5: [male, berkeley, head, nurse, lord]
 result: 
 [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 5: [new, bell, dear, state, lord, set]
+query 6: [description, berkeley, head, nurse, romeo]
 result: 
 [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 6: [new, bell, purpose, time, romeo]
+query 7: [fixed, berkeley, head, nurse, forth]
 result: 
 [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 7: [new, bell, weep, berkeley, school]
+query 8: [york, berkeley, head, nurse, graduate]
 result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 8: [new, bell, swear, enter, little]
+[1]
+query 9: [forth, berkeley, head, nurse, org]
 result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 9: [new, bell, strange, more, mine]
-result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
 ShareEager Algorithms:
---Response Time: 1563 
+--Response Time: 2953 
 
---Memory usage: 5983072 
+--Memory usage: 2293752 
 
