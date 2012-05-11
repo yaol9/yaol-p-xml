@@ -1,220 +1,210 @@
--- Keyword Query: male,college,new,bell,she 
+-- Keyword Query: duke,berkeley,head,nurse,mehrdad 
 
--- Keyword Query: new,bell,temple,fortune,shame 
+-- Keyword Query: high,berkeley,head,nurse,female 
 
--- Keyword Query: new,bell,tears,ear,love,fight 
+-- Keyword Query: school,berkeley,head,nurse,ask 
 
--- Keyword Query: new,bell,action,good,high 
+-- Keyword Query: college,berkeley,head,nurse,put 
 
--- Keyword Query: new,bell,wife,head,nurse 
+-- Keyword Query: new,berkeley,head,nurse,ship 
 
--- Keyword Query: new,bell,dear,state,lord,set 
+-- Keyword Query: male,berkeley,head,nurse,lord 
 
--- Keyword Query: new,bell,purpose,time,romeo 
+-- Keyword Query: description,berkeley,head,nurse,romeo 
 
--- Keyword Query: new,bell,weep,berkeley,school 
+-- Keyword Query: fixed,berkeley,head,nurse,forth 
 
--- Keyword Query: new,bell,swear,enter,little 
+-- Keyword Query: york,berkeley,head,nurse,graduate 
 
--- Keyword Query: new,bell,strange,more,mine 
+-- Keyword Query: forth,berkeley,head,nurse,org 
 
--- Keyword Query: [male, college, new, bell, she] 
-
-stack based
-Keyword Size male -> number: 19836
-
-Keyword Size college -> number: 10064
+-- Keyword Query: [duke, berkeley, head, nurse, mehrdad] 
 
 stack based
-Keyword Size male|college -> number: 2458
+Keyword Size duke -> number: 6772
 
-Keyword Size new -> number: 6743
-
-index based
-Keyword Size male|college|new -> number: 56
-
-Keyword Size bell -> number: 4564
+Keyword Size berkeley -> number: 3985
 
 index based
-Keyword Size male|college|new|bell -> number: 9
-
-Keyword Size she -> number: 4284
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, temple, fortune, shame] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size temple -> number: 3940
-
-index based
-Keyword Size new|bell|temple -> number: 10
-
-Keyword Size fortune -> number: 4273
-
-index based
-Keyword Size new|bell|temple|fortune -> number: 10
-
-Keyword Size shame -> number: 4352
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, tears, ear, love, fight] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size tears -> number: 3934
-
-index based
-Keyword Size new|bell|tears -> number: 9
-
-Keyword Size ear -> number: 4250
-
-index based
-Keyword Size new|bell|tears|ear -> number: 9
-
-Keyword Size love -> number: 4184
-
-index based
-Keyword Size new|bell|tears|ear|love -> number: 9
-
-Keyword Size fight -> number: 3957
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, action, good, high] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size action -> number: 3891
-
-index based
-Keyword Size new|bell|action -> number: 11
-
-Keyword Size good -> number: 4169
-
-index based
-Keyword Size new|bell|action|good -> number: 9
-
-Keyword Size high -> number: 13042
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, wife, head, nurse] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size wife -> number: 3880
-
-index based
-Keyword Size new|bell|wife -> number: 9
+Keyword Size duke|berkeley -> number: 79
 
 Keyword Size head -> number: 4173
 
 index based
-Keyword Size new|bell|wife|head -> number: 9
+Keyword Size duke|berkeley|head -> number: 9
 
 Keyword Size nurse -> number: 4034
 
+index based
+Keyword Size duke|berkeley|head|nurse -> number: 9
+
+Keyword Size mehrdad -> number: 20532
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [high, berkeley, head, nurse, female] 
+
+stack based
+Keyword Size high -> number: 13042
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size high|berkeley -> number: 203
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size high|berkeley|head -> number: 9
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size high|berkeley|head|nurse -> number: 9
+
+Keyword Size female -> number: 20085
+
 The number of checked nodes is: 0
 SLCA results as follow. 
 SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, dear, state, lord, set] 
+-- Keyword Query: [school, berkeley, head, nurse, ask] 
+
+index based
+Keyword Size school -> number: 21131
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size school|berkeley -> number: 58
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size school|berkeley|head -> number: 8
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size school|berkeley|head|nurse -> number: 8
+
+Keyword Size ask -> number: 6031
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [college, berkeley, head, nurse, put] 
+
+stack based
+Keyword Size college -> number: 10064
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size college|berkeley -> number: 73
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size college|berkeley|head -> number: 9
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size college|berkeley|head|nurse -> number: 9
+
+Keyword Size put -> number: 3884
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [new, berkeley, head, nurse, ship] 
 
 stack based
 Keyword Size new -> number: 6743
 
-Keyword Size bell -> number: 4564
+Keyword Size berkeley -> number: 3985
 
 index based
-Keyword Size new|bell -> number: 111
+Keyword Size new|berkeley -> number: 92
 
-Keyword Size dear -> number: 3859
-
-index based
-Keyword Size new|bell|dear -> number: 9
-
-Keyword Size state -> number: 4115
+Keyword Size head -> number: 4173
 
 index based
-Keyword Size new|bell|dear|state -> number: 9
+Keyword Size new|berkeley|head -> number: 9
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size new|berkeley|head|nurse -> number: 9
+
+Keyword Size ship -> number: 99175
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [male, berkeley, head, nurse, lord] 
+
+stack based
+Keyword Size male -> number: 19836
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size male|berkeley -> number: 113
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size male|berkeley|head -> number: 9
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size male|berkeley|head|nurse -> number: 9
 
 Keyword Size lord -> number: 4047
 
-index based
-Keyword Size new|bell|dear|state|lord -> number: 9
-
-Keyword Size set -> number: 3942
-
 The number of checked nodes is: 0
 SLCA results as follow. 
 SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, purpose, time, romeo] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
+-- Keyword Query: [description, berkeley, head, nurse, romeo] 
 
 index based
-Keyword Size new|bell -> number: 111
+Keyword Size description -> number: 66194
 
-Keyword Size purpose -> number: 3845
-
-index based
-Keyword Size new|bell|purpose -> number: 9
-
-Keyword Size time -> number: 4068
+Keyword Size berkeley -> number: 3985
 
 index based
-Keyword Size new|bell|purpose|time -> number: 9
+Keyword Size description|berkeley -> number: 530
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size description|berkeley|head -> number: 12
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size description|berkeley|head|nurse -> number: 9
 
 Keyword Size romeo -> number: 4019
 
@@ -224,307 +214,297 @@ SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, weep, berkeley, school] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
+-- Keyword Query: [fixed, berkeley, head, nurse, forth] 
 
 index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size weep -> number: 3822
-
-index based
-Keyword Size new|bell|weep -> number: 14
+Keyword Size fixed -> number: 66765
 
 Keyword Size berkeley -> number: 3985
 
 index based
-Keyword Size new|bell|weep|berkeley -> number: 9
-
-Keyword Size school -> number: 21131
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, swear, enter, little] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size swear -> number: 3793
-
-index based
-Keyword Size new|bell|swear -> number: 9
-
-Keyword Size enter -> number: 4118
-
-index based
-Keyword Size new|bell|swear|enter -> number: 9
-
-Keyword Size little -> number: 4020
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, strange, more, mine] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size strange -> number: 3787
-
-index based
-Keyword Size new|bell|strange -> number: 9
-
-Keyword Size more -> number: 3996
-
-index based
-Keyword Size new|bell|strange|more -> number: 9
-
-Keyword Size mine -> number: 4190
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: male,college,new,bell,she 
-
--- Keyword Query: new,bell,temple,fortune,shame 
-
--- Keyword Query: new,bell,tears,ear,love,fight 
-
--- Keyword Query: new,bell,action,good,high 
-
--- Keyword Query: new,bell,wife,head,nurse 
-
--- Keyword Query: new,bell,dear,state,lord,set 
-
--- Keyword Query: new,bell,purpose,time,romeo 
-
--- Keyword Query: new,bell,weep,berkeley,school 
-
--- Keyword Query: new,bell,swear,enter,little 
-
--- Keyword Query: new,bell,strange,more,mine 
-
--- Keyword Query: [male, college, new, bell, she] 
-
-stack based
-Keyword Size male -> number: 19836
-
-Keyword Size college -> number: 10064
-
-stack based
-Keyword Size male|college -> number: 2458
-
-Keyword Size new -> number: 6743
-
-index based
-Keyword Size male|college|new -> number: 56
-
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size male|college|new|bell -> number: 9
-
-Keyword Size she -> number: 4284
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, temple, fortune, shame] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size temple -> number: 3940
-
-index based
-Keyword Size new|bell|temple -> number: 10
-
-Keyword Size fortune -> number: 4273
-
-index based
-Keyword Size new|bell|temple|fortune -> number: 10
-
-Keyword Size shame -> number: 4352
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, tears, ear, love, fight] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size tears -> number: 3934
-
-index based
-Keyword Size new|bell|tears -> number: 9
-
-Keyword Size ear -> number: 4250
-
-index based
-Keyword Size new|bell|tears|ear -> number: 9
-
-Keyword Size love -> number: 4184
-
-index based
-Keyword Size new|bell|tears|ear|love -> number: 9
-
-Keyword Size fight -> number: 3957
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, action, good, high] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size action -> number: 3891
-
-index based
-Keyword Size new|bell|action -> number: 11
-
-Keyword Size good -> number: 4169
-
-index based
-Keyword Size new|bell|action|good -> number: 9
-
-Keyword Size high -> number: 13042
-
-The number of checked nodes is: 0
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, wife, head, nurse] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size wife -> number: 3880
-
-index based
-Keyword Size new|bell|wife -> number: 9
+Keyword Size fixed|berkeley -> number: 609
 
 Keyword Size head -> number: 4173
 
 index based
-Keyword Size new|bell|wife|head -> number: 9
+Keyword Size fixed|berkeley|head -> number: 9
 
 Keyword Size nurse -> number: 4034
 
+index based
+Keyword Size fixed|berkeley|head|nurse -> number: 9
+
+Keyword Size forth -> number: 6062
+
 The number of checked nodes is: 0
 SLCA results as follow. 
 SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, dear, state, lord, set] 
+-- Keyword Query: [york, berkeley, head, nurse, graduate] 
+
+stack based
+Keyword Size york -> number: 3747
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size york|berkeley -> number: 58
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size york|berkeley|head -> number: 9
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size york|berkeley|head|nurse -> number: 9
+
+Keyword Size graduate -> number: 9640
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [forth, berkeley, head, nurse, org] 
+
+stack based
+Keyword Size forth -> number: 6062
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size forth|berkeley -> number: 173
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size forth|berkeley|head -> number: 14
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size forth|berkeley|head|nurse -> number: 9
+
+Keyword Size org -> number: 8546
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: duke,berkeley,head,nurse,mehrdad 
+
+-- Keyword Query: high,berkeley,head,nurse,female 
+
+-- Keyword Query: school,berkeley,head,nurse,ask 
+
+-- Keyword Query: college,berkeley,head,nurse,put 
+
+-- Keyword Query: new,berkeley,head,nurse,ship 
+
+-- Keyword Query: male,berkeley,head,nurse,lord 
+
+-- Keyword Query: description,berkeley,head,nurse,romeo 
+
+-- Keyword Query: fixed,berkeley,head,nurse,forth 
+
+-- Keyword Query: york,berkeley,head,nurse,graduate 
+
+-- Keyword Query: forth,berkeley,head,nurse,org 
+
+-- Keyword Query: [duke, berkeley, head, nurse, mehrdad] 
+
+stack based
+Keyword Size duke -> number: 6772
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size duke|berkeley -> number: 79
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size duke|berkeley|head -> number: 9
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size duke|berkeley|head|nurse -> number: 9
+
+Keyword Size mehrdad -> number: 20532
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [high, berkeley, head, nurse, female] 
+
+stack based
+Keyword Size high -> number: 13042
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size high|berkeley -> number: 203
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size high|berkeley|head -> number: 9
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size high|berkeley|head|nurse -> number: 9
+
+Keyword Size female -> number: 20085
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [school, berkeley, head, nurse, ask] 
+
+index based
+Keyword Size school -> number: 21131
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size school|berkeley -> number: 58
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size school|berkeley|head -> number: 8
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size school|berkeley|head|nurse -> number: 8
+
+Keyword Size ask -> number: 6031
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [college, berkeley, head, nurse, put] 
+
+stack based
+Keyword Size college -> number: 10064
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size college|berkeley -> number: 73
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size college|berkeley|head -> number: 9
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size college|berkeley|head|nurse -> number: 9
+
+Keyword Size put -> number: 3884
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [new, berkeley, head, nurse, ship] 
 
 stack based
 Keyword Size new -> number: 6743
 
-Keyword Size bell -> number: 4564
+Keyword Size berkeley -> number: 3985
 
 index based
-Keyword Size new|bell -> number: 111
+Keyword Size new|berkeley -> number: 92
 
-Keyword Size dear -> number: 3859
-
-index based
-Keyword Size new|bell|dear -> number: 9
-
-Keyword Size state -> number: 4115
+Keyword Size head -> number: 4173
 
 index based
-Keyword Size new|bell|dear|state -> number: 9
+Keyword Size new|berkeley|head -> number: 9
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size new|berkeley|head|nurse -> number: 9
+
+Keyword Size ship -> number: 99175
+
+The number of checked nodes is: 0
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query: [male, berkeley, head, nurse, lord] 
+
+stack based
+Keyword Size male -> number: 19836
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size male|berkeley -> number: 113
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size male|berkeley|head -> number: 9
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size male|berkeley|head|nurse -> number: 9
 
 Keyword Size lord -> number: 4047
 
-index based
-Keyword Size new|bell|dear|state|lord -> number: 9
-
-Keyword Size set -> number: 3942
-
 The number of checked nodes is: 0
 SLCA results as follow. 
 SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, purpose, time, romeo] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
+-- Keyword Query: [description, berkeley, head, nurse, romeo] 
 
 index based
-Keyword Size new|bell -> number: 111
+Keyword Size description -> number: 66194
 
-Keyword Size purpose -> number: 3845
-
-index based
-Keyword Size new|bell|purpose -> number: 9
-
-Keyword Size time -> number: 4068
+Keyword Size berkeley -> number: 3985
 
 index based
-Keyword Size new|bell|purpose|time -> number: 9
+Keyword Size description|berkeley -> number: 530
+
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size description|berkeley|head -> number: 12
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size description|berkeley|head|nurse -> number: 9
 
 Keyword Size romeo -> number: 4019
 
@@ -534,27 +514,27 @@ SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, weep, berkeley, school] 
-
-stack based
-Keyword Size new -> number: 6743
-
-Keyword Size bell -> number: 4564
+-- Keyword Query: [fixed, berkeley, head, nurse, forth] 
 
 index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size weep -> number: 3822
-
-index based
-Keyword Size new|bell|weep -> number: 14
+Keyword Size fixed -> number: 66765
 
 Keyword Size berkeley -> number: 3985
 
 index based
-Keyword Size new|bell|weep|berkeley -> number: 9
+Keyword Size fixed|berkeley -> number: 609
 
-Keyword Size school -> number: 21131
+Keyword Size head -> number: 4173
+
+index based
+Keyword Size fixed|berkeley|head -> number: 9
+
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size fixed|berkeley|head|nurse -> number: 9
+
+Keyword Size forth -> number: 6062
 
 The number of checked nodes is: 0
 SLCA results as follow. 
@@ -562,64 +542,64 @@ SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, swear, enter, little] 
+-- Keyword Query: [york, berkeley, head, nurse, graduate] 
 
 stack based
-Keyword Size new -> number: 6743
+Keyword Size york -> number: 3747
 
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size swear -> number: 3793
+Keyword Size berkeley -> number: 3985
 
 index based
-Keyword Size new|bell|swear -> number: 9
+Keyword Size york|berkeley -> number: 58
 
-Keyword Size enter -> number: 4118
+Keyword Size head -> number: 4173
 
 index based
-Keyword Size new|bell|swear|enter -> number: 9
+Keyword Size york|berkeley|head -> number: 9
 
-Keyword Size little -> number: 4020
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size york|berkeley|head|nurse -> number: 9
+
+Keyword Size graduate -> number: 9640
 
 The number of checked nodes is: 0
 SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+SLCA result: [1]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query: [new, bell, strange, more, mine] 
+-- Keyword Query: [forth, berkeley, head, nurse, org] 
 
 stack based
-Keyword Size new -> number: 6743
+Keyword Size forth -> number: 6062
 
-Keyword Size bell -> number: 4564
-
-index based
-Keyword Size new|bell -> number: 111
-
-Keyword Size strange -> number: 3787
+Keyword Size berkeley -> number: 3985
 
 index based
-Keyword Size new|bell|strange -> number: 9
+Keyword Size forth|berkeley -> number: 173
 
-Keyword Size more -> number: 3996
+Keyword Size head -> number: 4173
 
 index based
-Keyword Size new|bell|strange|more -> number: 9
+Keyword Size forth|berkeley|head -> number: 14
 
-Keyword Size mine -> number: 4190
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size forth|berkeley|head|nurse -> number: 9
+
+Keyword Size org -> number: 8546
 
 The number of checked nodes is: 0
 SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Basic Algorithms:
---Response Time: 6297 
+--Response Time: 13157 
 
---Memory usage: 800712 
+--Memory usage: 800576 
 
