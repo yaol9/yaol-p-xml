@@ -93,9 +93,9 @@ public class TestShareEager implements TestCase {
 			outStream.printf("--" + "Response Time: %d \n", qtime);
 			outStream.println();
 			System.out.printf("--" + "Response Time: %d \n", qtime);
-			outStream.printf("--" + "Memory usage: %d \n", usagememory);
+			outStream.printf("--" + "Memory usage: %d \n", usagememory/1000000);
 			outStream.println();
-			System.out.printf("--" + "Memory usage: %d \n", usagememory);
+			System.out.printf("--" + "Memory usage: %d \n", usagememory/1000000);
 
 			
 			DBHelper.DisconnectDB();
