@@ -108,7 +108,7 @@ public class Helper {
 	{
 		// record memory usage
 		Runtime rt = Runtime.getRuntime();
-		rt.gc();
+		//rt.gc();
 		long freememory = rt.freeMemory();
 		long totalmemory = rt.totalMemory();
 		long usagememory = totalmemory - freememory;

@@ -1,132 +1,24 @@
 -- Keyword Query:
 
 stack based
-Keyword Size berkeley -> number: 3985
+Keyword Size she -> number: 4284
 
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|nurse -> number: 57
-
-Keyword Size head -> number: 4173
+Keyword Size bell -> number: 4564
 
 index based
-Keyword Size berkeley|nurse|head -> number: 13
-
-Keyword Size duke -> number: 6772
-
-index based
-Keyword Size berkeley|nurse|head|duke -> number: 9
-
-Keyword Size mehrdad -> number: 20532
-
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-stack based
-Keyword Size berkeley -> number: 3985
-
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|nurse -> number: 57
-
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|nurse|head -> number: 13
-
-Keyword Size high -> number: 13042
-
-index based
-Keyword Size berkeley|nurse|head|high -> number: 9
-
-Keyword Size female -> number: 20085
-
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-stack based
-Keyword Size berkeley -> number: 3985
-
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|nurse -> number: 57
-
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|nurse|head -> number: 13
-
-Keyword Size ask -> number: 6031
-
-index based
-Keyword Size ask|berkeley|nurse|head -> number: 12
-
-Keyword Size school -> number: 21131
-
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-stack based
-Keyword Size put -> number: 3884
-
-Keyword Size berkeley -> number: 3985
-
-index based
-Keyword Size berkeley|put -> number: 81
-
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|put|nurse -> number: 9
-
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|put|nurse|head -> number: 9
-
-Keyword Size college -> number: 10064
-
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-stack based
-Keyword Size berkeley -> number: 3985
-
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|nurse -> number: 57
-
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|nurse|head -> number: 13
+Keyword Size bell|she -> number: 79
 
 Keyword Size new -> number: 6743
 
 index based
-Keyword Size berkeley|nurse|head|new -> number: 9
+Keyword Size bell|she|new -> number: 9
 
-Keyword Size ship -> number: 99175
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size bell|she|new|college -> number: 9
+
+Keyword Size male -> number: 19836
 
 SLCA results as follow. 
 SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
@@ -136,22 +28,388 @@ SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 -- Keyword Query:
 
 stack based
-Keyword Size berkeley -> number: 3985
+Keyword Size fortune -> number: 4273
 
+Keyword Size shame -> number: 4352
+
+index based
+Keyword Size fortune|shame -> number: 206
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size fortune|shame|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|fortune|shame|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size fight -> number: 3957
+
+Keyword Size love -> number: 4184
+
+index based
+Keyword Size fight|love -> number: 43
+
+Keyword Size ear -> number: 4250
+
+index based
+Keyword Size ear|fight|love -> number: 13
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size ear|fight|love|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|ear|fight|love|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size good -> number: 4169
+
+Keyword Size can -> number: 4200
+
+index based
+Keyword Size can|good -> number: 112
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size can|good|new -> number: 14
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size can|good|new|college -> number: 10
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.4, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
 Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|nurse -> number: 57
-
-Keyword Size lord -> number: 4047
-
-index based
-Keyword Size berkeley|nurse|lord -> number: 14
 
 Keyword Size head -> number: 4173
 
 index based
-Keyword Size berkeley|nurse|lord|head -> number: 9
+Keyword Size head|nurse -> number: 175
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size head|nurse|new -> number: 20
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|head|nurse|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size set -> number: 3942
+
+Keyword Size lord -> number: 4047
+
+index based
+Keyword Size lord|set -> number: 103
+
+Keyword Size state -> number: 4115
+
+index based
+Keyword Size lord|set|state -> number: 17
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size lord|set|state|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|lord|set|state|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size romeo -> number: 4019
+
+Keyword Size time -> number: 4068
+
+index based
+Keyword Size romeo|time -> number: 126
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size new|romeo|time -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|new|romeo|time -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size set -> number: 3942
+
+Keyword Size forth -> number: 6062
+
+index based
+Keyword Size forth|set -> number: 162
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size forth|set|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|forth|set|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size little -> number: 4020
+
+Keyword Size enter -> number: 4118
+
+index based
+Keyword Size enter|little -> number: 181
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size enter|little|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|enter|little|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size more -> number: 3996
+
+Keyword Size mine -> number: 4190
+
+index based
+Keyword Size mine|more -> number: 100
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size mine|more|new -> number: 10
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|mine|more|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size tears -> number: 3934
+
+Keyword Size living -> number: 4218
+
+index based
+Keyword Size living|tears -> number: 93
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size living|tears|new -> number: 8
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|living|tears|new -> number: 8
+
+Keyword Size male -> number: 19836
+
+index based
+Keyword Size college|living|tears|new|male -> number: 8
+
+Keyword Size ship -> number: 99175
+
+SLCA results as follow. 
+SLCA result: [1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size verity -> number: 3788
+
+Keyword Size must -> number: 3989
+
+index based
+Keyword Size must|verity -> number: 38
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size must|verity|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|must|verity|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size suit -> number: 3785
+
+Keyword Size light -> number: 3940
+
+index based
+Keyword Size light|suit -> number: 94
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size light|suit|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|light|suit|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size hour -> number: 3918
+
+Keyword Size answer -> number: 3929
+
+index based
+Keyword Size answer|hour -> number: 74
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size answer|hour|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size answer|hour|new|college -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size dead -> number: 3894
+
+Keyword Size nothing -> number: 4193
+
+index based
+Keyword Size dead|nothing -> number: 138
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size dead|nothing|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|dead|nothing|new -> number: 9
 
 Keyword Size male -> number: 19836
 
@@ -165,182 +423,20 @@ SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 stack based
 Keyword Size berkeley -> number: 3985
 
-Keyword Size romeo -> number: 4019
-
-index based
-Keyword Size berkeley|romeo -> number: 62
-
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|romeo|nurse -> number: 9
-
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|romeo|nurse|head -> number: 9
-
-Keyword Size description -> number: 66194
-
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-stack based
-Keyword Size berkeley -> number: 3985
-
 Keyword Size nurse -> number: 4034
 
 index based
 Keyword Size berkeley|nurse -> number: 57
 
-Keyword Size head -> number: 4173
+Keyword Size dutch -> number: 5447
 
 index based
-Keyword Size berkeley|nurse|head -> number: 13
-
-Keyword Size forth -> number: 6062
-
-index based
-Keyword Size berkeley|nurse|head|forth -> number: 9
-
-Keyword Size fixed -> number: 66765
-
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-stack based
-Keyword Size york -> number: 3747
-
-Keyword Size berkeley -> number: 3985
-
-index based
-Keyword Size berkeley|york -> number: 58
-
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|york|nurse -> number: 9
-
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|york|nurse|head -> number: 9
-
-Keyword Size graduate -> number: 9640
-
-SLCA results as follow. 
-SLCA result: [1]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-stack based
-Keyword Size berkeley -> number: 3985
-
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|nurse -> number: 57
-
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|nurse|head -> number: 13
-
-Keyword Size forth -> number: 6062
-
-index based
-Keyword Size berkeley|nurse|head|forth -> number: 9
-
-Keyword Size org -> number: 8546
-
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-stack based
-Keyword Size berkeley -> number: 3985
-
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|nurse -> number: 57
-
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|nurse|head -> number: 13
-
-Keyword Size duke -> number: 6772
-
-index based
-Keyword Size berkeley|nurse|head|duke -> number: 9
-
-Keyword Size mehrdad -> number: 20532
-
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-stack based
-Keyword Size berkeley -> number: 3985
-
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|nurse -> number: 57
-
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|nurse|head -> number: 13
+Keyword Size berkeley|nurse|dutch -> number: 9
 
 Keyword Size high -> number: 13042
 
 index based
-Keyword Size berkeley|nurse|head|high -> number: 9
-
-Keyword Size female -> number: 20085
-
-SLCA results as follow. 
-SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
--- Keyword Query:
-
-stack based
-Keyword Size berkeley -> number: 3985
-
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|nurse -> number: 57
-
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|nurse|head -> number: 13
-
-Keyword Size ask -> number: 6031
-
-index based
-Keyword Size ask|berkeley|nurse|head -> number: 12
+Keyword Size berkeley|nurse|dutch|high -> number: 9
 
 Keyword Size school -> number: 21131
 
@@ -352,24 +448,105 @@ SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 -- Keyword Query:
 
 stack based
-Keyword Size put -> number: 3884
+Keyword Size antony -> number: 3859
+
+Keyword Size queen -> number: 3877
+
+index based
+Keyword Size antony|queen -> number: 77
 
 Keyword Size berkeley -> number: 3985
 
 index based
-Keyword Size berkeley|put -> number: 81
+Keyword Size antony|queen|berkeley -> number: 9
 
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|put|nurse -> number: 9
-
-Keyword Size head -> number: 4173
+Keyword Size high -> number: 13042
 
 index based
-Keyword Size berkeley|put|nurse|head -> number: 9
+Keyword Size antony|queen|berkeley|high -> number: 9
 
-Keyword Size college -> number: 10064
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size company -> number: 3806
+
+Keyword Size purpose -> number: 3845
+
+index based
+Keyword Size company|purpose -> number: 108
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|company|purpose -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|company|purpose|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size court -> number: 3776
+
+Keyword Size spirit -> number: 3785
+
+index based
+Keyword Size court|spirit -> number: 107
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|court|spirit -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|court|spirit|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size counsel -> number: 3738
+
+Keyword Size york -> number: 3747
+
+index based
+Keyword Size counsel|york -> number: 83
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|counsel|york -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|counsel|york|high -> number: 9
+
+Keyword Size school -> number: 21131
 
 SLCA results as follow. 
 SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
@@ -381,22 +558,454 @@ SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 stack based
 Keyword Size berkeley -> number: 3985
 
-Keyword Size nurse -> number: 4034
+Keyword Size more -> number: 3996
 
 index based
-Keyword Size berkeley|nurse -> number: 57
+Keyword Size berkeley|more -> number: 43
 
-Keyword Size head -> number: 4173
+Keyword Size romeo -> number: 4019
 
 index based
-Keyword Size berkeley|nurse|head -> number: 13
+Keyword Size berkeley|more|romeo -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|more|romeo|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size set -> number: 3942
+
+Keyword Size fight -> number: 3957
+
+index based
+Keyword Size fight|set -> number: 127
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|fight|set -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|fight|set|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size strange -> number: 3787
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|strange -> number: 26
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size berkeley|strange|college -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|strange|college|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size suit -> number: 3785
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|suit -> number: 75
+
+Keyword Size brown -> number: 4276
+
+index based
+Keyword Size berkeley|suit|brown -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|suit|brown|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size duke -> number: 6772
+
+index based
+Keyword Size berkeley|duke -> number: 79
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|duke|high -> number: 16
+
+Keyword Size male -> number: 19836
+
+index based
+Keyword Size berkeley|duke|high|male -> number: 10
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.4, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size can -> number: 4200
+
+index based
+Keyword Size berkeley|can -> number: 85
+
+Keyword Size bell -> number: 4564
+
+index based
+Keyword Size bell|berkeley|can -> number: 20
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size bell|berkeley|can|high -> number: 10
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.4, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size alone -> number: 3925
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size alone|berkeley -> number: 80
+
+Keyword Size she -> number: 4284
+
+index based
+Keyword Size alone|berkeley|she -> number: 17
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size alone|berkeley|she|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size heart -> number: 3924
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|heart -> number: 53
+
+Keyword Size mine -> number: 4190
+
+index based
+Keyword Size berkeley|heart|mine -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|heart|mine|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size late -> number: 3909
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|late -> number: 111
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|late|high -> number: 12
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size something -> number: 3904
+
+Keyword Size tears -> number: 3934
+
+index based
+Keyword Size something|tears -> number: 123
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|something|tears -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|something|tears|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size lack -> number: 3869
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|lack -> number: 108
+
+Keyword Size living -> number: 4218
+
+index based
+Keyword Size berkeley|lack|living -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|lack|living|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size troy -> number: 3852
+
+Keyword Size dead -> number: 3894
+
+index based
+Keyword Size dead|troy -> number: 91
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|dead|troy -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|dead|troy|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size person -> number: 3849
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|person -> number: 56
+
+Keyword Size nothing -> number: 4193
+
+index based
+Keyword Size berkeley|person|nothing -> number: 13
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|person|nothing|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size mad -> number: 3818
+
+Keyword Size hour -> number: 3918
+
+index based
+Keyword Size hour|mad -> number: 102
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|hour|mad -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|hour|mad|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size doubt -> number: 3738
+
+Keyword Size answer -> number: 3929
+
+index based
+Keyword Size answer|doubt -> number: 75
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size answer|doubt|berkeley -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size answer|doubt|berkeley|high -> number: 9
+
+Keyword Size net -> number: 16174
+
+index based
+Keyword Size answer|doubt|berkeley|high|net -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size brother -> number: 3692
+
+Keyword Size light -> number: 3940
+
+index based
+Keyword Size brother|light -> number: 79
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|brother|light -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|brother|light|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size him -> number: 4446
+
+index based
+Keyword Size berkeley|him -> number: 36
 
 Keyword Size new -> number: 6743
 
 index based
-Keyword Size berkeley|nurse|head|new -> number: 9
+Keyword Size berkeley|him|new -> number: 9
 
-Keyword Size ship -> number: 99175
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|him|new|high -> number: 9
+
+Keyword Size school -> number: 21131
 
 SLCA results as follow. 
 SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
@@ -408,20 +1017,764 @@ SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 stack based
 Keyword Size berkeley -> number: 3985
 
+Keyword Size love -> number: 4184
+
+index based
+Keyword Size berkeley|love -> number: 109
+
+Keyword Size like -> number: 4281
+
+index based
+Keyword Size berkeley|love|like -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|love|like|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size thee -> number: 4146
+
+index based
+Keyword Size berkeley|thee -> number: 17
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|thee|high -> number: 8
+
+Keyword Size school -> number: 21131
+
+index based
+Keyword Size berkeley|thee|high|school -> number: 8
+
+Keyword Size cash -> number: 65655
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size labs -> number: 5253
+
+index based
+Keyword Size berkeley|labs -> number: 68
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|labs|high -> number: 7
+
+Keyword Size school -> number: 21131
+
+index based
+Keyword Size berkeley|labs|high|school -> number: 7
+
+Keyword Size order -> number: 67240
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size oracle -> number: 4689
+
+index based
+Keyword Size berkeley|oracle -> number: 80
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|oracle|high -> number: 12
+
+Keyword Size school -> number: 21131
+
+index based
+Keyword Size berkeley|oracle|high|school -> number: 10
+
+Keyword Size creditcard -> number: 64558
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size doth -> number: 4002
+
+index based
+Keyword Size berkeley|doth -> number: 33
+
+Keyword Size heaven -> number: 4291
+
+index based
+Keyword Size berkeley|doth|heaven -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|doth|heaven|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size madam -> number: 3966
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|madam -> number: 39
+
+Keyword Size our -> number: 4030
+
+index based
+Keyword Size berkeley|madam|our -> number: 8
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|madam|our|high -> number: 8
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size alas -> number: 3932
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size alas|berkeley -> number: 69
+
+Keyword Size little -> number: 4020
+
+index based
+Keyword Size alas|berkeley|little -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size alas|berkeley|little|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size wife -> number: 3880
+
+Keyword Size have -> number: 3984
+
+index based
+Keyword Size have|wife -> number: 167
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|have|wife -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|have|wife|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size confess -> number: 3867
+
+Keyword Size cousin -> number: 3965
+
+index based
+Keyword Size confess|cousin -> number: 118
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|confess|cousin -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|confess|cousin|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size father -> number: 3827
+
+Keyword Size voice -> number: 3958
+
+index based
+Keyword Size father|voice -> number: 84
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|father|voice -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|father|voice|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size verity -> number: 3788
+
+Keyword Size temple -> number: 3940
+
+index based
+Keyword Size temple|verity -> number: 60
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|temple|verity -> number: 10
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|temple|verity|high -> number: 10
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.4, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size bid -> number: 3782
+
+Keyword Size very -> number: 3932
+
+index based
+Keyword Size bid|very -> number: 105
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|bid|very -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|bid|very|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size give -> number: 3760
+
+Keyword Size old -> number: 3929
+
+index based
+Keyword Size give|old -> number: 131
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|give|old -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|give|old|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size she -> number: 4284
+
+Keyword Size bell -> number: 4564
+
+index based
+Keyword Size bell|she -> number: 79
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size bell|she|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size bell|she|new|college -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size fortune -> number: 4273
+
+Keyword Size shame -> number: 4352
+
+index based
+Keyword Size fortune|shame -> number: 206
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size fortune|shame|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|fortune|shame|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size fight -> number: 3957
+
+Keyword Size love -> number: 4184
+
+index based
+Keyword Size fight|love -> number: 43
+
+Keyword Size ear -> number: 4250
+
+index based
+Keyword Size ear|fight|love -> number: 13
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size ear|fight|love|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|ear|fight|love|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size good -> number: 4169
+
+Keyword Size can -> number: 4200
+
+index based
+Keyword Size can|good -> number: 112
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size can|good|new -> number: 14
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size can|good|new|college -> number: 10
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.4, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
 Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|nurse -> number: 57
-
-Keyword Size lord -> number: 4047
-
-index based
-Keyword Size berkeley|nurse|lord -> number: 14
 
 Keyword Size head -> number: 4173
 
 index based
-Keyword Size berkeley|nurse|lord|head -> number: 9
+Keyword Size head|nurse -> number: 175
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size head|nurse|new -> number: 20
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|head|nurse|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size set -> number: 3942
+
+Keyword Size lord -> number: 4047
+
+index based
+Keyword Size lord|set -> number: 103
+
+Keyword Size state -> number: 4115
+
+index based
+Keyword Size lord|set|state -> number: 17
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size lord|set|state|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|lord|set|state|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size romeo -> number: 4019
+
+Keyword Size time -> number: 4068
+
+index based
+Keyword Size romeo|time -> number: 126
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size new|romeo|time -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|new|romeo|time -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size set -> number: 3942
+
+Keyword Size forth -> number: 6062
+
+index based
+Keyword Size forth|set -> number: 162
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size forth|set|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|forth|set|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size little -> number: 4020
+
+Keyword Size enter -> number: 4118
+
+index based
+Keyword Size enter|little -> number: 181
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size enter|little|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|enter|little|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size more -> number: 3996
+
+Keyword Size mine -> number: 4190
+
+index based
+Keyword Size mine|more -> number: 100
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size mine|more|new -> number: 10
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|mine|more|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size tears -> number: 3934
+
+Keyword Size living -> number: 4218
+
+index based
+Keyword Size living|tears -> number: 93
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size living|tears|new -> number: 8
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|living|tears|new -> number: 8
+
+Keyword Size male -> number: 19836
+
+index based
+Keyword Size college|living|tears|new|male -> number: 8
+
+Keyword Size ship -> number: 99175
+
+SLCA results as follow. 
+SLCA result: [1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size verity -> number: 3788
+
+Keyword Size must -> number: 3989
+
+index based
+Keyword Size must|verity -> number: 38
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size must|verity|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|must|verity|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size suit -> number: 3785
+
+Keyword Size light -> number: 3940
+
+index based
+Keyword Size light|suit -> number: 94
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size light|suit|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|light|suit|new -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size hour -> number: 3918
+
+Keyword Size answer -> number: 3929
+
+index based
+Keyword Size answer|hour -> number: 74
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size answer|hour|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size answer|hour|new|college -> number: 9
+
+Keyword Size male -> number: 19836
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size dead -> number: 3894
+
+Keyword Size nothing -> number: 4193
+
+index based
+Keyword Size dead|nothing -> number: 138
+
+Keyword Size new -> number: 6743
+
+index based
+Keyword Size dead|nothing|new -> number: 9
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size college|dead|nothing|new -> number: 9
 
 Keyword Size male -> number: 19836
 
@@ -435,22 +1788,238 @@ SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 stack based
 Keyword Size berkeley -> number: 3985
 
+Keyword Size nurse -> number: 4034
+
+index based
+Keyword Size berkeley|nurse -> number: 57
+
+Keyword Size dutch -> number: 5447
+
+index based
+Keyword Size berkeley|nurse|dutch -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|nurse|dutch|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size antony -> number: 3859
+
+Keyword Size queen -> number: 3877
+
+index based
+Keyword Size antony|queen -> number: 77
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size antony|queen|berkeley -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size antony|queen|berkeley|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size company -> number: 3806
+
+Keyword Size purpose -> number: 3845
+
+index based
+Keyword Size company|purpose -> number: 108
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|company|purpose -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|company|purpose|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size court -> number: 3776
+
+Keyword Size spirit -> number: 3785
+
+index based
+Keyword Size court|spirit -> number: 107
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|court|spirit -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|court|spirit|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size counsel -> number: 3738
+
+Keyword Size york -> number: 3747
+
+index based
+Keyword Size counsel|york -> number: 83
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|counsel|york -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|counsel|york|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size more -> number: 3996
+
+index based
+Keyword Size berkeley|more -> number: 43
+
 Keyword Size romeo -> number: 4019
 
 index based
-Keyword Size berkeley|romeo -> number: 62
+Keyword Size berkeley|more|romeo -> number: 9
 
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|romeo|nurse -> number: 9
-
-Keyword Size head -> number: 4173
+Keyword Size high -> number: 13042
 
 index based
-Keyword Size berkeley|romeo|nurse|head -> number: 9
+Keyword Size berkeley|more|romeo|high -> number: 9
 
-Keyword Size description -> number: 66194
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size set -> number: 3942
+
+Keyword Size fight -> number: 3957
+
+index based
+Keyword Size fight|set -> number: 127
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|fight|set -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|fight|set|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size strange -> number: 3787
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|strange -> number: 26
+
+Keyword Size college -> number: 10064
+
+index based
+Keyword Size berkeley|strange|college -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|strange|college|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size suit -> number: 3785
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|suit -> number: 75
+
+Keyword Size brown -> number: 4276
+
+index based
+Keyword Size berkeley|suit|brown -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|suit|brown|high -> number: 9
+
+Keyword Size school -> number: 21131
 
 SLCA results as follow. 
 SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
@@ -462,22 +2031,76 @@ SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 stack based
 Keyword Size berkeley -> number: 3985
 
-Keyword Size nurse -> number: 4034
+Keyword Size duke -> number: 6772
 
 index based
-Keyword Size berkeley|nurse -> number: 57
+Keyword Size berkeley|duke -> number: 79
 
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|nurse|head -> number: 13
-
-Keyword Size forth -> number: 6062
+Keyword Size high -> number: 13042
 
 index based
-Keyword Size berkeley|nurse|head|forth -> number: 9
+Keyword Size berkeley|duke|high -> number: 16
 
-Keyword Size fixed -> number: 66765
+Keyword Size male -> number: 19836
+
+index based
+Keyword Size berkeley|duke|high|male -> number: 10
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.4, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size can -> number: 4200
+
+index based
+Keyword Size berkeley|can -> number: 85
+
+Keyword Size bell -> number: 4564
+
+index based
+Keyword Size bell|berkeley|can -> number: 20
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size bell|berkeley|can|high -> number: 10
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.4, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size alone -> number: 3925
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size alone|berkeley -> number: 80
+
+Keyword Size she -> number: 4284
+
+index based
+Keyword Size alone|berkeley|she -> number: 17
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size alone|berkeley|she|high -> number: 9
+
+Keyword Size school -> number: 21131
 
 SLCA results as follow. 
 SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
@@ -487,27 +2110,243 @@ SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 -- Keyword Query:
 
 stack based
-Keyword Size york -> number: 3747
+Keyword Size heart -> number: 3924
 
 Keyword Size berkeley -> number: 3985
 
 index based
-Keyword Size berkeley|york -> number: 58
+Keyword Size berkeley|heart -> number: 53
 
-Keyword Size nurse -> number: 4034
-
-index based
-Keyword Size berkeley|york|nurse -> number: 9
-
-Keyword Size head -> number: 4173
+Keyword Size mine -> number: 4190
 
 index based
-Keyword Size berkeley|york|nurse|head -> number: 9
+Keyword Size berkeley|heart|mine -> number: 9
 
-Keyword Size graduate -> number: 9640
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|heart|mine|high -> number: 9
+
+Keyword Size school -> number: 21131
 
 SLCA results as follow. 
-SLCA result: [1]
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size late -> number: 3909
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|late -> number: 111
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|late|high -> number: 12
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size something -> number: 3904
+
+Keyword Size tears -> number: 3934
+
+index based
+Keyword Size something|tears -> number: 123
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|something|tears -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|something|tears|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size lack -> number: 3869
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|lack -> number: 108
+
+Keyword Size living -> number: 4218
+
+index based
+Keyword Size berkeley|lack|living -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|lack|living|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size troy -> number: 3852
+
+Keyword Size dead -> number: 3894
+
+index based
+Keyword Size dead|troy -> number: 91
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|dead|troy -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|dead|troy|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size person -> number: 3849
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|person -> number: 56
+
+Keyword Size nothing -> number: 4193
+
+index based
+Keyword Size berkeley|person|nothing -> number: 13
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|person|nothing|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size mad -> number: 3818
+
+Keyword Size hour -> number: 3918
+
+index based
+Keyword Size hour|mad -> number: 102
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|hour|mad -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|hour|mad|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size doubt -> number: 3738
+
+Keyword Size answer -> number: 3929
+
+index based
+Keyword Size answer|doubt -> number: 75
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size answer|doubt|berkeley -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size answer|doubt|berkeley|high -> number: 9
+
+Keyword Size net -> number: 16174
+
+index based
+Keyword Size answer|doubt|berkeley|high|net -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size brother -> number: 3692
+
+Keyword Size light -> number: 3940
+
+index based
+Keyword Size brother|light -> number: 79
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|brother|light -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|brother|light|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -516,30 +2355,381 @@ SLCA result: [1]
 stack based
 Keyword Size berkeley -> number: 3985
 
-Keyword Size nurse -> number: 4034
+Keyword Size him -> number: 4446
 
 index based
-Keyword Size berkeley|nurse -> number: 57
+Keyword Size berkeley|him -> number: 36
 
-Keyword Size head -> number: 4173
-
-index based
-Keyword Size berkeley|nurse|head -> number: 13
-
-Keyword Size forth -> number: 6062
+Keyword Size new -> number: 6743
 
 index based
-Keyword Size berkeley|nurse|head|forth -> number: 9
+Keyword Size berkeley|him|new -> number: 9
 
-Keyword Size org -> number: 8546
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|him|new|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size love -> number: 4184
+
+index based
+Keyword Size berkeley|love -> number: 109
+
+Keyword Size like -> number: 4281
+
+index based
+Keyword Size berkeley|love|like -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|love|like|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size thee -> number: 4146
+
+index based
+Keyword Size berkeley|thee -> number: 17
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|thee|high -> number: 8
+
+Keyword Size school -> number: 21131
+
+index based
+Keyword Size berkeley|thee|high|school -> number: 8
+
+Keyword Size cash -> number: 65655
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size labs -> number: 5253
+
+index based
+Keyword Size berkeley|labs -> number: 68
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|labs|high -> number: 7
+
+Keyword Size school -> number: 21131
+
+index based
+Keyword Size berkeley|labs|high|school -> number: 7
+
+Keyword Size order -> number: 67240
 
 SLCA results as follow. 
 SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size oracle -> number: 4689
+
+index based
+Keyword Size berkeley|oracle -> number: 80
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|oracle|high -> number: 12
+
+Keyword Size school -> number: 21131
+
+index based
+Keyword Size berkeley|oracle|high|school -> number: 10
+
+Keyword Size creditcard -> number: 64558
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size berkeley -> number: 3985
+
+Keyword Size doth -> number: 4002
+
+index based
+Keyword Size berkeley|doth -> number: 33
+
+Keyword Size heaven -> number: 4291
+
+index based
+Keyword Size berkeley|doth|heaven -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|doth|heaven|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size madam -> number: 3966
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|madam -> number: 39
+
+Keyword Size our -> number: 4030
+
+index based
+Keyword Size berkeley|madam|our -> number: 8
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|madam|our|high -> number: 8
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size alas -> number: 3932
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size alas|berkeley -> number: 69
+
+Keyword Size little -> number: 4020
+
+index based
+Keyword Size alas|berkeley|little -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size alas|berkeley|little|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size wife -> number: 3880
+
+Keyword Size have -> number: 3984
+
+index based
+Keyword Size have|wife -> number: 167
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|have|wife -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|have|wife|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size confess -> number: 3867
+
+Keyword Size cousin -> number: 3965
+
+index based
+Keyword Size confess|cousin -> number: 118
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|confess|cousin -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|confess|cousin|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size father -> number: 3827
+
+Keyword Size voice -> number: 3958
+
+index based
+Keyword Size father|voice -> number: 84
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|father|voice -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|father|voice|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size verity -> number: 3788
+
+Keyword Size temple -> number: 3940
+
+index based
+Keyword Size temple|verity -> number: 60
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|temple|verity -> number: 10
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|temple|verity|high -> number: 10
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.4, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size bid -> number: 3782
+
+Keyword Size very -> number: 3932
+
+index based
+Keyword Size bid|very -> number: 105
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|bid|very -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|bid|very|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- Keyword Query:
+
+stack based
+Keyword Size give -> number: 3760
+
+Keyword Size old -> number: 3929
+
+index based
+Keyword Size give|old -> number: 131
+
+Keyword Size berkeley -> number: 3985
+
+index based
+Keyword Size berkeley|give|old -> number: 9
+
+Keyword Size high -> number: 13042
+
+index based
+Keyword Size berkeley|give|old|high -> number: 9
+
+Keyword Size school -> number: 21131
+
+SLCA results as follow. 
+SLCA result: [1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Short Eager Algorithms:
---Response Time: 3750 
+--Response Time: 17344 
 
---Memory usage: 837528 
+--Memory usage: 2841632 
 
