@@ -60,19 +60,19 @@ public class TestQueryAware implements TestCase {
 			}
 
 			TimeRecorder.stopRecord();
-			System.gc();
+		//	System.gc();
 			long qtime = TimeRecorder.getTimeRecord();
 			// get memory usage
 			long usagememory = Helper.getMemoryUsage();
-
+			
 			outStream.println("QueryAware Algorithms:");
 			System.out.println("QueryAware Algorithms:");
 			outStream.printf("--" + "Response Time: %d \n", qtime);
 			outStream.println();
 			System.out.printf("--" + "Response Time: %d \n", qtime);
-			outStream.printf("--" + "Memory usage: %d \n", usagememory/1000000);
+			outStream.printf("--" + "Memory usage: %d \n", usagememory);
 			outStream.println();
-			System.out.printf("--" + "Memory usage: %d \n", usagememory/1000000);
+			System.out.printf("--" + "Memory usage: %d \n", usagememory);
 
 			
 			DBHelper.DisconnectDB();
@@ -447,7 +447,7 @@ public class TestQueryAware implements TestCase {
 
 			// release memory
 			tempQuery.clearMem();
-			System.gc();
+			//System.gc();
 			
 			if(kList.size()>0)
 			{

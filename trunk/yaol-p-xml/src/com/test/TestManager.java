@@ -31,12 +31,17 @@ public class TestManager {
 
 		TestCase test_ba = new TestBasic();
 		long ba=test_ba.run();
+		System.gc();
 		
 		TestCase test_qa = new TestQueryAware();
 		long qa=test_qa.run();
 		
+		System.gc();
+		
 		TestCase test_sa = new TestShortEager();
 		long sa=test_sa.run();
+		
+		System.gc();
 		
 		TestCase test_sa_i = new TestShareEager();
 		long sa_i=test_sa_i.run();

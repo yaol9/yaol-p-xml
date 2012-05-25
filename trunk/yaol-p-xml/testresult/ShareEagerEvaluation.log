@@ -1,55 +1,255 @@
--- Keyword Query: duke,berkeley,head,nurse,mehrdad 
+-- Keyword Query: male,college,new,bell,she 
 
--- Keyword Query: high,berkeley,head,nurse,female 
+-- Keyword Query: male,college,new,fortune,shame 
 
--- Keyword Query: school,berkeley,head,nurse,ask 
+-- Keyword Query: male,college,new,ear,love,fight 
 
--- Keyword Query: college,berkeley,head,nurse,put 
+-- Keyword Query: male,college,new,good,can 
 
--- Keyword Query: new,berkeley,head,nurse,ship 
+-- Keyword Query: male,college,new,head,nurse 
 
--- Keyword Query: male,berkeley,head,nurse,lord 
+-- Keyword Query: male,college,new,state,lord,set 
 
--- Keyword Query: description,berkeley,head,nurse,romeo 
+-- Keyword Query: male,college,new,time,romeo 
 
--- Keyword Query: fixed,berkeley,head,nurse,forth 
+-- Keyword Query: male,college,new,set,forth 
 
--- Keyword Query: york,berkeley,head,nurse,graduate 
+-- Keyword Query: male,college,new,enter,little 
 
--- Keyword Query: forth,berkeley,head,nurse,org 
+-- Keyword Query: male,college,new,more,mine 
 
-query 0: [duke, berkeley, head, nurse, mehrdad]
+-- Keyword Query: male,college,new,living,tears,ship 
+
+-- Keyword Query: male,college,new,must,verity 
+
+-- Keyword Query: male,college,new,light,suit 
+
+-- Keyword Query: male,college,new,answer,hour 
+
+-- Keyword Query: male,college,new,nothing,dead 
+
+-- Keyword Query: berkeley,school,high,dutch,nurse 
+
+-- Keyword Query: berkeley,school,high,queen,antony 
+
+-- Keyword Query: berkeley,school,high,purpose,company 
+
+-- Keyword Query: berkeley,school,high,spirit,court 
+
+-- Keyword Query: berkeley,school,high,york,counsel 
+
+-- Keyword Query: berkeley,school,high,romeo,more 
+
+-- Keyword Query: berkeley,school,high,fight,set 
+
+-- Keyword Query: berkeley,school,high,college,strange 
+
+-- Keyword Query: berkeley,school,high,suit,brown 
+
+-- Keyword Query: berkeley,school,high,male,duke 
+
+-- Keyword Query: berkeley,school,high,bell,can 
+
+-- Keyword Query: berkeley,school,high,she,alone 
+
+-- Keyword Query: berkeley,school,high,mine,heart 
+
+-- Keyword Query: berkeley,school,high,late, 
+
+-- Keyword Query: berkeley,school,high,tears,something 
+
+-- Keyword Query: berkeley,school,high,living,lack 
+
+-- Keyword Query: berkeley,school,high,dead,troy 
+
+-- Keyword Query: berkeley,school,high,nothing,person 
+
+-- Keyword Query: berkeley,school,high,hour,mad 
+
+-- Keyword Query: berkeley,school,high,answer,doubt,net 
+
+-- Keyword Query: berkeley,school,high,light,brother 
+
+-- Keyword Query: berkeley,school,high,new,him 
+
+-- Keyword Query: berkeley,school,high,love,like 
+
+-- Keyword Query: berkeley,school,high,cash,thee 
+
+-- Keyword Query: berkeley,school,high,labs,order 
+
+-- Keyword Query: berkeley,school,high,oracle,creditcard 
+
+-- Keyword Query: berkeley,school,high,heaven,doth 
+
+-- Keyword Query: berkeley,school,high,our,madam 
+
+-- Keyword Query: berkeley,school,high,little,alas 
+
+-- Keyword Query: berkeley,school,high,have,wife 
+
+-- Keyword Query: berkeley,school,high,cousin,confess 
+
+-- Keyword Query: berkeley,school,high,voice,father 
+
+-- Keyword Query: berkeley,school,high,temple,verity 
+
+-- Keyword Query: berkeley,school,high,very,bid 
+
+-- Keyword Query: berkeley,school,high,old,give 
+
+query 0: [male, college, new, bell, she]
 result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
-query 1: [high, berkeley, head, nurse, female]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 1: [male, college, new, fortune, shame]
 result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 2: [school, berkeley, head, nurse, ask]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 2: [male, college, new, ear, love, fight]
 result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 3: [college, berkeley, head, nurse, put]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 3: [male, college, new, good, can]
 result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 4: [new, berkeley, head, nurse, ship]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 4: [male, college, new, head, nurse]
 result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 5: [male, berkeley, head, nurse, lord]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 5: [male, college, new, state, lord, set]
 result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 6: [description, berkeley, head, nurse, romeo]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 6: [male, college, new, time, romeo]
 result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 7: [fixed, berkeley, head, nurse, forth]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 7: [male, college, new, set, forth]
 result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
-query 8: [york, berkeley, head, nurse, graduate]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 8: [male, college, new, enter, little]
 result: 
-[1]
-query 9: [forth, berkeley, head, nurse, org]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 9: [male, college, new, more, mine]
 result: 
-[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 10: [male, college, new, living, tears, ship]
+result: 
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 11: [male, college, new, must, verity]
+result: 
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 12: [male, college, new, light, suit]
+result: 
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 13: [male, college, new, answer, hour]
+result: 
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 14: [male, college, new, nothing, dead]
+result: 
+[1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2, 1.5, 1.6]
+query 15: [berkeley, school, high, dutch, nurse]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 16: [berkeley, school, high, queen, antony]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 17: [berkeley, school, high, purpose, company]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 18: [berkeley, school, high, spirit, court]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 19: [berkeley, school, high, york, counsel]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 20: [berkeley, school, high, romeo, more]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 21: [berkeley, school, high, fight, set]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 22: [berkeley, school, high, college, strange]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 23: [berkeley, school, high, suit, brown]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 24: [berkeley, school, high, male, duke]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 25: [berkeley, school, high, bell, can]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.4, 1.5, 1.6]
+query 26: [berkeley, school, high, she, alone]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 27: [berkeley, school, high, mine, heart]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 28: [berkeley, school, high, late]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 29: [berkeley, school, high, tears, something]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 30: [berkeley, school, high, living, lack]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 31: [berkeley, school, high, dead, troy]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 32: [berkeley, school, high, nothing, person]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 33: [berkeley, school, high, hour, mad]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 34: [berkeley, school, high, answer, doubt, net]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 35: [berkeley, school, high, light, brother]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 36: [berkeley, school, high, new, him]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 37: [berkeley, school, high, love, like]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 38: [berkeley, school, high, cash, thee]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+query 39: [berkeley, school, high, labs, order]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+query 40: [berkeley, school, high, oracle, creditcard]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6]
+query 41: [berkeley, school, high, heaven, doth]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 42: [berkeley, school, high, our, madam]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 43: [berkeley, school, high, little, alas]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 44: [berkeley, school, high, have, wife]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 45: [berkeley, school, high, cousin, confess]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 46: [berkeley, school, high, voice, father]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 47: [berkeley, school, high, temple, verity]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.4, 1.5, 1.6]
+query 48: [berkeley, school, high, very, bid]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
+query 49: [berkeley, school, high, old, give]
+result: 
+[1.1.1, 1.1.3, 1.1.4, 1.1.5, 1.1.6, 1.2, 1.5, 1.6]
 ShareEager Algorithms:
---Response Time: 2953 
+--Response Time: 37314 
 
---Memory usage: 2293752 
+--Memory usage: 25292440 
 

@@ -1,10 +1,3 @@
-duke,berkeley,head,nurse,mehrdad
-high,berkeley,head,nurse,female
-school,berkeley,head,nurse,ask
-college,berkeley,head,nurse,put
-new,berkeley,head,nurse,ship
-male,berkeley,head,nurse,lord
-description,berkeley,head,nurse,romeo
-fixed,berkeley,head,nurse,forth
-york,berkeley,head,nurse,graduate
-forth,berkeley,head,nurse,org
+#framework,database,vldb,machine,estimation
+#framework,database,vldb,multimedia,services
+framework,database,vldb,methods,complexity
